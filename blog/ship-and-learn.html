@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shipping Code vs. Understanding AI — Mogrov Blog</title>
+    <meta name="description" content="In the post-LLM era, developer value has shifted. The differentiator isn't speed — it's comprehension.">
+    <script>(function(){try{var t=localStorage.getItem('mogrov-theme')||'light';document.documentElement.classList.add(t==='dark'?'dark':'light');}catch(e){document.documentElement.classList.add('light');}})();</script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="../assets/js/tailwind-config.js"></script>
+    <link rel="stylesheet" href="../assets/css/site.css">
+</head>
+<body class="relative font-sans">
+
+    <div class="fixed inset-0 bg-grid pointer-events-none z-0"></div>
+    <div class="halo fixed top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[460px] rounded-full pointer-events-none z-0"></div>
+
+    <nav class="fixed top-0 w-full z-50 nav-glass px-6 py-4">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <a href="../index.html" class="flex items-center gap-2.5 group">
+                <div class="w-10 h-10 rounded-xl flex items-center justify-center font-black text-white shadow-lg btn-shimmer group-hover:rotate-6 transition-transform">M</div>
+                <span class="font-display font-extrabold tracking-tight text-xl text-strong">mogrov<span class="text-primary-c">.com</span></span>
+            </a>
+            <div class="hidden lg:flex items-center gap-7">
+                <div class="flex items-center gap-7 text-sm font-semibold">
+                    <a href="../index.html#features" class="nav-link">What We Build</a>
+                    <a href="../index.html#projects" class="nav-link">Projects</a>
+                    <a href="../index.html#mission" class="nav-link">Mission</a>
+                    <a href="index.html" class="nav-link active">Blog</a>
+                    <a href="../founder.html" class="nav-link">Founder</a>
+                    <a href="../index.html#contact" class="nav-link">Contact</a>
+                </div>
+                <div class="h-6 w-px hairline border-l"></div>
+                <button data-theme-toggle aria-label="Toggle theme" class="p-2 rounded-lg hover:bg-[var(--primary-soft)] transition-colors text-soft">
+                    <i data-lucide="moon" class="hidden dark:block w-5 h-5"></i>
+                    <i data-lucide="sun" class="block dark:hidden w-5 h-5"></i>
+                </button>
+            </div>
+            <div class="flex lg:hidden items-center gap-2">
+                <button data-theme-toggle aria-label="Toggle theme" class="p-2 rounded-lg text-soft">
+                    <i data-lucide="moon" class="hidden dark:block w-5 h-5"></i>
+                    <i data-lucide="sun" class="block dark:hidden w-5 h-5"></i>
+                </button>
+                <button data-menu-toggle aria-label="Menu" class="p-2 rounded-lg text-soft"><i data-lucide="menu" class="w-6 h-6"></i></button>
+            </div>
+        </div>
+        <div data-mobile-menu class="hidden lg:hidden mt-4 pt-4 border-t hairline flex-col gap-1 text-sm font-semibold max-w-7xl mx-auto">
+            <a href="../index.html#features" class="nav-link block py-2">What We Build</a>
+            <a href="../index.html#projects" class="nav-link block py-2">Projects</a>
+            <a href="../index.html#mission" class="nav-link block py-2">Mission</a>
+            <a href="index.html" class="nav-link block py-2 active">Blog</a>
+            <a href="../founder.html" class="nav-link block py-2">Founder</a>
+            <a href="../index.html#contact" class="nav-link block py-2">Contact</a>
+        </div>
+    </nav>
+
+    <main class="pt-36 pb-24 px-6 max-w-3xl mx-auto relative z-10">
+
+        <a href="index.html" class="inline-flex items-center gap-2 text-sm font-semibold text-muted-c hover:text-primary-c transition-colors mb-10 reveal">
+            <i data-lucide="arrow-left" class="w-4 h-4"></i> All posts
+        </a>
+
+        <header class="mb-10 reveal" data-delay="1">
+            <div class="flex flex-wrap items-center gap-3 mb-5">
+                <span class="pill mono text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full">Engineering</span>
+                <span class="mono text-[11px] text-muted-c">Jun 6, 2026</span>
+                <span class="pill mono text-[10px] font-bold uppercase tracking-widest px-2 py-0.5 rounded-full" style="background: var(--primary-soft); border-color: var(--primary);">LinkedIn dispatch</span>
+            </div>
+            <h1 class="font-display text-3xl md:text-4xl font-extrabold text-strong tracking-tight leading-[1.1] mb-5">Shipping Code vs. Understanding AI</h1>
+            <div class="flex flex-wrap items-center gap-5">
+                <div class="flex items-center gap-2 mono text-[11px] text-muted-c">
+                    <i data-lucide="clock" class="w-3.5 h-3.5"></i> 2 min read
+                </div>
+                <div class="flex items-center gap-2 mono text-[11px] text-muted-c">
+                    <i data-lucide="user" class="w-3.5 h-3.5"></i> Shashank Raj
+                </div>
+                <div class="flex flex-wrap gap-2">
+                    <span class="mono text-[10px] text-muted-c">#ai</span>
+                    <span class="mono text-[10px] text-muted-c">#engineering</span>
+                </div>
+            </div>
+        </header>
+
+        <article class="prose-paper reveal" data-delay="2">
+            <p>Developer value has fundamentally shifted in the post-LLM era. Rather than raw coding speed, the critical skill is now comprehending what gets shipped.</p>
+
+            <h2>Two Paths</h2>
+            <p>When working with AI tools, every developer is implicitly choosing between two modes:</p>
+
+            <p><strong>Path A — Ship and Forget:</strong> Use AI solely for output velocity. Deliver minimum viable products quickly. Maximum throughput, minimum cognitive load.</p>
+
+            <p><strong>Path B — Ship and Learn:</strong> Leverage AI interactively to deepen knowledge and validate assumptions while building. Use it as a persistent learning resource available 24/7. Build capacity for future improvements, not just the current task.</p>
+
+            <h2>The Differentiator</h2>
+            <p>Path B is the differentiator. The most valuable developers won't be the fastest — they'll be the most informed.</p>
+
+            <p>When an AI generates something, the developer who asks "why does this work?" and traces the answer is accumulating a compounding advantage over the developer who just ships and moves on. The gap widens with every task.</p>
+
+            <p>AI as an accelerator is table stakes. AI as a teacher is the edge.</p>
+
+            <blockquote>Are your teams currently prioritising speed over understanding?</blockquote>
+        </article>
+
+        <div class="mt-12 pt-8 border-t hairline flex items-center justify-between reveal">
+            <a href="index.html" class="inline-flex items-center gap-2 text-sm font-semibold text-muted-c hover:text-primary-c transition-colors">
+                <i data-lucide="arrow-left" class="w-4 h-4"></i> Back to blog
+            </a>
+            <a href="https://www.linkedin.com/feed/update/urn:li:activity:7467917674556125184/" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-sm font-semibold text-primary-c hover:underline">
+                View on LinkedIn <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+            </a>
+        </div>
+
+    </main>
+
+    <footer class="py-16 px-6 text-center border-t hairline relative z-10">
+        <div class="mb-4">
+            <span class="font-display text-primary-c font-extrabold text-xl tracking-tight">mogrov<span class="text-muted-c">.com</span></span>
+        </div>
+        <div class="flex flex-wrap justify-center gap-x-7 gap-y-2 mb-6 text-sm font-semibold">
+            <a href="../index.html#projects" class="nav-link">Projects</a>
+            <a href="index.html" class="nav-link">Blog</a>
+            <a href="../founder.html" class="nav-link">Founder</a>
+            <a href="https://pypi.org/project/runtime-narrative/" target="_blank" rel="noopener" class="nav-link">PyPI</a>
+            <a href="https://devtrack.cloud" target="_blank" rel="noopener" class="nav-link">DevTrack</a>
+            <a href="https://github.com/sraj0501" target="_blank" rel="noopener" class="nav-link">GitHub</a>
+        </div>
+        <p class="mono text-[10px] uppercase tracking-[0.35em] text-muted-c">Fixing software development from the bottom up</p>
+        <p class="mono text-[9px] text-muted-c mt-6">© 2026 Mogrov Collective · Built for developers by Shashank Raj</p>
+    </footer>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="../assets/js/site.js"></script>
+</body>
+</html>

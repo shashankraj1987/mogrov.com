@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I Turned My Google Sheets Hack Into a Real Tool — Mogrov Blog</title>
+    <meta name="description" content="Six months building DevTrack: from a Google Sheets cron job to a local-first Go daemon that automatically updates tickets from git commits.">
+    <script>(function(){try{var t=localStorage.getItem('mogrov-theme')||'light';document.documentElement.classList.add(t==='dark'?'dark':'light');}catch(e){document.documentElement.classList.add('light');}})();</script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="../assets/js/tailwind-config.js"></script>
+    <link rel="stylesheet" href="../assets/css/site.css">
+</head>
+<body class="relative font-sans">
+
+    <div class="fixed inset-0 bg-grid pointer-events-none z-0"></div>
+    <div class="halo fixed top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[460px] rounded-full pointer-events-none z-0"></div>
+
+    <nav class="fixed top-0 w-full z-50 nav-glass px-6 py-4">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <a href="../index.html" class="flex items-center gap-2.5 group">
+                <div class="w-10 h-10 rounded-xl flex items-center justify-center font-black text-white shadow-lg btn-shimmer group-hover:rotate-6 transition-transform">M</div>
+                <span class="font-display font-extrabold tracking-tight text-xl text-strong">mogrov<span class="text-primary-c">.com</span></span>
+            </a>
+            <div class="hidden lg:flex items-center gap-7">
+                <div class="flex items-center gap-7 text-sm font-semibold">
+                    <a href="../index.html#features" class="nav-link">What We Build</a>
+                    <a href="../index.html#projects" class="nav-link">Projects</a>
+                    <a href="../index.html#mission" class="nav-link">Mission</a>
+                    <a href="index.html" class="nav-link active">Blog</a>
+                    <a href="../founder.html" class="nav-link">Founder</a>
+                    <a href="../index.html#contact" class="nav-link">Contact</a>
+                </div>
+                <div class="h-6 w-px hairline border-l"></div>
+                <button data-theme-toggle aria-label="Toggle theme" class="p-2 rounded-lg hover:bg-[var(--primary-soft)] transition-colors text-soft">
+                    <i data-lucide="moon" class="hidden dark:block w-5 h-5"></i>
+                    <i data-lucide="sun" class="block dark:hidden w-5 h-5"></i>
+                </button>
+            </div>
+            <div class="flex lg:hidden items-center gap-2">
+                <button data-theme-toggle aria-label="Toggle theme" class="p-2 rounded-lg text-soft">
+                    <i data-lucide="moon" class="hidden dark:block w-5 h-5"></i>
+                    <i data-lucide="sun" class="block dark:hidden w-5 h-5"></i>
+                </button>
+                <button data-menu-toggle aria-label="Menu" class="p-2 rounded-lg text-soft"><i data-lucide="menu" class="w-6 h-6"></i></button>
+            </div>
+        </div>
+        <div data-mobile-menu class="hidden lg:hidden mt-4 pt-4 border-t hairline flex-col gap-1 text-sm font-semibold max-w-7xl mx-auto">
+            <a href="../index.html#features" class="nav-link block py-2">What We Build</a>
+            <a href="../index.html#projects" class="nav-link block py-2">Projects</a>
+            <a href="../index.html#mission" class="nav-link block py-2">Mission</a>
+            <a href="index.html" class="nav-link block py-2 active">Blog</a>
+            <a href="../founder.html" class="nav-link block py-2">Founder</a>
+            <a href="../index.html#contact" class="nav-link block py-2">Contact</a>
+        </div>
+    </nav>
+
+    <main class="pt-36 pb-24 px-6 max-w-3xl mx-auto relative z-10">
+
+        <a href="index.html" class="inline-flex items-center gap-2 text-sm font-semibold text-muted-c hover:text-primary-c transition-colors mb-10 reveal">
+            <i data-lucide="arrow-left" class="w-4 h-4"></i> All posts
+        </a>
+
+        <header class="mb-10 reveal" data-delay="1">
+            <div class="flex flex-wrap items-center gap-3 mb-5">
+                <span class="pill mono text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full">Product</span>
+                <span class="mono text-[11px] text-muted-c">Apr 5, 2025</span>
+            </div>
+            <h1 class="font-display text-3xl md:text-4xl font-extrabold text-strong tracking-tight leading-[1.1] mb-5">I Turned My Google Sheets Hack Into a Real Tool. It Took Six Months and I Have No Regrets.</h1>
+            <div class="flex flex-wrap items-center gap-5">
+                <div class="flex items-center gap-2 mono text-[11px] text-muted-c">
+                    <i data-lucide="clock" class="w-3.5 h-3.5"></i> 6 min read
+                </div>
+                <div class="flex items-center gap-2 mono text-[11px] text-muted-c">
+                    <i data-lucide="user" class="w-3.5 h-3.5"></i> Shashank Raj
+                </div>
+                <div class="flex flex-wrap gap-2">
+                    <span class="mono text-[10px] text-muted-c">#devtrack</span>
+                    <span class="mono text-[10px] text-muted-c">#golang</span>
+                    <span class="mono text-[10px] text-muted-c">#startup</span>
+                </div>
+            </div>
+        </header>
+
+        <article class="prose-paper reveal" data-delay="2">
+            <p>A while back I wrote about automating standups using Google Sheets, a cron job, and makeshift infrastructure. It worked — until a PM asked for ticket updates to happen <em>before</em> standups rather than after. The system collapsed. That failure prompted a complete rewrite.</p>
+
+            <h2>The Problem with the Old Approach</h2>
+            <p>The original Google Sheet approach still required manual work each night in a specific format. Silent failures occurred when formatting was incorrect. What I wanted was true automation: <em>commit code, ticket updates itself, standup writes itself, I do nothing.</em></p>
+
+            <p>Existing tools either required SaaS vendors, charged per-seat fees, or didn't support local-first workflows with personal LLMs. So I built my own.</p>
+
+            <h2>How DevTrack Works</h2>
+            <p>DevTrack is a Go daemon that monitors git repositories. It processes commits and timer triggers (configurable, every ~90 minutes by default), routing data to a Python backend running NLP and LLM operations. Updates then push to PM tools — Azure DevOps, GitHub, or Jira.</p>
+
+            <p>The flow from a single commit:</p>
+            <ol>
+                <li>Commit message receives AI enrichment</li>
+                <li>NLP extracts context and cross-references open items</li>
+                <li>Comments post to relevant tickets</li>
+                <li>Tickets auto-advance based on branch patterns</li>
+                <li>Standup content auto-populates</li>
+            </ol>
+            <p>Processing time: approximately 4 seconds from commit to ticket comment.</p>
+
+            <h2>Six Months of Numbers</h2>
+            <ul>
+                <li>~23 minutes saved daily on ticket updates and standup prep</li>
+                <li>94% automatic work item updates</li>
+                <li>Pre-written standups 4 out of 5 days per week</li>
+                <li>Zero manual 11pm Jira sessions since January</li>
+            </ul>
+
+            <h2>What Ships with v1.0</h2>
+            <p><strong>Daily use:</strong> Git commit interception, PM tool sync (Azure DevOps, GitHub, Jira), ticket alerts, EOD report generation, and <em>git-sage</em> — an agentic tool for rebases and conflict resolution.</p>
+
+            <p><strong>Less frequent features:</strong> GitLab integration, Telegram bot, Teams communication analysis.</p>
+
+            <p>The binary is 5 MB. Local LLM support via Ollama means it runs fully offline. Multi-platform: macOS and Linux (arm64/amd64). No account required for local usage.</p>
+
+            <h2>The Voice Personalization Pipeline</h2>
+            <p>A month-long pipeline analyses your communication patterns — short sentences, specific phrasing, your vocabulary — and generates updates that sound like you wrote them, not a generic AI. This was the hardest part to get right and the part people notice first.</p>
+
+            <h2>What's Next</h2>
+            <p>A local-first admin console is on the roadmap. I'm also planning to experiment with handing an AI agent all my commits for two months and seeing what it learns about how I work.</p>
+
+            <p>If you spend 15+ minutes daily on ticket updates or standup notes, <a href="https://devtrack.cloud" target="_blank" rel="noopener">DevTrack</a> is worth trying. Data stays on your machine. No accounts, no API keys required for the Ollama path.</p>
+        </article>
+
+        <div class="mt-12 pt-8 border-t hairline flex items-center justify-between reveal">
+            <a href="index.html" class="inline-flex items-center gap-2 text-sm font-semibold text-muted-c hover:text-primary-c transition-colors">
+                <i data-lucide="arrow-left" class="w-4 h-4"></i> Back to blog
+            </a>
+            <a href="https://dev.to/shashank_raj/i-turned-my-google-sheets-hack-into-a-real-tool-it-took-six-months-and-i-have-no-regrets-5cj3" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-sm font-semibold text-primary-c hover:underline">
+                View on dev.to <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+            </a>
+        </div>
+
+    </main>
+
+    <footer class="py-16 px-6 text-center border-t hairline relative z-10">
+        <div class="mb-4">
+            <span class="font-display text-primary-c font-extrabold text-xl tracking-tight">mogrov<span class="text-muted-c">.com</span></span>
+        </div>
+        <div class="flex flex-wrap justify-center gap-x-7 gap-y-2 mb-6 text-sm font-semibold">
+            <a href="../index.html#projects" class="nav-link">Projects</a>
+            <a href="index.html" class="nav-link">Blog</a>
+            <a href="../founder.html" class="nav-link">Founder</a>
+            <a href="https://pypi.org/project/runtime-narrative/" target="_blank" rel="noopener" class="nav-link">PyPI</a>
+            <a href="https://devtrack.cloud" target="_blank" rel="noopener" class="nav-link">DevTrack</a>
+            <a href="https://github.com/sraj0501" target="_blank" rel="noopener" class="nav-link">GitHub</a>
+        </div>
+        <p class="mono text-[10px] uppercase tracking-[0.35em] text-muted-c">Fixing software development from the bottom up</p>
+        <p class="mono text-[9px] text-muted-c mt-6">© 2026 Mogrov Collective · Built for developers by Shashank Raj</p>
+    </footer>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="../assets/js/site.js"></script>
+</body>
+</html>

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Daily Standup Slayer — Mogrov Blog</title>
+    <meta name="description" content="How one lazy manager automated team updates across Jira, email, and project trackers using Python, Google Sheets, and a cron job.">
+    <script>(function(){try{var t=localStorage.getItem('mogrov-theme')||'light';document.documentElement.classList.add(t==='dark'?'dark':'light');}catch(e){document.documentElement.classList.add('light');}})();</script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="../assets/js/tailwind-config.js"></script>
+    <link rel="stylesheet" href="../assets/css/site.css">
+</head>
+<body class="relative font-sans">
+
+    <div class="fixed inset-0 bg-grid pointer-events-none z-0"></div>
+    <div class="halo fixed top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[460px] rounded-full pointer-events-none z-0"></div>
+
+    <nav class="fixed top-0 w-full z-50 nav-glass px-6 py-4">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <a href="../index.html" class="flex items-center gap-2.5 group">
+                <div class="w-10 h-10 rounded-xl flex items-center justify-center font-black text-white shadow-lg btn-shimmer group-hover:rotate-6 transition-transform">M</div>
+                <span class="font-display font-extrabold tracking-tight text-xl text-strong">mogrov<span class="text-primary-c">.com</span></span>
+            </a>
+            <div class="hidden lg:flex items-center gap-7">
+                <div class="flex items-center gap-7 text-sm font-semibold">
+                    <a href="../index.html#features" class="nav-link">What We Build</a>
+                    <a href="../index.html#projects" class="nav-link">Projects</a>
+                    <a href="../index.html#mission" class="nav-link">Mission</a>
+                    <a href="index.html" class="nav-link active">Blog</a>
+                    <a href="../founder.html" class="nav-link">Founder</a>
+                    <a href="../index.html#contact" class="nav-link">Contact</a>
+                </div>
+                <div class="h-6 w-px hairline border-l"></div>
+                <button data-theme-toggle aria-label="Toggle theme" class="p-2 rounded-lg hover:bg-[var(--primary-soft)] transition-colors text-soft">
+                    <i data-lucide="moon" class="hidden dark:block w-5 h-5"></i>
+                    <i data-lucide="sun" class="block dark:hidden w-5 h-5"></i>
+                </button>
+            </div>
+            <div class="flex lg:hidden items-center gap-2">
+                <button data-theme-toggle aria-label="Toggle theme" class="p-2 rounded-lg text-soft">
+                    <i data-lucide="moon" class="hidden dark:block w-5 h-5"></i>
+                    <i data-lucide="sun" class="block dark:hidden w-5 h-5"></i>
+                </button>
+                <button data-menu-toggle aria-label="Menu" class="p-2 rounded-lg text-soft"><i data-lucide="menu" class="w-6 h-6"></i></button>
+            </div>
+        </div>
+        <div data-mobile-menu class="hidden lg:hidden mt-4 pt-4 border-t hairline flex-col gap-1 text-sm font-semibold max-w-7xl mx-auto">
+            <a href="../index.html#features" class="nav-link block py-2">What We Build</a>
+            <a href="../index.html#projects" class="nav-link block py-2">Projects</a>
+            <a href="../index.html#mission" class="nav-link block py-2">Mission</a>
+            <a href="index.html" class="nav-link block py-2 active">Blog</a>
+            <a href="../founder.html" class="nav-link block py-2">Founder</a>
+            <a href="../index.html#contact" class="nav-link block py-2">Contact</a>
+        </div>
+    </nav>
+
+    <main class="pt-36 pb-24 px-6 max-w-3xl mx-auto relative z-10">
+
+        <a href="index.html" class="inline-flex items-center gap-2 text-sm font-semibold text-muted-c hover:text-primary-c transition-colors mb-10 reveal">
+            <i data-lucide="arrow-left" class="w-4 h-4"></i> All posts
+        </a>
+
+        <header class="mb-10 reveal" data-delay="1">
+            <div class="flex flex-wrap items-center gap-3 mb-5">
+                <span class="pill mono text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full">Automation</span>
+                <span class="mono text-[11px] text-muted-c">Sep 27, 2024</span>
+            </div>
+            <h1 class="font-display text-3xl md:text-4xl font-extrabold text-strong tracking-tight leading-[1.1] mb-5">The Daily Standup Slayer: How This Lazy Manager Automated Everything (Except Meetings)</h1>
+            <div class="flex flex-wrap items-center gap-5">
+                <div class="flex items-center gap-2 mono text-[11px] text-muted-c">
+                    <i data-lucide="clock" class="w-3.5 h-3.5"></i> 4 min read
+                </div>
+                <div class="flex items-center gap-2 mono text-[11px] text-muted-c">
+                    <i data-lucide="user" class="w-3.5 h-3.5"></i> Shashank Raj
+                </div>
+                <div class="flex flex-wrap gap-2">
+                    <span class="mono text-[10px] text-muted-c">#python</span>
+                    <span class="mono text-[10px] text-muted-c">#automation</span>
+                    <span class="mono text-[10px] text-muted-c">#management</span>
+                </div>
+            </div>
+        </header>
+
+        <article class="prose-paper reveal" data-delay="2">
+            <p>Let's face it, meetings are the beige walls of the productivity world. You know, endless loops of "what could have been" and "should have been" while everyone wrestles over a shrinking timeframe. Articles debunking their usefulness pile up like unread emails, but the charm of a good standup seems unshakeable for some (cough management cough).</p>
+
+            <p>So, here I was, a DevOps and system reliability magician, leading a team of Gen-Z developers who wouldn't fill a single tracker, let alone the holy trinity of email updates, fancy project management tools, and good ol' Excel.</p>
+
+            <p>We were deadlocked. Management craved updates everywhere, the devs rebelled against everything, and my job search was going nowhere fast.</p>
+
+            <p>Enter automation, the hero in this data-driven odyssey. What if the devs filled one glorious sheet and we used that sheet to conquer all? Talk about killing multiple birds with a few well-aimed scripts!</p>
+
+            <h2>Step 1: Building a Fortress of Simplicity</h2>
+            <p>First, a template. Think Bunk Beds: easy to understand, enough room for (almost) everything, and compatible with most project management tools on the market. Google Sheets became my weapon of choice, thanks to their fantastic <a href="https://developers.google.com/sheets/api/quickstart/python" target="_blank" rel="noopener">Python API documentation</a>.</p>
+
+            <h2>Step 2: Operation "Fill the Darn Sheet" (Good Luck!)</h2>
+            <p>Next, convincing the devs to actually fill this daily. Let's just say my negotiation skills were put to the test. Think Jedi mind tricks, minus the lightsabers.</p>
+
+            <h2>Step 3: Let the Automation Take Flight</h2>
+            <p>Now, the fun part! Imagine a "set it and forget it" solution, a tireless workhorse that runs once and keeps chugging along. Here's the Pythonic breakdown:</p>
+
+            <ul>
+                <li><strong>Grab the Credentials:</strong> Authenticate with Google's servers once (thanks, refresh tokens!). This generates a magical <code>token.json</code> file, which holds the key to our automated kingdom.</li>
+                <li><strong>Data Download:</strong> Using the Python API, dive into Google Sheets and extract the data. Pandas filters for the latest updates.</li>
+                <li><strong>Transformation Time:</strong> Shape that data into a format that Jira, YouTrack, or your PM tool of choice understands.</li>
+                <li><strong>Dissemination is Key:</strong> The transformed data gets written to a JSON/CSV structure and a friendly email with the latest updates goes out to a distribution list. This file can be pasted directly into YouTrack/Jira, because CTRL+C and CTRL+V is the greatest human invention of all time for us mere programmers.</li>
+            </ul>
+
+            <h2>A Few Caveats for the Cautious</h2>
+            <p>The free tier of the Google Sheets API has limitations — think data on a diet, small and lightweight for optimal processing. To avoid polling the entire sheet every time, I used a Google Apps Script to sort the data by date. Knowing my developers wouldn't write essays in the update section (bless their Gen-Z brevity), I limited the data grab to 20 rows. We're talking targeted data extraction, not an epic download marathon.</p>
+
+            <h2>Deployment Shenanigans</h2>
+            <p>With the Python API, I snatched 10 rows of data from the Google Sheet (defined in an environment variable, because who wants hardcoded stuff?). A Google account with the same project was set up to access <a href="https://developers.google.com/gmail/api/guides/sending#python" target="_blank" rel="noopener">Gmail's send API</a>. Finally, some Docker magic streamlined deployment. The code, nestled snugly in a Docker container, landed on an AWS development instance where a cron job awaited its cue.</p>
+
+            <h2>The Grand Automation Symphony</h2>
+            <ul>
+                <li><strong>End of Day:</strong> Developers and I (reluctantly) fill out the template.</li>
+                <li><strong>11 PM:</strong> The Google Sheets Apps Script springs into action, sorting the entire sheet by date.</li>
+                <li><strong>12:30 AM:</strong> A cron job fires on the EC2 instance, launching a Docker container with the Python code.</li>
+                <li><strong>The code does its thing:</strong> reads the sheet, transforms the data, injects it into the PM tool, sends the update email, and sleeps soundly.</li>
+                <li>Wake up to the sweet symphony of updates — or the lack thereof.</li>
+            </ul>
+
+            <h2>The Inevitable Hiccups (and Dreams of Grandeur)</h2>
+            <p>Let's be honest, the Apps Script can be flaky sometimes, forcing me to resort to manual sorting (a developer's burden, I know). Plus, I built a template for Jira integration, but full automation remains a future quest.</p>
+
+            <p>Maybe one day, I'll conquer API integrations with major PM tools, build a product, secure VC funding, and sell it to Atlassian. But hey, this is the Lazy Manager's Guide — for now.</p>
+        </article>
+
+        <div class="mt-12 pt-8 border-t hairline flex items-center justify-between reveal">
+            <a href="index.html" class="inline-flex items-center gap-2 text-sm font-semibold text-muted-c hover:text-primary-c transition-colors">
+                <i data-lucide="arrow-left" class="w-4 h-4"></i> Back to blog
+            </a>
+            <a href="https://dev.to/shashank_raj/the-daily-standup-slayer-how-this-lazy-manager-automated-everything-except-meetings-540" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-sm font-semibold text-primary-c hover:underline">
+                View on dev.to <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+            </a>
+        </div>
+
+    </main>
+
+    <footer class="py-16 px-6 text-center border-t hairline relative z-10">
+        <div class="mb-4">
+            <span class="font-display text-primary-c font-extrabold text-xl tracking-tight">mogrov<span class="text-muted-c">.com</span></span>
+        </div>
+        <div class="flex flex-wrap justify-center gap-x-7 gap-y-2 mb-6 text-sm font-semibold">
+            <a href="../index.html#projects" class="nav-link">Projects</a>
+            <a href="index.html" class="nav-link">Blog</a>
+            <a href="../founder.html" class="nav-link">Founder</a>
+            <a href="https://pypi.org/project/runtime-narrative/" target="_blank" rel="noopener" class="nav-link">PyPI</a>
+            <a href="https://devtrack.cloud" target="_blank" rel="noopener" class="nav-link">DevTrack</a>
+            <a href="https://github.com/sraj0501" target="_blank" rel="noopener" class="nav-link">GitHub</a>
+        </div>
+        <p class="mono text-[10px] uppercase tracking-[0.35em] text-muted-c">Fixing software development from the bottom up</p>
+        <p class="mono text-[9px] text-muted-c mt-6">© 2026 Mogrov Collective · Built for developers by Shashank Raj</p>
+    </footer>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="../assets/js/site.js"></script>
+</body>
+</html>

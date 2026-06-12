@@ -26,8 +26,8 @@ git:
   push_prefix: "GIT_NO_DEVTRACK=1"           # devtrack git hooks present — set to skip on routine pushes
 
 commit:
-  tool: devtrack              # devtrack.exe found in PATH
-  command: devtrack git commit
+  tool: git                   # devtrack not found in PATH — using git directly
+  command: git commit
   fallback: git commit
 
 test:

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beyond the Illusion: Are AI Models Learning to Reason by Knowing Their Limits? — Mogrov Blog</title>
+    <meta name="description" content="Apple says AI can't truly reason. But newer models are behaving differently — they admit limits, reach for tools, and delegate. Is that a form of intelligence?">
+    <script>(function(){try{var t=localStorage.getItem('mogrov-theme')||'light';document.documentElement.classList.add(t==='dark'?'dark':'light');}catch(e){document.documentElement.classList.add('light');}})();</script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="../assets/js/tailwind-config.js"></script>
+    <link rel="stylesheet" href="../assets/css/site.css">
+</head>
+<body class="relative font-sans">
+
+    <div class="fixed inset-0 bg-grid pointer-events-none z-0"></div>
+    <div class="halo fixed top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[460px] rounded-full pointer-events-none z-0"></div>
+
+    <nav class="fixed top-0 w-full z-50 nav-glass px-6 py-4">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <a href="../index.html" class="flex items-center gap-2.5 group">
+                <div class="w-10 h-10 rounded-xl flex items-center justify-center font-black text-white shadow-lg btn-shimmer group-hover:rotate-6 transition-transform">M</div>
+                <span class="font-display font-extrabold tracking-tight text-xl text-strong">mogrov<span class="text-primary-c">.com</span></span>
+            </a>
+            <div class="hidden lg:flex items-center gap-7">
+                <div class="flex items-center gap-7 text-sm font-semibold">
+                    <a href="../index.html#features" class="nav-link">What We Build</a>
+                    <a href="../index.html#projects" class="nav-link">Projects</a>
+                    <a href="../index.html#mission" class="nav-link">Mission</a>
+                    <a href="index.html" class="nav-link active">Blog</a>
+                    <a href="../founder.html" class="nav-link">Founder</a>
+                    <a href="../index.html#contact" class="nav-link">Contact</a>
+                </div>
+                <div class="h-6 w-px hairline border-l"></div>
+                <button data-theme-toggle aria-label="Toggle theme" class="p-2 rounded-lg hover:bg-[var(--primary-soft)] transition-colors text-soft">
+                    <i data-lucide="moon" class="hidden dark:block w-5 h-5"></i>
+                    <i data-lucide="sun" class="block dark:hidden w-5 h-5"></i>
+                </button>
+            </div>
+            <div class="flex lg:hidden items-center gap-2">
+                <button data-theme-toggle aria-label="Toggle theme" class="p-2 rounded-lg text-soft">
+                    <i data-lucide="moon" class="hidden dark:block w-5 h-5"></i>
+                    <i data-lucide="sun" class="block dark:hidden w-5 h-5"></i>
+                </button>
+                <button data-menu-toggle aria-label="Menu" class="p-2 rounded-lg text-soft"><i data-lucide="menu" class="w-6 h-6"></i></button>
+            </div>
+        </div>
+        <div data-mobile-menu class="hidden lg:hidden mt-4 pt-4 border-t hairline flex-col gap-1 text-sm font-semibold max-w-7xl mx-auto">
+            <a href="../index.html#features" class="nav-link block py-2">What We Build</a>
+            <a href="../index.html#projects" class="nav-link block py-2">Projects</a>
+            <a href="../index.html#mission" class="nav-link block py-2">Mission</a>
+            <a href="index.html" class="nav-link block py-2 active">Blog</a>
+            <a href="../founder.html" class="nav-link block py-2">Founder</a>
+            <a href="../index.html#contact" class="nav-link block py-2">Contact</a>
+        </div>
+    </nav>
+
+    <main class="pt-36 pb-24 px-6 max-w-3xl mx-auto relative z-10">
+
+        <a href="index.html" class="inline-flex items-center gap-2 text-sm font-semibold text-muted-c hover:text-primary-c transition-colors mb-10 reveal">
+            <i data-lucide="arrow-left" class="w-4 h-4"></i> All posts
+        </a>
+
+        <header class="mb-10 reveal" data-delay="1">
+            <div class="flex flex-wrap items-center gap-3 mb-5">
+                <span class="pill mono text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full">AI</span>
+                <span class="mono text-[11px] text-muted-c">Jun 13, 2025</span>
+            </div>
+            <h1 class="font-display text-3xl md:text-4xl font-extrabold text-strong tracking-tight leading-[1.1] mb-5">Beyond the Illusion: Are AI Models Learning to Reason by Knowing Their Limits?</h1>
+            <div class="flex flex-wrap items-center gap-5">
+                <div class="flex items-center gap-2 mono text-[11px] text-muted-c">
+                    <i data-lucide="clock" class="w-3.5 h-3.5"></i> 5 min read
+                </div>
+                <div class="flex items-center gap-2 mono text-[11px] text-muted-c">
+                    <i data-lucide="user" class="w-3.5 h-3.5"></i> Shashank Raj
+                </div>
+                <div class="flex flex-wrap gap-2">
+                    <span class="mono text-[10px] text-muted-c">#ai</span>
+                    <span class="mono text-[10px] text-muted-c">#machinelearning</span>
+                </div>
+            </div>
+        </header>
+
+        <article class="prose-paper reveal" data-delay="2">
+            <h2>The Debate About AI Reasoning</h2>
+            <p>Apple's recent paper "The Illusion of Thinking" argues that AI models can't truly reason — they're just sophisticated pattern-matching machines without real understanding. But there's an interesting counter-trend emerging.</p>
+
+            <p>Newer AI models like Claude and Copilot are behaving differently than older ones. When faced with complex tasks, <strong>they increasingly suggest using external tools</strong> or ask for clarification instead of just giving potentially wrong answers. This shift suggests something important about how AI is evolving.</p>
+
+            <h2>Learning from Human Behaviour</h2>
+            <p>Consider this: you need to sort 1,000 books in one hour. A hasty person would try to go faster, working carelessly. But a smart person would eventually recognise the impossible deadline and either show what they completed and admit they ran out of time, or suggest a better approach and ask for more time.</p>
+
+            <p>This mirrors what we're seeing in AI. Older models might hallucinate or give incomplete answers when hitting their limits. Newer models are more like the smart human — they recognise their constraints and suggest better ways to solve the problem.</p>
+
+            <h2>What AI Models Can't Do Well</h2>
+            <ul>
+                <li><strong>Limited Understanding:</strong> They process patterns in text but don't truly "understand" meaning like humans do. They often miss context, sarcasm, or common sense.</li>
+                <li><strong>Outdated Knowledge:</strong> They only know what was in their training data and can't access current information or learn new facts during conversations.</li>
+                <li><strong>Memory Problems:</strong> Each conversation starts fresh — they don't remember previous chats unless reminded.</li>
+                <li><strong>Context Limits:</strong> They can only process a limited amount of text at once, like having a small working memory.</li>
+                <li><strong>Hallucinations:</strong> When they don't know something, they often confidently make up plausible-sounding but false information.</li>
+                <li><strong>Bias Issues:</strong> They can reflect and amplify biases present in their training data.</li>
+            </ul>
+
+            <h2>The Solution: AI + Tools = Better Performance</h2>
+            <p>The breakthrough isn't making AI models smarter internally — it's connecting them to external tools. This approach addresses their core limitations:</p>
+
+            <ul>
+                <li><strong>Knowledge Tools:</strong> Web search and document retrieval give AI access to current and specialised information.</li>
+                <li><strong>Memory Tools:</strong> External storage systems help AI remember previous conversations and build on past work.</li>
+                <li><strong>Calculation Tools:</strong> Specialised programs handle complex maths, data analysis, and logical operations.</li>
+                <li><strong>Action Tools:</strong> APIs let AI interact with other software, databases, and services.</li>
+            </ul>
+
+            <p>When an AI suggests "use a search engine for current information" or "let's break this into smaller steps," it's demonstrating strategic thinking about problem-solving — even if it's engineered rather than conscious.</p>
+
+            <h2>Building Specialised AI Solutions</h2>
+            <p>To create effective AI tools for specific tasks (like analysing log files), follow this approach:</p>
+            <ul>
+                <li><strong>Define Clear Boundaries:</strong> Specify exactly what the AI should and shouldn't do.</li>
+                <li><strong>Choose the Right Base Model:</strong> Pick an AI model suited for your domain.</li>
+                <li><strong>Add Specialised Tools:</strong> Connect databases, APIs, and processing tools relevant to your task.</li>
+                <li><strong>Create Smart Coordination:</strong> Build a system that knows when to use which tool.</li>
+                <li><strong>Include Feedback Loops:</strong> Monitor performance and continuously improve.</li>
+            </ul>
+            <p>This modular approach works better than trying to build one perfect AI that does everything.</p>
+
+            <h2>What This Means for the Future</h2>
+            <p>This evolution doesn't necessarily mean we're close to Artificial General Intelligence — AI that matches human intelligence across all domains. However, it represents something valuable: <em>practical intelligence</em>.</p>
+
+            <p>AI systems are becoming better at recognising their own limitations, communicating these limitations clearly, suggesting effective alternatives, and coordinating multiple tools to solve complex problems. This "know what you don't know" approach makes AI more trustworthy and useful in real-world applications.</p>
+
+            <h2>Conclusion</h2>
+            <p>We're entering an era of pragmatic AI — systems that may not think like humans internally, but can solve problems effectively by knowing their limits and using the right tools. This represents a shift from trying to build one super-intelligent AI to creating intelligent ecosystems of specialised components working together.</p>
+
+            <p>The future of AI may be less about creating artificial consciousness and more about building smart, tool-using systems that can tackle complex real-world challenges through strategic coordination and clear communication about their capabilities.</p>
+        </article>
+
+        <div class="mt-12 pt-8 border-t hairline flex items-center justify-between reveal">
+            <a href="index.html" class="inline-flex items-center gap-2 text-sm font-semibold text-muted-c hover:text-primary-c transition-colors">
+                <i data-lucide="arrow-left" class="w-4 h-4"></i> Back to blog
+            </a>
+            <a href="https://dev.to/shashank_raj/beyond-the-illusion-are-ai-models-learning-to-reason-by-knowing-their-limits-1noa" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-sm font-semibold text-primary-c hover:underline">
+                View on dev.to <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+            </a>
+        </div>
+
+    </main>
+
+    <footer class="py-16 px-6 text-center border-t hairline relative z-10">
+        <div class="mb-4">
+            <span class="font-display text-primary-c font-extrabold text-xl tracking-tight">mogrov<span class="text-muted-c">.com</span></span>
+        </div>
+        <div class="flex flex-wrap justify-center gap-x-7 gap-y-2 mb-6 text-sm font-semibold">
+            <a href="../index.html#projects" class="nav-link">Projects</a>
+            <a href="index.html" class="nav-link">Blog</a>
+            <a href="../founder.html" class="nav-link">Founder</a>
+            <a href="https://pypi.org/project/runtime-narrative/" target="_blank" rel="noopener" class="nav-link">PyPI</a>
+            <a href="https://devtrack.cloud" target="_blank" rel="noopener" class="nav-link">DevTrack</a>
+            <a href="https://github.com/sraj0501" target="_blank" rel="noopener" class="nav-link">GitHub</a>
+        </div>
+        <p class="mono text-[10px] uppercase tracking-[0.35em] text-muted-c">Fixing software development from the bottom up</p>
+        <p class="mono text-[9px] text-muted-c mt-6">© 2026 Mogrov Collective · Built for developers by Shashank Raj</p>
+    </footer>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="../assets/js/site.js"></script>
+</body>
+</html>

@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog — Mogrov</title>
+    <meta name="description" content="Technical writing from the Mogrov lab — engineering deep-dives, AI architecture, and developer tooling.">
+
+    <script>(function(){try{var t=localStorage.getItem('mogrov-theme')||'light';document.documentElement.classList.add(t==='dark'?'dark':'light');}catch(e){document.documentElement.classList.add('light');}})();</script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="../assets/js/tailwind-config.js"></script>
+    <link rel="stylesheet" href="../assets/css/site.css">
+
+    <style>
+        .posts-scroll::-webkit-scrollbar { width: 5px; }
+        .posts-scroll::-webkit-scrollbar-track { background: transparent; }
+        .posts-scroll::-webkit-scrollbar-thumb { background: var(--border-strong); border-radius: 4px; }
+        .posts-scroll::-webkit-scrollbar-thumb:hover { background: var(--primary); }
+
+        .filter-btn { color: var(--muted); background: var(--primary-soft); border: 1px solid var(--card-border); cursor: pointer; }
+        .filter-btn:hover { border-color: var(--primary); color: var(--primary); }
+        .filter-btn.active { background: var(--primary); color: var(--primary-ink); border-color: var(--primary); }
+
+        .post-card[data-hidden="true"] { display: none; }
+
+        #post-search {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            color: var(--ink);
+        }
+        #post-search::placeholder { color: var(--muted); }
+        #post-search:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 3px var(--primary-soft); }
+    </style>
+</head>
+<body class="relative font-sans">
+
+    <div class="fixed inset-0 bg-grid pointer-events-none z-0"></div>
+    <div class="halo fixed top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[460px] rounded-full pointer-events-none z-0"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 nav-glass px-6 py-4">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <a href="../index.html" class="flex items-center gap-2.5 group">
+                <div class="w-10 h-10 rounded-xl flex items-center justify-center font-black text-white shadow-lg btn-shimmer group-hover:rotate-6 transition-transform">M</div>
+                <span class="font-display font-extrabold tracking-tight text-xl text-strong">mogrov<span class="text-primary-c">.com</span></span>
+            </a>
+            <div class="hidden lg:flex items-center gap-7">
+                <div class="flex items-center gap-7 text-sm font-semibold">
+                    <a href="../index.html#features" class="nav-link">What We Build</a>
+                    <a href="../index.html#projects" class="nav-link">Projects</a>
+                    <a href="../index.html#mission" class="nav-link">Mission</a>
+                    <a href="index.html" class="nav-link active">Blog</a>
+                    <a href="../founder.html" class="nav-link">Founder</a>
+                    <a href="../index.html#contact" class="nav-link">Contact</a>
+                </div>
+                <div class="h-6 w-px hairline border-l"></div>
+                <button data-theme-toggle aria-label="Toggle theme" class="p-2 rounded-lg hover:bg-[var(--primary-soft)] transition-colors text-soft">
+                    <i data-lucide="moon" class="hidden dark:block w-5 h-5"></i>
+                    <i data-lucide="sun" class="block dark:hidden w-5 h-5"></i>
+                </button>
+            </div>
+            <div class="flex lg:hidden items-center gap-2">
+                <button data-theme-toggle aria-label="Toggle theme" class="p-2 rounded-lg text-soft">
+                    <i data-lucide="moon" class="hidden dark:block w-5 h-5"></i>
+                    <i data-lucide="sun" class="block dark:hidden w-5 h-5"></i>
+                </button>
+                <button data-menu-toggle aria-label="Menu" class="p-2 rounded-lg text-soft">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+        <div data-mobile-menu class="hidden lg:hidden mt-4 pt-4 border-t hairline flex-col gap-1 text-sm font-semibold max-w-7xl mx-auto">
+            <a href="../index.html#features" class="nav-link block py-2">What We Build</a>
+            <a href="../index.html#projects" class="nav-link block py-2">Projects</a>
+            <a href="../index.html#mission" class="nav-link block py-2">Mission</a>
+            <a href="index.html" class="nav-link block py-2 active">Blog</a>
+            <a href="../founder.html" class="nav-link block py-2">Founder</a>
+            <a href="../index.html#contact" class="nav-link block py-2">Contact</a>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <header class="pt-36 pb-12 px-6 max-w-7xl mx-auto relative z-10">
+        <div class="max-w-2xl">
+            <p class="mono text-xs font-bold uppercase tracking-widest text-primary-c mb-4 reveal inline-flex items-center gap-2">
+                <span class="dot"></span> // the_lab_journal
+            </p>
+            <h1 class="font-display text-5xl md:text-7xl font-extrabold text-strong tracking-tight leading-[1.05] mb-5 reveal" data-delay="1">
+                From the<br><span class="text-gradient">Lab.</span>
+            </h1>
+            <p class="text-lg leading-relaxed text-soft max-w-xl reveal" data-delay="2">
+                Engineering deep-dives, AI architecture decisions, and field notes from building developer tools the hard way.
+            </p>
+        </div>
+    </header>
+
+    <!-- SEARCH + POSTS -->
+    <section class="px-6 max-w-7xl mx-auto relative z-10 pb-24">
+
+        <!-- Sticky search bar -->
+        <div class="sticky top-[73px] z-30 py-4 mb-6" style="background: var(--bg);">
+            <div class="flex flex-col sm:flex-row gap-3">
+                <!-- Text search -->
+                <div class="relative flex-1">
+                    <i data-lucide="search" class="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-c pointer-events-none"></i>
+                    <input id="post-search" type="search" autocomplete="off" placeholder="Search posts…"
+                        class="w-full pl-10 pr-4 py-2.5 rounded-xl text-sm font-semibold transition-all">
+                </div>
+                <!-- Category filters -->
+                <div class="flex flex-wrap gap-2 items-center" id="category-filters">
+                    <button class="filter-btn active mono text-[10px] font-bold uppercase tracking-widest px-3 py-1.5 rounded-full transition-all" data-filter="all">All</button>
+                    <button class="filter-btn mono text-[10px] font-bold uppercase tracking-widest px-3 py-1.5 rounded-full transition-all" data-filter="automation">Automation</button>
+                    <button class="filter-btn mono text-[10px] font-bold uppercase tracking-widest px-3 py-1.5 rounded-full transition-all" data-filter="reflection">Reflection</button>
+                    <button class="filter-btn mono text-[10px] font-bold uppercase tracking-widest px-3 py-1.5 rounded-full transition-all" data-filter="product">Product</button>
+                    <button class="filter-btn mono text-[10px] font-bold uppercase tracking-widest px-3 py-1.5 rounded-full transition-all" data-filter="ai">AI</button>
+                    <button class="filter-btn mono text-[10px] font-bold uppercase tracking-widest px-3 py-1.5 rounded-full transition-all" data-filter="devtrack">DevTrack</button>
+                    <button class="filter-btn mono text-[10px] font-bold uppercase tracking-widest px-3 py-1.5 rounded-full transition-all" data-filter="engineering">Engineering</button>
+                </div>
+            </div>
+            <!-- Result count -->
+            <p id="post-count" class="mono text-[10px] text-muted-c mt-3">7 posts</p>
+        </div>
+
+        <!-- Scrollable posts grid -->
+        <div class="posts-scroll overflow-y-auto" style="max-height: 680px; padding-right: 4px;">
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6" id="posts-grid">
+
+                <a href="ship-and-learn.html"
+                    class="post-card card card-hover rounded-3xl p-7 flex flex-col group"
+                    data-category="engineering"
+                    data-title="shipping code vs understanding ai"
+                    data-excerpt="developer value speed comprehension ship and learn path b differentiator llm post ai">
+                    <div class="flex items-center gap-2 flex-wrap mb-4">
+                        <span class="pill mono text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full">Engineering</span>
+                        <span class="mono text-[10px] text-muted-c">Jun 6, 2026</span>
+                        <span class="mono text-[10px] text-muted-c">· LinkedIn</span>
+                    </div>
+                    <h3 class="font-display text-lg font-bold text-strong mb-2 leading-snug flex-1">Shipping Code vs. Understanding AI</h3>
+                    <p class="text-sm text-soft leading-relaxed mb-5">In the post-LLM era, developer value has shifted. The differentiator isn't speed — it's comprehension of what gets shipped.</p>
+                    <div class="flex items-center justify-between mt-auto">
+                        <div class="flex items-center gap-2 mono text-[10px] text-muted-c">
+                            <i data-lucide="clock" class="w-3.5 h-3.5"></i> 2 min read
+                        </div>
+                        <span class="mono text-[10px] font-bold text-primary-c group-hover:gap-2 inline-flex items-center gap-1.5 transition-all">Read <i data-lucide="arrow-right" class="w-3 h-3"></i></span>
+                    </div>
+                </a>
+
+                <a href="devtrack-v3.html"
+                    class="post-card card card-hover rounded-3xl p-7 flex flex-col group"
+                    data-category="devtrack"
+                    data-title="devtrack v3.0 fully standalone"
+                    data-excerpt="devtrack v3 offline standup git commits boardroom ai personas sprint planning telegram">
+                    <div class="flex items-center gap-2 flex-wrap mb-4">
+                        <span class="pill mono text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full">DevTrack</span>
+                        <span class="mono text-[10px] text-muted-c">Jun 5, 2026</span>
+                        <span class="mono text-[10px] text-muted-c">· LinkedIn</span>
+                    </div>
+                    <h3 class="font-display text-lg font-bold text-strong mb-2 leading-snug flex-1">DevTrack v3.0 — Fully Standalone</h3>
+                    <p class="text-sm text-soft leading-relaxed mb-5">Standups from git commits, offline AI, The Boardroom for plan stress-testing. No cloud, no account required.</p>
+                    <div class="flex items-center justify-between mt-auto">
+                        <div class="flex items-center gap-2 mono text-[10px] text-muted-c">
+                            <i data-lucide="clock" class="w-3.5 h-3.5"></i> 2 min read
+                        </div>
+                        <span class="mono text-[10px] font-bold text-primary-c group-hover:gap-2 inline-flex items-center gap-1.5 transition-all">Read <i data-lucide="arrow-right" class="w-3 h-3"></i></span>
+                    </div>
+                </a>
+
+                <a href="devtrack-launch.html"
+                    class="post-card card card-hover rounded-3xl p-7 flex flex-col group"
+                    data-category="devtrack"
+                    data-title="devtrack automated ticket management for developers"
+                    data-excerpt="devtrack git commits tickets automation ollama local first open source buildinpublic">
+                    <div class="flex items-center gap-2 flex-wrap mb-4">
+                        <span class="pill mono text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full">DevTrack</span>
+                        <span class="mono text-[10px] text-muted-c">Apr 2026</span>
+                        <span class="mono text-[10px] text-muted-c">· LinkedIn</span>
+                    </div>
+                    <h3 class="font-display text-lg font-bold text-strong mb-2 leading-snug flex-1">DevTrack: Automated Ticket Management for Developers</h3>
+                    <p class="text-sm text-soft leading-relaxed mb-5">Introducing DevTrack — a local-first git daemon that eliminates manual ticket updates by learning how you commit and write.</p>
+                    <div class="flex items-center justify-between mt-auto">
+                        <div class="flex items-center gap-2 mono text-[10px] text-muted-c">
+                            <i data-lucide="clock" class="w-3.5 h-3.5"></i> 2 min read
+                        </div>
+                        <span class="mono text-[10px] font-bold text-primary-c group-hover:gap-2 inline-flex items-center gap-1.5 transition-all">Read <i data-lucide="arrow-right" class="w-3 h-3"></i></span>
+                    </div>
+                </a>
+
+                <a href="beyond-the-illusion.html"
+                    class="post-card card card-hover rounded-3xl p-7 flex flex-col group"
+                    data-category="ai"
+                    data-title="beyond the illusion are ai models learning to reason by knowing their limits"
+                    data-excerpt="apple reasoning pattern matching tools llm hallucination intelligence pragmatic ai">
+                    <div class="flex items-center gap-2 mb-4">
+                        <span class="pill mono text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full">AI</span>
+                        <span class="mono text-[10px] text-muted-c">Jun 13, 2025</span>
+                    </div>
+                    <h3 class="font-display text-lg font-bold text-strong mb-2 leading-snug flex-1">Beyond the Illusion: Are AI Models Learning to Reason by Knowing Their Limits?</h3>
+                    <p class="text-sm text-soft leading-relaxed mb-5">Apple says AI can't reason. But newer models admit limits and reach for tools. Is that a form of intelligence worth having?</p>
+                    <div class="flex items-center justify-between mt-auto">
+                        <div class="flex items-center gap-2 mono text-[10px] text-muted-c">
+                            <i data-lucide="clock" class="w-3.5 h-3.5"></i> 5 min read
+                        </div>
+                        <span class="mono text-[10px] font-bold text-primary-c group-hover:gap-2 inline-flex items-center gap-1.5 transition-all">Read <i data-lucide="arrow-right" class="w-3 h-3"></i></span>
+                    </div>
+                </a>
+
+                <a href="google-sheets-to-devtrack.html"
+                    class="post-card card card-hover rounded-3xl p-7 flex flex-col group"
+                    data-category="product"
+                    data-title="i turned my google sheets hack into a real tool it took six months and i have no regrets"
+                    data-excerpt="devtrack go daemon ticket automation jira azure devops git commit standup local first">
+                    <div class="flex items-center gap-2 mb-4">
+                        <span class="pill mono text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full">Product</span>
+                        <span class="mono text-[10px] text-muted-c">Apr 5, 2025</span>
+                    </div>
+                    <h3 class="font-display text-lg font-bold text-strong mb-2 leading-snug flex-1">I Turned My Google Sheets Hack Into a Real Tool. It Took Six Months and I Have No Regrets.</h3>
+                    <p class="text-sm text-soft leading-relaxed mb-5">From spreadsheet + cron job to a 5 MB Go daemon with 94% automatic ticket updates. The architecture and the numbers.</p>
+                    <div class="flex items-center justify-between mt-auto">
+                        <div class="flex items-center gap-2 mono text-[10px] text-muted-c">
+                            <i data-lucide="clock" class="w-3.5 h-3.5"></i> 6 min read
+                        </div>
+                        <span class="mono text-[10px] font-bold text-primary-c group-hover:gap-2 inline-flex items-center gap-1.5 transition-all">Read <i data-lucide="arrow-right" class="w-3 h-3"></i></span>
+                    </div>
+                </a>
+
+                <a href="finding-balance-in-ai.html"
+                    class="post-card card card-hover rounded-3xl p-7 flex flex-col group"
+                    data-category="reflection"
+                    data-title="finding balance in ai powered creation"
+                    data-excerpt="creative ownership vibecoding losing control ai tools driver seat perspective">
+                    <div class="flex items-center gap-2 mb-4">
+                        <span class="pill mono text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full">Reflection</span>
+                        <span class="mono text-[10px] text-muted-c">Feb 6, 2025</span>
+                    </div>
+                    <h3 class="font-display text-lg font-bold text-strong mb-2 leading-snug flex-1">Finding Balance in AI-Powered Creation</h3>
+                    <p class="text-sm text-soft leading-relaxed mb-5">On losing creative ownership to AI, recognising the drift, and reclaiming the driver's seat without abandoning the tools.</p>
+                    <div class="flex items-center justify-between mt-auto">
+                        <div class="flex items-center gap-2 mono text-[10px] text-muted-c">
+                            <i data-lucide="clock" class="w-3.5 h-3.5"></i> 3 min read
+                        </div>
+                        <span class="mono text-[10px] font-bold text-primary-c group-hover:gap-2 inline-flex items-center gap-1.5 transition-all">Read <i data-lucide="arrow-right" class="w-3 h-3"></i></span>
+                    </div>
+                </a>
+
+                <a href="standup-slayer.html"
+                    class="post-card card card-hover rounded-3xl p-7 flex flex-col group"
+                    data-category="automation"
+                    data-title="the daily standup slayer how this lazy manager automated everything except meetings"
+                    data-excerpt="python google sheets cron job aws origin story devtrack automation developer management">
+                    <div class="flex items-center gap-2 mb-4">
+                        <span class="pill mono text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full">Automation</span>
+                        <span class="mono text-[10px] text-muted-c">Sep 27, 2024</span>
+                    </div>
+                    <h3 class="font-display text-lg font-bold text-strong mb-2 leading-snug flex-1">The Daily Standup Slayer: How This Lazy Manager Automated Everything (Except Meetings)</h3>
+                    <p class="text-sm text-soft leading-relaxed mb-5">Python + Google Sheets + a cron job on AWS. The origin story of what eventually became DevTrack.</p>
+                    <div class="flex items-center justify-between mt-auto">
+                        <div class="flex items-center gap-2 mono text-[10px] text-muted-c">
+                            <i data-lucide="clock" class="w-3.5 h-3.5"></i> 4 min read
+                        </div>
+                        <span class="mono text-[10px] font-bold text-primary-c group-hover:gap-2 inline-flex items-center gap-1.5 transition-all">Read <i data-lucide="arrow-right" class="w-3 h-3"></i></span>
+                    </div>
+                </a>
+
+            </div>
+
+            <!-- No results -->
+            <div id="no-results" class="hidden py-20 text-center">
+                <i data-lucide="search-x" class="w-10 h-10 text-muted-c mx-auto mb-4"></i>
+                <p class="font-display text-xl font-bold text-strong mb-2">No posts found</p>
+                <p class="text-sm text-soft">Try a different search term or clear the filter.</p>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="py-16 px-6 text-center border-t hairline relative z-10">
+        <div class="mb-4">
+            <span class="font-display text-primary-c font-extrabold text-xl tracking-tight">mogrov<span class="text-muted-c">.com</span></span>
+        </div>
+        <div class="flex flex-wrap justify-center gap-x-7 gap-y-2 mb-6 text-sm font-semibold">
+            <a href="../index.html#projects" class="nav-link">Projects</a>
+            <a href="index.html" class="nav-link">Blog</a>
+            <a href="../founder.html" class="nav-link">Founder</a>
+            <a href="https://pypi.org/project/runtime-narrative/" target="_blank" rel="noopener" class="nav-link">PyPI</a>
+            <a href="https://devtrack.cloud" target="_blank" rel="noopener" class="nav-link">DevTrack</a>
+            <a href="https://github.com/sraj0501" target="_blank" rel="noopener" class="nav-link">GitHub</a>
+        </div>
+        <p class="mono text-[10px] uppercase tracking-[0.35em] text-muted-c">Fixing software development from the bottom up</p>
+        <p class="mono text-[9px] text-muted-c mt-6">© 2026 Mogrov Collective · Built for developers by Shashank Raj</p>
+    </footer>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="../assets/js/site.js"></script>
+
+    <script>
+    (function () {
+        var searchInput = document.getElementById('post-search');
+        var filterBtns = document.querySelectorAll('.filter-btn');
+        var posts = document.querySelectorAll('.post-card');
+        var countEl = document.getElementById('post-count');
+        var noResults = document.getElementById('no-results');
+        var total = posts.length;
+        var currentFilter = 'all';
+
+        function updateCount(visible) {
+            countEl.textContent = visible === total
+                ? total + ' posts'
+                : visible + ' of ' + total + ' posts';
+        }
+
+        function filterPosts() {
+            var query = searchInput.value.toLowerCase().trim();
+            var visible = 0;
+
+            posts.forEach(function (card) {
+                var title = card.getAttribute('data-title') || '';
+                var excerpt = card.getAttribute('data-excerpt') || '';
+                var category = card.getAttribute('data-category') || '';
+
+                var matchesSearch = !query
+                    || title.indexOf(query) !== -1
+                    || excerpt.indexOf(query) !== -1
+                    || category.indexOf(query) !== -1;
+
+                var matchesFilter = currentFilter === 'all' || category === currentFilter;
+
+                if (matchesSearch && matchesFilter) {
+                    card.removeAttribute('data-hidden');
+                    visible++;
+                } else {
+                    card.setAttribute('data-hidden', 'true');
+                }
+            });
+
+            updateCount(visible);
+            noResults.classList.toggle('hidden', visible > 0);
+        }
+
+        searchInput.addEventListener('input', filterPosts);
+
+        filterBtns.forEach(function (btn) {
+            btn.addEventListener('click', function () {
+                filterBtns.forEach(function (b) { b.classList.remove('active'); });
+                btn.classList.add('active');
+                currentFilter = btn.getAttribute('data-filter');
+                filterPosts();
+            });
+        });
+
+        updateCount(total);
+    })();
+    </script>
+</body>
+</html>
