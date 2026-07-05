@@ -5,6 +5,8 @@ category: engineering
 excerpt: "runtime-narrative 1.5 turns execution into a readable story: emoji-clean logs on success, a full diagnosis — and an LLM-suggested fix — on failure."
 readTime: 4
 tags: python,opensource,observability
+source: linkedin-discussion
+sourceUrl: https://www.linkedin.com/feed/update/urn:li:activity:7479581511684448257/
 ---
 
 You know the moment. Something failed in production, and what you have to work with is a 40-frame stack trace and a wall of log lines that were written for the machine, not for you. You spend the next hour playing archaeologist: what ran? what succeeded? what state was it in when it died?

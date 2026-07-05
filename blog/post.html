@@ -237,18 +237,24 @@
                 colorizeTerminals(document.getElementById('post-body'));
 
                 if (meta.sourceUrl) {
-                    var isLinkedIn = meta.source === 'linkedin';
+                    var isLinkedIn = meta.source === 'linkedin' || meta.source === 'linkedin-discussion';
+                    var isDiscussion = meta.source === 'linkedin-discussion';
                     var platformName = isLinkedIn ? 'LinkedIn' : 'dev.to';
-                    var platformDesc = isLinkedIn
-                        ? 'Join the discussion and share your thoughts.'
-                        : 'Read comments and continue the conversation.';
-                    var readMoreLabel = 'Read more on ' + platformName;
+                    var boxHeading = isDiscussion
+                        ? 'Discussion on ' + platformName
+                        : 'Originally published on ' + platformName;
+                    var platformDesc = isDiscussion
+                        ? 'This post started here — the conversation is happening on LinkedIn.'
+                        : (isLinkedIn
+                            ? 'Join the discussion and share your thoughts.'
+                            : 'Read comments and continue the conversation.');
+                    var readMoreLabel = isDiscussion ? 'Join the discussion' : 'Read more on ' + platformName;
 
                     document.getElementById('post-read-more').className = 'mt-12 reveal';
                     document.getElementById('post-read-more').innerHTML =
                         '<div class="card rounded-2xl p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">' +
                             '<div>' +
-                                '<p class="mono text-[10px] font-bold uppercase tracking-widest text-primary-c mb-1">Originally published on ' + platformName + '</p>' +
+                                '<p class="mono text-[10px] font-bold uppercase tracking-widest text-primary-c mb-1">' + boxHeading + '</p>' +
                                 '<p class="text-sm text-soft">' + platformDesc + '</p>' +
                             '</div>' +
                             '<a href="' + esc(meta.sourceUrl) + '" target="_blank" rel="noopener" ' +
