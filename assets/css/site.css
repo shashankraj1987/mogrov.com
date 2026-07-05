@@ -215,6 +215,25 @@ body {
 }
 .prose-paper pre code { background: none; color: inherit; padding: 0; }
 
+/* ---- Colorized terminal log blocks (```term fences in blog posts) ---- */
+.term-window { margin: 1.5rem 0; border-radius: 0.9rem; overflow: hidden; border: 1px solid rgba(122, 162, 247, 0.15); }
+.term-window pre { margin: 0; border: none; border-radius: 0; }
+.term-window .term-title { color: #565f89; }
+.tl-time { color: #565f89; }
+.tl-id { color: #bb9af7; }
+.tl-run { color: #7aa2f7; }
+.tl-name { color: #7dcfff; }
+.tl-ok { color: #9ece6a; }
+.tl-err { color: #f7768e; }
+.tl-warn { color: #e0af68; }
+.tl-info { color: #7dcfff; }
+.tl-dur { color: #565f89; }
+.tl-key { color: #7aa2f7; font-weight: 600; }
+.tl-ctx { color: #565f89; }
+.tl-str { color: #9ece6a; }
+.tl-num { color: #e0af68; }
+.tl-arrow-line { background: rgba(247, 118, 142, 0.13); display: inline-block; width: 100%; }
+
 /* ---- Float animation ---- */
 .animate-float { animation: float 6s ease-in-out infinite; }
 @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
