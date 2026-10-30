@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Documentation — Mogrov</title>
+  <meta name="description" content="Documentation for Mogrov's DevTrack and Runtime Narrative projects.">
+  <script>(function(){try{var t=localStorage.getItem('mogrov-theme')||'light';document.documentElement.classList.add(t==='dark'?'dark':'light');}catch(e){document.documentElement.classList.add('light');}})();</script>
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <link rel="stylesheet" href="/assets/css/project-switcher.css">
+  <style>
+    .wiki-shell { max-width: 1080px; margin: 0 auto; padding: 36px 24px 110px; }
+    .wiki-top { display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+    .wiki-brand { color: var(--ink); font-size: 20px; font-weight: 800; text-decoration: none; }
+    .wiki-back { color: var(--primary); font-size: 14px; font-weight: 700; text-decoration: none; }
+    .wiki-hero { padding: 108px 0 54px; max-width: 690px; }
+    .wiki-eyebrow { color: var(--primary); font: 700 12px/1.4 'Geist Mono', monospace; letter-spacing: .13em; text-transform: uppercase; }
+    .wiki-hero h1 { color: var(--ink); font-size: clamp(40px, 6vw, 68px); line-height: 1.05; letter-spacing: -.045em; margin: 16px 0; }
+    .wiki-hero p { color: var(--ink-soft); font-size: 19px; line-height: 1.6; }
+    .wiki-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+    .wiki-card { display: flex; flex-direction: column; min-height: 260px; padding: 30px; border: 1px solid var(--card-border); border-radius: 24px; background: var(--card-bg); box-shadow: var(--card-shadow); text-decoration: none; transition: transform .2s, border-color .2s; }
+    .wiki-card:hover, .wiki-card:focus-visible { transform: translateY(-4px); border-color: var(--primary); outline: none; }
+    .wiki-card small { color: var(--primary); font: 700 12px/1.4 'Geist Mono', monospace; text-transform: uppercase; letter-spacing: .08em; }
+    .wiki-card h2 { color: var(--ink); margin: 20px 0 8px; font-size: 26px; letter-spacing: -.02em; }
+    .wiki-card p { color: var(--ink-soft); margin: 0; line-height: 1.6; }
+    .wiki-card span { color: var(--primary); margin-top: auto; padding-top: 26px; font-weight: 700; }
+    @media (max-width: 700px) { .wiki-grid { grid-template-columns: 1fr; } .wiki-hero { padding-top: 80px; } }
+  </style>
+</head>
+<body>
+  <main class="wiki-shell">
+    <div class="wiki-top"><a class="wiki-brand" href="/">mogrov.com</a><a class="wiki-back" href="/">← Home</a></div>
+    <header class="wiki-hero">
+      <div class="wiki-eyebrow">Mogrov / documentation</div>
+      <h1>Explore the docs.</h1>
+      <p>Guides and reference material for our developer tools, together under Mogrov. Each project keeps its own visual identity.</p>
+    </header>
+    <div class="wiki-grid">
+      <a class="wiki-card" href="/wiki/devtrack/">
+        <small>Development paused</small>
+        <h2>DevTrack</h2>
+        <p>Installation, setup, local workflows, integrations, privacy, and command reference.</p>
+        <span>Open DevTrack wiki →</span>
+      </a>
+      <a class="wiki-card" href="/wiki/runtime-narrative/">
+        <small>Python library</small>
+        <h2>Runtime Narrative</h2>
+        <p>Installation, stories and stages, renderers, integrations, diagnostics, and API reference.</p>
+        <span>Open Runtime Narrative docs →</span>
+      </a>
+    </div>
+  </main>
+  <nav id="mogrov-project-switcher" aria-label="Mogrov projects"><a href="/" aria-current="page">Mogrov</a><a href="/wiki/devtrack/">DevTrack</a><a href="/runtime-narrative/">Runtime Narrative</a></nav>
+</body>
+</html>

@@ -1,0 +1,14 @@
+/download/devtrack /download/devtrack/ 301
+/download/devtrack/ https://github.com/sraj0501/Devtrack_/releases/latest 302
+/devtrack/download.html /download/devtrack/ 301
+/devtrack/privacy.html /wiki/devtrack/privacy.html 301
+/devtrack/install.sh /downloads/devtrack/install.sh 301
+/devtrack/install.ps1 /downloads/devtrack/install.ps1 301
+/devtrack/wiki.html /wiki/devtrack/ 301
+/devtrack/index.html /wiki/devtrack/ 301
+/devtrack /wiki/devtrack/ 301
+/devtrack/ /wiki/devtrack/ 301
+/devtrack/assets/:file /assets/devtrack/:file 301
+/runtime-narrative/docs /wiki/runtime-narrative/ 301
+/runtime-narrative/docs/ /wiki/runtime-narrative/ 301
+/runtime-narrative/docs/:page /wiki/runtime-narrative/:page 301
