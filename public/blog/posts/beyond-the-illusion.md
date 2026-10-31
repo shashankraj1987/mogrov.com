@@ -6,7 +6,6 @@ excerpt: "Apple says AI can't reason. But newer models admit limits and reach fo
 readTime: 5
 tags: ai,machinelearning
 source: devto
-sourceUrl: https://dev.to/shashank_raj/beyond-the-illusion-are-ai-models-learning-to-reason-by-knowing-their-limits-1noa
 ---
 
 ## The Debate About AI Reasoning

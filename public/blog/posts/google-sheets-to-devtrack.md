@@ -6,7 +6,6 @@ excerpt: "From spreadsheet + cron job to a 5 MB Go daemon with 94% automatic tic
 readTime: 6
 tags: devtrack,golang,startup
 source: devto
-sourceUrl: https://dev.to/shashank_raj/i-turned-my-google-sheets-hack-into-a-real-tool-it-took-six-months-and-i-have-no-regrets-5cj3
 ---
 
 A while back I wrote about automating standups using Google Sheets, a cron job, and makeshift infrastructure. It worked — until a PM asked for ticket updates to happen *before* standups rather than after. The system collapsed. That failure prompted a complete rewrite.
@@ -54,4 +53,4 @@ A month-long pipeline analyses your communication patterns — short sentences, 
 
 A local-first admin console is on the roadmap. I'm also planning to experiment with handing an AI agent all my commits for two months and seeing what it learns about how I work.
 
-If you spend 15+ minutes daily on ticket updates or standup notes, [DevTrack](/wiki/devtrack/) is worth trying. Data stays on your machine. No accounts, no API keys required for the Ollama path.
+If you spend 15+ minutes daily on ticket updates or standup notes, [DevTrack](/devtrack/) is worth trying. Data stays on your machine. No accounts, no API keys required for the Ollama path.

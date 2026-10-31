@@ -6,7 +6,6 @@ excerpt: "Introducing DevTrack — a local-first git daemon that eliminates manu
 readTime: 2
 tags: buildinpublic,opensource,productivity
 source: linkedin
-sourceUrl: https://www.linkedin.com/feed/update/urn:li:activity:7440294239026159616/
 ---
 
 Developers resist updating project management tickets after completing work. The process is tedious and disruptive — you've just shipped something, and now you have to context-switch to write about it in a tool you didn't open while writing it. DevTrack solves this by removing the manual step entirely.
@@ -25,4 +24,4 @@ It's rough around the edges, open source, and in active development — but it g
 
 If you're spending non-trivial time each day on ticket hygiene, give it a try. Local-first means your data doesn't leave your machine, and there's no per-seat pricing to argue about with finance.
 
-[DevTrack](/wiki/devtrack/) — source on [GitHub](https://github.com/sraj0501/automation_tools).
+[DevTrack](/devtrack/) — project overview and documentation under Mogrov.

@@ -7,7 +7,7 @@
     <meta name="description" content="">
 
     <script>(function(){try{var t=localStorage.getItem('mogrov-theme')||'light';document.documentElement.classList.add(t==='dark'?'dark':'light');}catch(e){document.documentElement.classList.add('light');}})();</script>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="/assets/vendor/tailwind.js"></script>
     <script src="../assets/js/tailwind-config.js"></script>
     <link rel="stylesheet" href="../assets/css/site.css">
 </head>
@@ -29,7 +29,6 @@
                     <a href="../index.html#mission" class="nav-link">Mission</a>
                     <a href="index.html" class="nav-link active">Blog</a>
                     <a href="../founder.html" class="nav-link">Founder</a>
-                    <a href="../index.html#contact" class="nav-link">Contact</a>
                 </div>
                 <div class="h-6 w-px hairline border-l"></div>
                 <button data-theme-toggle aria-label="Toggle theme" class="p-2 rounded-lg hover:bg-[var(--primary-soft)] transition-colors text-soft">
@@ -51,7 +50,6 @@
             <a href="../index.html#mission" class="nav-link block py-2">Mission</a>
             <a href="index.html" class="nav-link block py-2 active">Blog</a>
             <a href="../founder.html" class="nav-link block py-2">Founder</a>
-            <a href="../index.html#contact" class="nav-link block py-2">Contact</a>
         </div>
     </nav>
 
@@ -71,13 +69,10 @@
             </div>
         </article>
 
-        <div id="post-read-more" class="hidden mt-12 reveal"></div>
-
         <div class="mt-8 pt-8 border-t hairline flex items-center justify-between reveal">
             <a href="index.html" class="inline-flex items-center gap-2 text-sm font-semibold text-muted-c hover:text-primary-c transition-colors">
                 <i data-lucide="arrow-left" class="w-4 h-4"></i> Back to blog
             </a>
-            <span id="post-source-link"></span>
         </div>
 
     </main>
@@ -90,16 +85,15 @@
             <a href="../index.html#projects" class="nav-link">Projects</a>
             <a href="index.html" class="nav-link">Blog</a>
             <a href="../founder.html" class="nav-link">Founder</a>
-            <a href="/runtime-narrative/" target="_blank" rel="noopener" class="nav-link">Runtime Narrative</a>
-            <a href="https://devtrack.cloud" target="_blank" rel="noopener" class="nav-link">DevTrack</a>
-            <a href="https://github.com/sraj0501" target="_blank" rel="noopener" class="nav-link">GitHub</a>
+            <a href="/runtime-narrative/" class="nav-link">Runtime Narrative</a>
+            <a href="/devtrack/" class="nav-link">DevTrack</a>
         </div>
         <p class="mono text-[10px] uppercase tracking-[0.35em] text-muted-c">Fixing software development from the bottom up</p>
         <p class="mono text-[9px] text-muted-c mt-6">© 2026 Mogrov Collective · Built for developers by Shashank Raj</p>
     </footer>
 
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="/assets/vendor/lucide.min.js"></script>
+    <script src="/assets/vendor/marked.min.js"></script>
     <script src="../assets/js/site.js"></script>
 
     <script>
@@ -233,40 +227,14 @@
                         '<div class="flex flex-wrap gap-2">' + tags + '</div>' +
                     '</div>';
 
+                marked.use({ renderer: {
+                    link: function (href, title, text) {
+                        if (!href || /^(?:[a-z]+:|\/\/)/i.test(href)) return text;
+                        return '<a href="' + esc(href) + '">' + text + '</a>';
+                    }
+                }});
                 document.getElementById('post-body').innerHTML = marked.parse(parsed.body);
                 colorizeTerminals(document.getElementById('post-body'));
-
-                if (meta.sourceUrl) {
-                    var isLinkedIn = meta.source === 'linkedin' || meta.source === 'linkedin-discussion';
-                    var isDiscussion = meta.source === 'linkedin-discussion';
-                    var platformName = isLinkedIn ? 'LinkedIn' : 'dev.to';
-                    var boxHeading = isDiscussion
-                        ? 'Discussion on ' + platformName
-                        : 'Originally published on ' + platformName;
-                    var platformDesc = isDiscussion
-                        ? 'This post started here — the conversation is happening on LinkedIn.'
-                        : (isLinkedIn
-                            ? 'Join the discussion and share your thoughts.'
-                            : 'Read comments and continue the conversation.');
-                    var readMoreLabel = isDiscussion ? 'Join the discussion' : 'Read more on ' + platformName;
-
-                    document.getElementById('post-read-more').className = 'mt-12 reveal';
-                    document.getElementById('post-read-more').innerHTML =
-                        '<div class="card rounded-2xl p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">' +
-                            '<div>' +
-                                '<p class="mono text-[10px] font-bold uppercase tracking-widest text-primary-c mb-1">' + boxHeading + '</p>' +
-                                '<p class="text-sm text-soft">' + platformDesc + '</p>' +
-                            '</div>' +
-                            '<a href="' + esc(meta.sourceUrl) + '" target="_blank" rel="noopener" ' +
-                            'class="shrink-0 inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-bold btn-shimmer text-white transition-all">' +
-                            readMoreLabel + ' <i data-lucide="arrow-right" class="w-4 h-4"></i></a>' +
-                        '</div>';
-
-                    document.getElementById('post-source-link').innerHTML =
-                        '<a href="' + esc(meta.sourceUrl) + '" target="_blank" rel="noopener" ' +
-                        'class="inline-flex items-center gap-2 text-sm font-semibold text-primary-c hover:underline">' +
-                        'View on ' + platformName + ' <i data-lucide="external-link" class="w-3.5 h-3.5"></i></a>';
-                }
 
                 if (window.lucide) lucide.createIcons();
             })

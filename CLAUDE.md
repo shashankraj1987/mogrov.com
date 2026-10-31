@@ -1,5 +1,9 @@
 # CLAUDE.md — Mogrov.com
 
+> Historical notes from the old standalone landing page. The current site layout,
+> build steps, and link policy are in `AGENTS.md` and `README.md`. Do not use the
+> CDN, contact-form, branch, or deployment instructions below for current work.
+
 ## Project overview
 
 Mogrov.com is the marketing / landing site for **Mogrov**, a developer-first tools collective (named in homage to mathematician Andrey Kolmogorov). The site presents the company's mission, projects (e.g. `runtime-narrative` on PyPI, `DevTrack`), founder profile, and a contact form. It is a single self-contained HTML file — no build step, no backend, no dependencies installed locally; everything loads from CDNs.

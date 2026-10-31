@@ -57,10 +57,9 @@
       runtime-narrative
     </a>
     <nav class="topbar-nav">
-      <a href="https://mogrov.com/wiki/runtime-narrative/installation.html">Docs</a>
-      <a href="https://mogrov.com/wiki/runtime-narrative/examples.html">Examples</a>
-      <a href="https://github.com/sraj0501/runtime_narrative" target="_blank" rel="noopener">GitHub</a>
-      <a href="https://pypi.org/project/runtime-narrative/" target="_blank" rel="noopener">PyPI</a>
+      <a href="/wiki/runtime-narrative/installation.html">Docs</a>
+      <a href="/wiki/runtime-narrative/examples.html">Examples</a>
+
     </nav>
     <div class="topbar-spacer"></div>
     <div class="topbar-actions">
@@ -68,9 +67,7 @@
         <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
         <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg>
       </button>
-      <a class="icon-btn" href="https://github.com/sraj0501/runtime_narrative" target="_blank" rel="noopener" aria-label="GitHub repository">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.7 5.6.7 12c0 5.1 3.3 9.4 7.9 11 .6.1.8-.3.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.2-1.7-1.2-1.7-1-.7.1-.7.1-.7 1.1.1 1.7 1.1 1.7 1.1 1 1.8 2.7 1.2 3.3 1 .1-.7.4-1.2.7-1.5-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.4-2.3 1.1-3.1-.1-.3-.5-1.5.1-3 0 0 .9-.3 3 1.1a10.4 10.4 0 0 1 5.4 0c2.1-1.4 3-1.1 3-1.1.6 1.5.2 2.7.1 3 .7.8 1.1 1.8 1.1 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6 4.6-1.6 7.9-5.9 7.9-11C23.3 5.6 18.3.5 12 .5Z"/></svg>
-      </a>
+
       <button class="icon-btn menu-btn" id="menu-btn" aria-label="Toggle navigation" type="button">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
       </button>
@@ -86,8 +83,8 @@
       <h1>Turn any Python execution into a<br><span>traceable story</span></h1>
       <p class="sub">Minimal logs when everything works. Surgical, LLM-powered diagnostics the moment something breaks. No restructuring of existing code required.</p>
       <div class="hero-ctas">
-        <a class="btn btn-primary" href="https://mogrov.com/wiki/runtime-narrative/installation.html">Get Started →</a>
-        <a class="btn btn-ghost" href="https://mogrov.com/wiki/runtime-narrative/showcase.html">See It In Action</a>
+        <a class="btn btn-primary" href="/wiki/runtime-narrative/installation.html">Get Started →</a>
+        <a class="btn btn-ghost" href="/wiki/runtime-narrative/showcase.html">See It In Action</a>
       </div>
 
       <div class="hero-terminal-wrap">
@@ -191,7 +188,7 @@ with story("Import Customers"):
         db.insert(rows)</code></pre>
       </div>
       <p style="text-align:center;margin-top:24px;">
-        <a class="btn btn-ghost" href="https://mogrov.com/wiki/runtime-narrative/quickstart.html">Read the full Quick Start →</a>
+        <a class="btn btn-ghost" href="/wiki/runtime-narrative/quickstart.html">Read the full Quick Start →</a>
       </p>
     </section>
 
@@ -203,47 +200,47 @@ with story("Import Customers"):
           <p>Sync/async, decorators, auto-instrumentation, any framework middleware — one line here, full detail in the docs.</p>
         </div>
         <div class="grid-cards cols-3">
-          <a class="card" href="https://mogrov.com/wiki/runtime-narrative/decorators.html">
+          <a class="card" href="/wiki/runtime-narrative/decorators.html">
             <div class="card-title">Decorators</div>
             <p><code>@runtime_narrative_story</code> / <code>@runtime_narrative_stage</code> — wrap functions without restructuring call sites.</p>
             <div class="card-ref">Learn more →</div>
           </a>
-          <a class="card" href="https://mogrov.com/wiki/runtime-narrative/auto-instrumentation.html">
+          <a class="card" href="/wiki/runtime-narrative/auto-instrumentation.html">
             <div class="card-title">Auto-instrumentation</div>
             <p><code>@narrative_class</code>, <code>instrument_module()</code>, <code>auto_instrument()</code> — zero call-site changes.</p>
             <div class="card-ref">Learn more →</div>
           </a>
-          <a class="card" href="https://mogrov.com/wiki/runtime-narrative/diagnostics.html">
+          <a class="card" href="/wiki/runtime-narrative/diagnostics.html">
             <div class="card-title">Failure diagnostics</div>
             <p>Lean/rich modes, production traceback caps, secret redaction, <code>FailureDiagnosticsConfig</code>.</p>
             <div class="card-ref">Learn more →</div>
           </a>
-          <a class="card" href="https://mogrov.com/wiki/runtime-narrative/renderers.html">
+          <a class="card" href="/wiki/runtime-narrative/renderers.html">
             <div class="card-title">Renderers</div>
             <p>Console, JSON, SQLite, OpenTelemetry, Prometheus, HTML reports, webhook alert routing.</p>
             <div class="card-ref">Learn more →</div>
           </a>
-          <a class="card" href="https://mogrov.com/wiki/runtime-narrative/integrations.html">
+          <a class="card" href="/wiki/runtime-narrative/integrations.html">
             <div class="card-title">Framework integrations</div>
             <p>FastAPI/Starlette middleware, Django ASGI/WSGI, Celery task base class, gRPC interceptors.</p>
             <div class="card-ref">Learn more →</div>
           </a>
-          <a class="card" href="https://mogrov.com/wiki/runtime-narrative/task-groups.html">
+          <a class="card" href="/wiki/runtime-narrative/task-groups.html">
             <div class="card-title">Async task groups</div>
             <p><code>NarrativeTaskGroup</code> — concurrent asyncio tasks under one shared story.</p>
             <div class="card-ref">Learn more →</div>
           </a>
-          <a class="card" href="https://mogrov.com/wiki/runtime-narrative/persistence-cli.html">
+          <a class="card" href="/wiki/runtime-narrative/persistence-cli.html">
             <div class="card-title">Persistence &amp; CLI</div>
             <p><code>SqliteStoryRenderer</code> plus <code>runtime-narrative failures</code> / <code>story &lt;id&gt;</code>.</p>
             <div class="card-ref">Learn more →</div>
           </a>
-          <a class="card" href="https://mogrov.com/wiki/runtime-narrative/testing.html">
+          <a class="card" href="/wiki/runtime-narrative/testing.html">
             <div class="card-title">Testing</div>
             <p><code>StoryRecorder</code> — a dual sync/async assertion API that produces no output.</p>
             <div class="card-ref">Learn more →</div>
           </a>
-          <a class="card" href="https://mogrov.com/wiki/runtime-narrative/substories-logging.html">
+          <a class="card" href="/wiki/runtime-narrative/substories-logging.html">
             <div class="card-title">Sub-stories &amp; log capture</div>
             <p>End-to-end call tracing, plus folding existing <code>logging</code> calls into one event stream.</p>
             <div class="card-ref">Learn more →</div>
@@ -256,8 +253,8 @@ with story("Import Customers"):
       <h2 style="font-size:1.8rem;font-weight:800;letter-spacing:-0.02em;margin-bottom:14px;">Ready to see it fail on purpose?</h2>
       <p style="color:var(--text-soft);max-width:520px;margin:0 auto 28px;">Every example in the docs is a runnable script. Start with the Quick Start, or jump straight to the full API reference.</p>
       <div class="hero-ctas" style="margin-bottom:0;">
-        <a class="btn btn-primary" href="https://mogrov.com/wiki/runtime-narrative/quickstart.html">Quick Start →</a>
-        <a class="btn btn-ghost" href="https://mogrov.com/wiki/runtime-narrative/events.html">Event Reference</a>
+        <a class="btn btn-primary" href="/wiki/runtime-narrative/quickstart.html">Quick Start →</a>
+        <a class="btn btn-ghost" href="/wiki/runtime-narrative/events.html">Event Reference</a>
       </div>
     </section>
 
@@ -268,23 +265,11 @@ with story("Import Customers"):
   <div class="site-footer-inner">
     <div class="footer-col">
       <h4>Docs</h4>
-      <a href="https://mogrov.com/wiki/runtime-narrative/installation.html">Installation</a>
-      <a href="https://mogrov.com/wiki/runtime-narrative/quickstart.html">Quick Start</a>
-      <a href="https://mogrov.com/wiki/runtime-narrative/story.html">story()</a>
-      <a href="https://mogrov.com/wiki/runtime-narrative/renderers.html">Renderers</a>
-      <a href="https://mogrov.com/wiki/runtime-narrative/events.html">Event Reference</a>
-    </div>
-    <div class="footer-col">
-      <h4>Resources</h4>
-      <a href="https://github.com/sraj0501/runtime_narrative" target="_blank" rel="noopener">GitHub</a>
-      <a href="https://pypi.org/project/runtime-narrative/" target="_blank" rel="noopener">PyPI</a>
-      <a href="https://github.com/sraj0501/runtime_narrative/blob/main/CHANGELOG.md" target="_blank" rel="noopener">Changelog</a>
-      <a href="https://github.com/sraj0501/runtime_narrative/blob/main/ROADMAP.md" target="_blank" rel="noopener">Roadmap</a>
-    </div>
-    <div class="footer-col">
-      <h4>Community</h4>
-      <a href="https://github.com/sraj0501/runtime_narrative/issues" target="_blank" rel="noopener">Report an issue</a>
-      <a href="https://github.com/sraj0501/runtime_narrative/blob/main/LICENSE" target="_blank" rel="noopener">License</a>
+      <a href="/wiki/runtime-narrative/installation.html">Installation</a>
+      <a href="/wiki/runtime-narrative/quickstart.html">Quick Start</a>
+      <a href="/wiki/runtime-narrative/story.html">story()</a>
+      <a href="/wiki/runtime-narrative/renderers.html">Renderers</a>
+      <a href="/wiki/runtime-narrative/events.html">Event Reference</a>
     </div>
   </div>
   <div class="footer-bottom">

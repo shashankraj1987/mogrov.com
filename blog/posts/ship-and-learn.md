@@ -6,7 +6,6 @@ excerpt: "In the post-LLM era, developer value has shifted. The differentiator i
 readTime: 2
 tags: ai,engineering
 source: linkedin
-sourceUrl: https://www.linkedin.com/feed/update/urn:li:activity:7467917674556125184/
 ---
 
 Developer value has fundamentally shifted in the post-LLM era. Rather than raw coding speed, the critical skill is now comprehending what gets shipped.

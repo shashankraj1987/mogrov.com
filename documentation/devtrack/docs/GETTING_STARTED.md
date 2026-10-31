@@ -9,7 +9,7 @@ project-management (PM) service.
 
 | If you want to... | Start with... | What to expect |
 |---|---|---|
-| Record commits against incidents, stories, bugs, or tasks | [Quick Start](QUICK_START.md), then [Ticket Mapping](../../../docs/TICKET_MAPPING.md) | The Go daemon observes a configured repository and stores mapping evidence in local SQLite. |
+| Record commits against incidents, stories, bugs, or tasks | [Quick Start](QUICK_START.md), then [Ticket Mapping](#TICKET_MAPPING) | The Go daemon observes a configured repository and stores mapping evidence in local SQLite. |
 | Inspect prepared updates before delivery | [Usage Guide](USAGE_GUIDE.md) | `devtrack queue list` shows staged actions; review eligible actions before delivery. Configured earned auto-approval may advance them. |
 | Generate a narrative of today's work | [Usage Guide](USAGE_GUIDE.md) | Managed or external Python service required; generation can stage a report. |
 | Give an MCP-capable assistant local work context | [CLI Quickstart](CLI_QUICKSTART.md) | `devtrack mcp setup` and `devtrack mcp test` use local, read-only tools. |
@@ -24,7 +24,7 @@ and other AI features. You can begin with a local-only PM choice and add a conne
 1. [Install](INSTALLATION.md) the binary for your operating system and check its version.
 2. Follow the [Quick Start](QUICK_START.md) to configure one repository, start the daemon, make
    a normal commit, and inspect the result.
-3. Read [Ticket Mapping](../../../docs/TICKET_MAPPING.md) to see how an incident, story, bug, or
+3. Read [Ticket Mapping](#TICKET_MAPPING) to see how an incident, story, bug, or
    task is selected, including conflicts and corrections.
 4. Use the [Usage Guide](USAGE_GUIDE.md) for queue review, EOD reporting, and daily commands.
    [Troubleshooting](TROUBLESHOOTING.md) explains recovery if setup or a service fails.

@@ -1,13 +1,13 @@
 # Installation
 
 The maintained development installation details live in
-[`docs/INSTALLATION.md`](https://github.com/sraj0501/Devtrack_/blob/dev/docs/INSTALLATION.md).
+`docs/INSTALLATION.md`.
 This page gets a new user to a version check; the [Quick Start](QUICK_START.md) then configures
 the first repository. Git is required on the machine that runs DevTrack.
 
 ## Release assets
 
-Download from [GitHub Releases](https://github.com/sraj0501/Devtrack_/releases):
+Download from GitHub Releases:
 
 | Platform | Asset |
 |---|---|

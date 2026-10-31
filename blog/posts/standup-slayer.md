@@ -6,7 +6,6 @@ excerpt: "Python + Google Sheets + a cron job on AWS. The origin story of what e
 readTime: 4
 tags: python,automation,management
 source: devto
-sourceUrl: https://dev.to/shashank_raj/the-daily-standup-slayer-how-this-lazy-manager-automated-everything-except-meetings-540
 ---
 
 Let's face it, meetings are the beige walls of the productivity world. You know, endless loops of "what could have been" and "should have been" while everyone wrestles over a shrinking timeframe. Articles debunking their usefulness pile up like unread emails, but the charm of a good standup seems unshakeable for some (cough management cough).
@@ -19,7 +18,7 @@ Enter automation, the hero in this data-driven odyssey. What if the devs filled 
 
 ## Step 1: Building a Fortress of Simplicity
 
-First, a template. Think Bunk Beds: easy to understand, enough room for (almost) everything, and compatible with most project management tools on the market. Google Sheets became my weapon of choice, thanks to their fantastic [Python API documentation](https://developers.google.com/sheets/api/quickstart/python).
+First, a template. Think Bunk Beds: easy to understand, enough room for (almost) everything, and compatible with most project management tools on the market. Google Sheets became my weapon of choice, thanks to their fantastic Python API documentation.
 
 ## Step 2: Operation "Fill the Darn Sheet" (Good Luck!)
 
@@ -40,7 +39,7 @@ The free tier of the Google Sheets API has limitations — think data on a diet,
 
 ## Deployment Shenanigans
 
-With the Python API, I snatched 10 rows of data from the Google Sheet (defined in an environment variable, because who wants hardcoded stuff?). A Google account with the same project was set up to access [Gmail's send API](https://developers.google.com/gmail/api/guides/sending#python). Finally, some Docker magic streamlined deployment. The code, nestled snugly in a Docker container, landed on an AWS development instance where a cron job awaited its cue.
+With the Python API, I snatched 10 rows of data from the Google Sheet (defined in an environment variable, because who wants hardcoded stuff?). A Google account with the same project was set up to access Gmail's send API. Finally, some Docker magic streamlined deployment. The code, nestled snugly in a Docker container, landed on an AWS development instance where a cron job awaited its cue.
 
 ## The Grand Automation Symphony
 

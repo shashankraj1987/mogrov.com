@@ -60,7 +60,7 @@ the PM system owns its item type. For example, `hotfix/OPS-123-restore-login` ca
 incident, while `feature/ADO-456-add-export` can map to an Azure DevOps story. The branch kind
 does not determine the PM type. Full-branch evidence wins over explicit commit prefix/trailer,
 which wins over selected ticket context. Conflicting evidence is recorded for review; incidental
-IDs in prose do not count. See the [mapping guide](../../../docs/TICKET_MAPPING.md) for setup,
+IDs in prose do not count. See the [mapping guide](#TICKET_MAPPING) for setup,
 provider IDs, examples, and `devtrack ticket link` corrections.
 
 The Go connectors support GitHub, GitLab, and Azure DevOps issue operations. PM, email, and Git writes

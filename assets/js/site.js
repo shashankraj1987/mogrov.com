@@ -122,57 +122,6 @@
     })();
   }
 
-  /* ---- Contact form (Web3Forms) ----
-     Set your access key on the form via data-access-key (see index.html).
-     Submits via fetch with no page reload; shows inline status. */
-  function wireContactForm() {
-    var form = document.querySelector('[data-contact-form]');
-    if (!form) return;
-    var statusEl = form.querySelector('[data-form-status]');
-    var submitBtn = form.querySelector('button[type="submit"]');
-    var key = form.getAttribute('data-access-key') || '';
-
-    function setStatus(msg, kind) {
-      if (!statusEl) return;
-      statusEl.textContent = msg;
-      statusEl.style.color = kind === 'error' ? '#f7768e' : (kind === 'ok' ? '#9ece6a' : 'var(--muted)');
-    }
-
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      if (!key || key.indexOf('YOUR_WEB3FORMS') === 0) {
-        setStatus('Form not configured yet — add your Web3Forms access key.', 'error');
-        return;
-      }
-      var data = new FormData(form);
-      data.append('access_key', key);
-      var original = submitBtn ? submitBtn.textContent : '';
-      if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = 'Sending…'; }
-      setStatus('Sending…', 'info');
-
-      fetch('https://api.web3forms.com/submit', {
-        method: 'POST',
-        headers: { Accept: 'application/json' },
-        body: data,
-      })
-        .then(function (r) { return r.json(); })
-        .then(function (json) {
-          if (json.success) {
-            form.reset();
-            setStatus('Message sent — thanks, we’ll be in touch.', 'ok');
-          } else {
-            setStatus(json.message || 'Something went wrong. Email admin@mogrov.com instead.', 'error');
-          }
-        })
-        .catch(function () {
-          setStatus('Network error. Email admin@mogrov.com instead.', 'error');
-        })
-        .finally(function () {
-          if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = original; }
-        });
-    });
-  }
-
   /* ---- Boot ---- */
   function boot() {
     if (window.lucide && typeof window.lucide.createIcons === 'function') {
@@ -182,7 +131,6 @@
     wireMobileMenu();
     wireReveal();
     wireScrollSpy();
-    wireContactForm();
     runTerminalSimulation();
     runProtocolAnimation();
   }

@@ -81,8 +81,8 @@ Those boundaries are documented because “local-first” should describe the ac
 
 ## Try the release
 
-Start with the [DevTrack download page](/download/devtrack/), then follow the [quick start](/wiki/devtrack/#QUICK_START). The [Sage guide](/wiki/devtrack/#SAGE) covers local command knowledge, and the [MCP guide](/wiki/devtrack/#MCP_CLAUDE_CODE) explains how to connect a compatible assistant.
+Start with the [DevTrack documentation](/wiki/devtrack/), then follow the [quick start](/wiki/devtrack/#QUICK_START). The [Sage guide](/wiki/devtrack/#SAGE) covers local command knowledge, and the [MCP guide](/wiki/devtrack/#MCP_CLAUDE_CODE) explains how to connect a compatible assistant.
 
-The complete binaries, checksums, MCPB bundles, and technical release notes are on the [v3.2.0 GitHub release](https://github.com/sraj0501/Devtrack_/releases/tag/v3.2.0).
+The complete binaries, checksums, MCPB bundles, and technical release notes are on the v3.2.0 GitHub release.
 
 DevTrack still starts from the same promise: write the standup update from the work you already did. v3.2.0 adds a second promise beside it: the useful things your tools learn while you work should still be there tomorrow.

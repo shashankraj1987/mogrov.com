@@ -1,6 +1,6 @@
 # runtime-narrative — Complete Guide
 
-This guide is part of the [Mogrov documentation](https://mogrov.com/wiki/runtime-narrative/).
+This guide is part of the [Mogrov documentation](/wiki/runtime-narrative/).
 
 ## Table of Contents
 

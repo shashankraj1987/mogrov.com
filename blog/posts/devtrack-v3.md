@@ -6,7 +6,6 @@ excerpt: "Standups from git commits, offline AI, The Boardroom for plan stress-t
 readTime: 2
 tags: devtrack,opensource,buildinpublic
 source: linkedin
-sourceUrl: https://www.linkedin.com/feed/update/urn:li:activity:7466141197858922496/
 ---
 
 DevTrack v3.0 is out. The headline: it writes your standup update from your git commits and runs entirely on your machine — no account, no cloud, no server to babysit.
@@ -25,4 +24,4 @@ This is a daily-driver tool, not a weekend project. I use it every working day. 
 
 YouTube tutorial videos are coming next month, covering setup and the most common workflows.
 
-[devtrack.cloud](https://devtrack.cloud) — open source, release notes linked from there.
+[DevTrack](/devtrack/) — project overview and documentation under Mogrov.
