@@ -1,5 +1,5 @@
 [build]
-  publish = "."
+  publish = "public"
 
 # No build command — purely static site
 

@@ -16,9 +16,10 @@ Zivra is intentionally excluded.
 Every HTML page has the same project switcher. Its shared stylesheet is
 `public/assets/css/project-switcher.css`; each project's own styles stay separate.
 The documentation index template is `scripts/wiki-index.html`.
-DevTrack has an independently deployable landing page in its own repository's `website/`.
-Mogrov retains the combined-site routes and owns both wikis. Its `/devtrack/` route serves a snapshot of that landing page. Legacy DevTrack URLs
-redirect to the wiki, privacy page, installer scripts, or latest GitHub release.
+Mogrov owns the DevTrack and Runtime Narrative landing pages and both public wikis.
+The product repositories keep their code, release, and package metadata; they do not host
+separate websites. Legacy project URLs redirect to the appropriate Mogrov page, wiki,
+installer script, or GitHub release where configured.
 
 ## Preview and check
 
@@ -28,12 +29,11 @@ paths. Run `python scripts/check_site.py public` to check local links and assets
 
 ## Refresh from source
 
-The Mogrov root pages, assets, DevTrack installer scripts, Runtime Narrative project site,
-and all public documentation are maintained in this repository.
-Edit `documentation/devtrack/` and `documentation/runtime-narrative/` for the wikis.
-The DevTrack repository has an independent `website/` output; keep `sites/devtrack/`
-as its Mogrov snapshot. The Runtime Narrative repository has an independent `website/` output. Keep `sites/runtime-narrative/` as its Mogrov snapshot and sync site changes between the two before refreshing `public/`.
-Its authoring guide is `documentation/runtime-narrative/CONTRIBUTING.md`.
+The Mogrov homepage, both project sites, installer scripts, and all public documentation
+are maintained in this repository. Edit `sites/devtrack/` and `sites/runtime-narrative/`
+for the project landing pages. Edit `documentation/devtrack/` and
+`documentation/runtime-narrative/` for the wikis. The Runtime Narrative authoring guide
+is `documentation/runtime-narrative/CONTRIBUTING.md`.
 The copies under `public/` are published snapshots. To refresh them, make a new output
 directory with:
 
@@ -46,9 +46,12 @@ Review the new output, then replace `public/` with it. The sync script rewrites 
 the shared domain and marks DevTrack's development as paused. It never modifies the source
 repository or an existing output directory.
 
-## Independent deployment outputs
+## One deployment
 
-Each repository has its own static hosting output: Mogrov `public/`, DevTrack `website/`, and Runtime Narrative `website/`. Each can be deployed from its own branch and hosting project. Mogrov remains the only documentation origin. The Mogrov `public/` output includes snapshots at `/devtrack/` and `/runtime-narrative/`. Serving those exact paths directly from separate hosting projects would require edge routing. Until then, the combined output serves all three paths from one deployment.
+Publish only Mogrov's `public/` directory. It contains all three landing pages, both
+wikis, redirects, and project assets. DevTrack releases remain on GitHub; the
+Runtime Narrative Python package remains on PyPI. No project-specific website
+deployment or edge routing is needed.
 
 ## Cloudflare Pages
 
