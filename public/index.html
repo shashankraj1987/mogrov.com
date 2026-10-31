@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mogrov — Developer-First Tools, Built From The Bottom Up</title>
+    <meta name="description" content="Mogrov builds offline-first, open-source developer tools that kill daily friction — runtime-narrative and DevTrack. Built for the terminal, not the boardroom.">
+    <meta property="og:title" content="Mogrov — Developer-First Tools">
+    <meta property="og:description" content="Offline-first, open-source tools that fix the developer experience from the bottom up.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://mogrov.com/">
+
+    <!-- Set theme before paint to avoid flash -->
+    <script>(function(){try{var t=localStorage.getItem('mogrov-theme')||'light';document.documentElement.classList.add(t==='dark'?'dark':'light');}catch(e){document.documentElement.classList.add('light');}})();</script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="assets/js/tailwind-config.js"></script>
+    <link rel="stylesheet" href="assets/css/site.css">
+<link rel="stylesheet" href="/assets/css/project-switcher.css">
+</head>
+<body class="relative font-sans">
+
+    <!-- Background atmosphere -->
+    <div class="fixed inset-0 bg-grid pointer-events-none z-0"></div>
+    <div class="halo fixed top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[460px] rounded-full pointer-events-none z-0"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 nav-glass px-6 py-4">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <a href="#top" class="flex items-center gap-2.5 group">
+                <div class="w-10 h-10 rounded-xl flex items-center justify-center font-black text-white shadow-lg btn-shimmer group-hover:rotate-6 transition-transform">M</div>
+                <span class="font-display font-extrabold tracking-tight text-xl text-strong">mogrov<span class="text-primary-c">.com</span></span>
+            </a>
+
+            <div class="hidden lg:flex items-center gap-7">
+                <div class="flex items-center gap-7 text-sm font-semibold">
+                    <a href="#features" class="nav-link" data-spy="features">What We Build</a>
+                    <a href="#projects" class="nav-link" data-spy="projects">Projects</a>
+                    <a href="#mission" class="nav-link" data-spy="mission">Mission</a>
+                    <a href="blog/index.html" class="nav-link">Blog</a>
+                    <a href="founder.html" class="nav-link">Founder</a>
+                    <a href="#contact" class="nav-link" data-spy="contact">Contact</a>
+                </div>
+                <div class="h-6 w-px hairline border-l"></div>
+                <div class="flex items-center gap-3">
+                    <button data-theme-toggle aria-label="Toggle theme" class="p-2 rounded-lg hover:bg-[var(--primary-soft)] transition-colors text-soft">
+                        <i data-lucide="moon" class="hidden dark:block w-5 h-5"></i>
+                        <i data-lucide="sun" class="block dark:hidden w-5 h-5"></i>
+                    </button>
+                    <a href="#contact" class="px-5 py-2 btn-shimmer rounded-full text-sm font-bold shadow-xl">Contribute</a>
+                </div>
+            </div>
+
+            <!-- Mobile -->
+            <div class="flex lg:hidden items-center gap-2">
+                <button data-theme-toggle aria-label="Toggle theme" class="p-2 rounded-lg text-soft">
+                    <i data-lucide="moon" class="hidden dark:block w-5 h-5"></i>
+                    <i data-lucide="sun" class="block dark:hidden w-5 h-5"></i>
+                </button>
+                <button data-menu-toggle aria-label="Menu" class="p-2 rounded-lg text-soft">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+        <div data-mobile-menu class="hidden lg:hidden mt-4 pt-4 border-t hairline flex-col gap-1 text-sm font-semibold max-w-7xl mx-auto">
+            <a href="#features" class="nav-link block py-2">What We Build</a>
+            <a href="#projects" class="nav-link block py-2">Projects</a>
+            <a href="#mission" class="nav-link block py-2">Mission</a>
+            <a href="blog/index.html" class="nav-link block py-2">Blog</a>
+            <a href="founder.html" class="nav-link block py-2">Founder</a>
+            <a href="#contact" class="nav-link block py-2">Contact</a>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <header id="top" class="pt-36 pb-20 px-6 max-w-7xl mx-auto relative z-10">
+        <div class="grid lg:grid-cols-5 gap-14 items-center">
+            <div class="lg:col-span-3">
+                <div class="mono text-primary-c text-xs font-bold mb-5 uppercase tracking-widest inline-flex items-center gap-2 reveal">
+                    <span class="dot"></span> mogrov_protocol // <span id="protocol-text" class="cursor-blink"></span>
+                </div>
+                <h1 class="font-display text-5xl md:text-7xl mb-6 tracking-tight leading-[1.05] text-strong reveal" data-delay="1">
+                    Fixing the<br><span class="text-gradient">developer experience</span>.
+                </h1>
+                <p class="text-lg leading-relaxed mb-9 max-w-xl text-soft reveal" data-delay="2">
+                    We aren't building for the boardroom. We're building for the terminal. <strong class="text-strong">Mogrov</strong> ships offline-first, open-source tools that kill the daily friction developers actually face.
+                </p>
+                <div class="flex flex-wrap gap-4 reveal" data-delay="3">
+                    <a href="#projects" class="px-7 py-3.5 btn-primary rounded-xl text-sm font-bold">Explore our tools</a>
+                    <a href="/runtime-narrative/" target="_blank" rel="noopener" class="px-7 py-3.5 btn-ghost rounded-xl text-sm font-bold flex items-center gap-2">
+                        Explore runtime-narrative <i data-lucide="terminal" class="w-4 h-4"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="lg:col-span-2 animate-float reveal" data-delay="2">
+                <div class="card rounded-2xl overflow-hidden">
+                    <div class="terminal-header px-5 py-3 flex items-center justify-between">
+                        <div class="flex gap-2">
+                            <div class="w-2.5 h-2.5 rounded-full bg-[#f7768e]"></div>
+                            <div class="w-2.5 h-2.5 rounded-full bg-[#e0af68]"></div>
+                            <div class="w-2.5 h-2.5 rounded-full bg-[#9ece6a]"></div>
+                        </div>
+                        <div class="text-[9px] mono text-tokyo-comment uppercase font-bold tracking-widest">dev_env: ready</div>
+                    </div>
+                    <div class="terminal p-6 mono text-[11px] space-y-4 min-h-[170px]">
+                        <div class="flex gap-2">
+                            <span class="text-tokyo-blue font-bold">❯</span>
+                            <span class="cursor-blink" id="terminal-text" data-type="pip install runtime-narrative"></span>
+                        </div>
+                        <div class="text-tokyo-comment italic text-[10px] leading-relaxed opacity-0 transition-opacity duration-1000" id="terminal-output">
+                            # Eliminating manual execution tracing...<br>
+                            # Generating logic narratives in real-time...<br>
+                            <span class="text-tokyo-green">Done. Stop guessing, start knowing.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Stat cards -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-16">
+            <div class="card rounded-2xl p-6 reveal" data-delay="1">
+                <div class="font-display text-3xl font-extrabold text-strong">2</div>
+                <div class="mono text-[11px] uppercase tracking-widest text-muted-c mt-1">Tools shipped</div>
+            </div>
+            <div class="card rounded-2xl p-6 reveal" data-delay="2">
+                <div class="font-display text-3xl font-extrabold text-strong">14<span class="text-primary-c">+</span></div>
+                <div class="mono text-[11px] uppercase tracking-widest text-muted-c mt-1">Yrs engineering</div>
+            </div>
+            <div class="card rounded-2xl p-6 reveal" data-delay="3">
+                <div class="font-display text-3xl font-extrabold text-strong">100<span class="text-primary-c">%</span></div>
+                <div class="mono text-[11px] uppercase tracking-widest text-muted-c mt-1">Open source</div>
+            </div>
+            <div class="card rounded-2xl p-6 reveal" data-delay="4">
+                <div class="font-display text-3xl font-extrabold text-strong">Offline</div>
+                <div class="mono text-[11px] uppercase tracking-widest text-muted-c mt-1">First, always</div>
+            </div>
+        </div>
+    </header>
+
+    <!-- WHAT WE BUILD -->
+    <section id="features" class="py-24 px-6 max-w-7xl mx-auto relative z-10">
+        <div class="max-w-2xl mb-14">
+            <p class="mono text-xs font-bold uppercase tracking-widest text-primary-c mb-3 reveal">// what_we_build</p>
+            <h2 class="font-display text-4xl md:text-5xl font-extrabold text-strong tracking-tight mb-4 reveal" data-delay="1">Tools that remove the friction.</h2>
+            <p class="text-lg text-soft reveal" data-delay="2">Every Mogrov tool is local-first, open-source, and designed to disappear into your workflow.</p>
+        </div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- card -->
+            <div class="card card-hover rounded-3xl p-8 reveal" data-delay="1">
+                <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5 pill text-primary-c"><i data-lucide="scroll-text"></i></div>
+                <h3 class="font-display text-xl font-bold text-strong mb-2">Runtime narratives</h3>
+                <p class="text-sm text-soft leading-relaxed">Turn raw tracebacks into human-readable, stage-by-stage stories of what your code actually did.</p>
+            </div>
+            <div class="card card-hover rounded-3xl p-8 reveal" data-delay="2">
+                <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5 pill text-primary-c"><i data-lucide="git-branch"></i></div>
+                <h3 class="font-display text-xl font-bold text-strong mb-2">Sprint automation</h3>
+                <p class="text-sm text-soft leading-relaxed">Go from a plain problem statement to a fully planned sprint — without leaving your editor.</p>
+            </div>
+            <div class="card card-hover rounded-3xl p-8 reveal" data-delay="3">
+                <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5 pill text-primary-c"><i data-lucide="refresh-cw"></i></div>
+                <h3 class="font-display text-xl font-bold text-strong mb-2">Deterministic mapping</h3>
+                <p class="text-sm text-soft leading-relaxed">Deterministic ticket mapping links branches and commits to the right work item, with provenance and a correction history you can audit.</p>
+            </div>
+            <div class="card card-hover rounded-3xl p-8 reveal" data-delay="1">
+                <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5 pill text-primary-c"><i data-lucide="shield-check"></i></div>
+                <h3 class="font-display text-xl font-bold text-strong mb-2">Local-first &amp; private</h3>
+                <p class="text-sm text-soft leading-relaxed">Core workflows run locally with SQLite and Ollama. Telemetry, hosted models, and managed services stay explicitly opt-in.</p>
+            </div>
+            <div class="card card-hover rounded-3xl p-8 reveal" data-delay="2">
+                <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5 pill text-primary-c"><i data-lucide="message-square-code"></i></div>
+                <h3 class="font-display text-xl font-bold text-strong mb-2">Terminal &amp; chat control</h3>
+                <p class="text-sm text-soft leading-relaxed">Drive your workflow from the CLI — or fully from Telegram when you're away from the keyboard.</p>
+            </div>
+            <div class="card card-hover rounded-3xl p-8 reveal" data-delay="3">
+                <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-5 pill text-primary-c"><i data-lucide="sparkles"></i></div>
+                <h3 class="font-display text-xl font-bold text-strong mb-2">AI-augmented</h3>
+                <p class="text-sm text-soft leading-relaxed">LLM-powered failure analysis and agentic planning — supporting GPT-4, Claude, and local Ollama models.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- HOW WE WORK -->
+    <section id="how" class="py-24 px-6 relative z-10">
+        <div class="max-w-7xl mx-auto">
+            <div class="max-w-2xl mb-14">
+                <p class="mono text-xs font-bold uppercase tracking-widest text-primary-c mb-3 reveal">// how_we_work</p>
+                <h2 class="font-display text-4xl md:text-5xl font-extrabold text-strong tracking-tight reveal" data-delay="1">Bottom-up, every time.</h2>
+            </div>
+            <div class="grid md:grid-cols-4 gap-6">
+                <div class="reveal" data-delay="1">
+                    <div class="mono text-5xl font-extrabold text-primary-c/30 mb-3">01</div>
+                    <h3 class="font-display text-lg font-bold text-strong mb-2">Spot the friction</h3>
+                    <p class="text-sm text-soft leading-relaxed">We start from the annoyances real developers hit when the deadline is close and the lights are low.</p>
+                </div>
+                <div class="reveal" data-delay="2">
+                    <div class="mono text-5xl font-extrabold text-primary-c/30 mb-3">02</div>
+                    <h3 class="font-display text-lg font-bold text-strong mb-2">Build the fix</h3>
+                    <p class="text-sm text-soft leading-relaxed">Offline-first and open-source from line one. No SaaS lock-in, no compromise on privacy.</p>
+                </div>
+                <div class="reveal" data-delay="3">
+                    <div class="mono text-5xl font-extrabold text-primary-c/30 mb-3">03</div>
+                    <h3 class="font-display text-lg font-bold text-strong mb-2">Ship to the terminal</h3>
+                    <p class="text-sm text-soft leading-relaxed">Released where developers live — `pip install`, a CLI, a repo. No browser required.</p>
+                </div>
+                <div class="reveal" data-delay="4">
+                    <div class="mono text-5xl font-extrabold text-primary-c/30 mb-3">04</div>
+                    <h3 class="font-display text-lg font-bold text-strong mb-2">Listen &amp; iterate</h3>
+                    <p class="text-sm text-soft leading-relaxed">Your issues become our roadmap. The fix gets built in the open, together.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="py-24 px-6 max-w-7xl mx-auto relative z-10">
+        <div class="max-w-2xl mb-14">
+            <p class="mono text-xs font-bold uppercase tracking-widest text-primary-c mb-3 reveal">// the_project_lab</p>
+            <h2 class="font-display text-4xl md:text-5xl font-extrabold text-strong tracking-tight mb-4 reveal" data-delay="1">Shipped &amp; in your hands.</h2>
+            <p class="text-lg text-soft reveal" data-delay="2">Open-source, offline-first solutions built to kill friction.</p>
+            <a href="/wiki/" class="inline-flex mt-4 text-sm font-bold text-primary-c">Browse all documentation →</a>
+        </div>
+        <div class="grid md:grid-cols-2 gap-6">
+            <!-- runtime-narrative -->
+            <div class="card card-hover rounded-[2rem] p-9 reveal" data-delay="1">
+                <div class="flex items-center justify-between mb-6">
+                    <div class="flex items-center gap-4">
+                        <div class="p-3 btn-shimmer rounded-2xl text-white shadow-lg"><i data-lucide="scroll-text" class="w-6 h-6"></i></div>
+                        <div>
+                            <h3 class="font-display text-2xl font-extrabold text-strong">runtime-narrative</h3>
+                            <p class="mono text-[11px] font-bold text-primary-c uppercase tracking-widest">Python · PyPI</p>
+                        </div>
+                    </div>
+                    <span class="pill mono text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full">Live</span>
+                </div>
+                <p class="text-soft leading-relaxed mb-6">Models application execution as human-readable stories — replacing raw tracebacks with structured, stage-by-stage failure reports. Ships FastAPI middleware, JSON streaming, and LLM-powered failure analysis.</p>
+                <div class="flex flex-wrap gap-2 mb-7">
+                    <span class="pill mono text-[10px] px-2.5 py-1 rounded-md">FastAPI</span>
+                    <span class="pill mono text-[10px] px-2.5 py-1 rounded-md">JSON streaming</span>
+                    <span class="pill mono text-[10px] px-2.5 py-1 rounded-md">LLM analysis</span>
+                </div>
+                <a href="/runtime-narrative/" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-6 py-2.5 btn-primary rounded-full text-xs font-bold">
+                    Visit website <i data-lucide="download" class="w-3.5 h-3.5"></i>
+                </a>
+            </div>
+
+            <!-- DevTrack -->
+            <div class="card card-hover rounded-[2rem] p-9 reveal" data-delay="2">
+                <div class="flex items-center justify-between mb-6">
+                    <div class="flex items-center gap-4">
+                        <div class="p-3 rounded-2xl text-white shadow-lg" style="background:#9ece6a"><i data-lucide="layout-dashboard" class="w-6 h-6"></i></div>
+                        <div>
+                            <h3 class="font-display text-2xl font-extrabold text-strong">DevTrack</h3>
+                            <p class="mono text-[11px] font-bold uppercase tracking-widest" style="color:#5aaa2f">v3.2.0 · Offline-first OSS</p>
+                        </div>
+                    </div>
+                    <span class="pill mono text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full">Development paused</span>
+                </div>
+                <p class="text-soft leading-relaxed mb-6">Writes standup updates from Git activity and turns privacy-minimized activity from your coding tools into searchable local Markdown, with read-only MCP access for assistants.</p>
+                <div class="flex flex-wrap gap-2 mb-7">
+                    <span class="pill mono text-[10px] px-2.5 py-1 rounded-md">DevTrack Sage</span>
+                    <span class="pill mono text-[10px] px-2.5 py-1 rounded-md">10-tool MCP</span>
+                    <span class="pill mono text-[10px] px-2.5 py-1 rounded-md">Ollama-ready</span>
+                </div>
+                <div class="flex flex-wrap gap-3">
+                    <a href="/download/devtrack/" class="inline-flex items-center gap-2 px-6 py-2.5 rounded-full text-xs font-bold text-white" style="background:#5aaa2f">
+                        Download DevTrack <i data-lucide="download" class="w-3.5 h-3.5"></i>
+                    </a>
+                    <a href="/wiki/devtrack/" class="inline-flex items-center gap-2 px-6 py-2.5 rounded-full text-xs font-bold text-primary-c border hairline">Read the docs</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MISSION -->
+    <section id="mission" class="py-24 px-6 max-w-5xl mx-auto relative z-10">
+        <div class="max-w-2xl mb-14">
+            <p class="mono text-xs font-bold uppercase tracking-widest text-primary-c mb-3 reveal">// the_mission</p>
+            <h2 class="font-display text-4xl md:text-5xl font-extrabold text-strong tracking-tight reveal" data-delay="1">Building from the <span class="text-gradient">bottom up.</span></h2>
+        </div>
+        <div class="grid lg:grid-cols-3 gap-10">
+            <div class="lg:col-span-2 space-y-8 text-soft leading-relaxed reveal" data-delay="1">
+                <div>
+                    <h3 class="mono text-xs font-black uppercase text-primary-c mb-3 tracking-widest">The core mission</h3>
+                    <p>Mogrov exists because software development has become unnecessarily complex. We aren't here to pitch executives — we build the tools developers reach for when the deadline is close and the lights are low.</p>
+                </div>
+                <div class="card rounded-3xl p-8 relative overflow-hidden">
+                    <div class="absolute -right-8 -bottom-8 opacity-[0.06]"><i data-lucide="brain" class="w-40 h-40"></i></div>
+                    <h3 class="mono text-xs font-black uppercase text-primary-c mb-3 tracking-widest flex items-center gap-2"><i data-lucide="info" class="w-4 h-4"></i> Origin: the Kolmogorov homage</h3>
+                    <p class="relative">The name <strong class="text-strong">Mogrov</strong> derives from mathematician <strong class="text-strong">Andrey Kolmogorov</strong>. His work on Algorithmic Information Theory and Kolmogorov Complexity underpins how we think about compression and meaning in modern AI systems — the same instinct that drives us to strip noise from the developer's day.</p>
+                </div>
+                <div>
+                    <h3 class="mono text-xs font-black uppercase text-primary-c mb-3 tracking-widest">The driving principle</h3>
+                    <p>Whether it's unreadable traces or broken pipelines, our goal is to eliminate the noise so you can focus on the signal.</p>
+                </div>
+            </div>
+            <div class="card rounded-3xl p-8 h-fit reveal" data-delay="2">
+                <h4 class="mono text-xs font-black uppercase text-muted-c mb-6 tracking-widest">Our DNA</h4>
+                <ul class="space-y-4 text-sm font-semibold text-strong">
+                    <li class="flex gap-3 items-center"><i data-lucide="terminal" class="text-primary-c w-5 h-5"></i> Terminal first</li>
+                    <li class="flex gap-3 items-center"><i data-lucide="zap" class="text-primary-c w-5 h-5"></i> Friction focused</li>
+                    <li class="flex gap-3 items-center"><i data-lucide="code-2" class="text-primary-c w-5 h-5"></i> Offline-first &amp; OSS</li>
+                    <li class="flex gap-3 items-center"><i data-lucide="lock" class="text-primary-c w-5 h-5"></i> Privacy by default</li>
+                </ul>
+                <a href="founder.html" class="mt-8 inline-flex items-center gap-2 text-sm font-bold text-primary-c hover:gap-3 transition-all">Meet the founder <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- HISTORY -->
+    <section id="history" class="py-24 px-6 max-w-3xl mx-auto relative z-10">
+        <div class="text-center mb-16">
+            <p class="mono text-xs font-bold uppercase tracking-widest text-primary-c mb-3 reveal">// expedition_log</p>
+            <h2 class="font-display text-4xl md:text-5xl font-extrabold text-strong tracking-tight reveal" data-delay="1">The road here.</h2>
+        </div>
+        <div class="timeline space-y-12 pl-10">
+            <div class="timeline-node relative reveal" data-delay="1">
+                <p class="mono text-xs font-bold uppercase tracking-widest text-primary-c">2025 — Present</p>
+                <h3 class="font-display text-xl font-bold text-strong mt-1">Mogrov &amp; agentic dev-tools</h3>
+                <p class="text-sm text-soft mt-1 leading-relaxed">Founded Mogrov; shipping DevTrack and runtime-narrative. Leading GenAI engineering for S&amp;P Global at EPAM — agentic architectures, MCP/A2A, RAG.</p>
+            </div>
+            <div class="timeline-node relative reveal" data-delay="2">
+                <p class="mono text-xs font-bold uppercase tracking-widest text-primary-c">2023 — 2025</p>
+                <h3 class="font-display text-xl font-bold text-strong mt-1">Leading data science</h3>
+                <p class="text-sm text-soft mt-1 leading-relaxed">NL-to-SQL engines, multi-LLM orchestration, and 500GB/day ETL at scale across LatentBridge, Daaslabs and Exalogic (Dubai).</p>
+            </div>
+            <div class="timeline-node relative reveal" data-delay="3">
+                <p class="mono text-xs font-bold uppercase tracking-widest text-primary-c">2021 — 2023</p>
+                <h3 class="font-display text-xl font-bold text-strong mt-1">MLOps at scale</h3>
+                <p class="text-sm text-soft mt-1 leading-relaxed">Orchestrated KServe/Kubeflow MLOps at Syngenta. Completed an M.Sc. in Business Analytics at BITS Pilani.</p>
+            </div>
+            <div class="timeline-node relative reveal" data-delay="4">
+                <p class="mono text-xs font-bold uppercase tracking-widest text-primary-c">2011 — 2021</p>
+                <h3 class="font-display text-xl font-bold text-strong mt-1">Foundations</h3>
+                <p class="text-sm text-soft mt-1 leading-relaxed">A decade of engineering across KPIT, MResult and IBM — the groundwork for everything Mogrov builds today.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="py-24 px-6 max-w-5xl mx-auto relative z-10">
+        <div class="text-center mb-14">
+            <p class="mono text-xs font-bold uppercase tracking-widest text-primary-c mb-3 reveal">// get_in_touch</p>
+            <h2 class="font-display text-4xl md:text-5xl font-extrabold text-strong tracking-tight mb-3 reveal" data-delay="1">Have a dev problem to solve?</h2>
+            <p class="text-lg text-soft reveal" data-delay="2">Tell us the friction you're facing. Let's build the fix together.</p>
+        </div>
+        <div class="grid md:grid-cols-5 gap-6">
+            <div class="md:col-span-2 space-y-4 reveal" data-delay="1">
+                <a href="mailto:admin@mogrov.com" class="card card-hover rounded-3xl p-6 flex items-center gap-4 group">
+                    <div class="w-11 h-11 rounded-xl flex items-center justify-center pill text-primary-c"><i data-lucide="mail" class="w-5 h-5"></i></div>
+                    <div>
+                        <p class="mono text-[10px] font-bold uppercase tracking-widest text-muted-c">Email</p>
+                        <p class="text-sm font-bold text-strong">admin@mogrov.com</p>
+                    </div>
+                </a>
+                <div class="card rounded-3xl p-6 flex items-center gap-4">
+                    <div class="w-11 h-11 rounded-xl flex items-center justify-center pill text-primary-c"><i data-lucide="map-pin" class="w-5 h-5"></i></div>
+                    <div>
+                        <p class="mono text-[10px] font-bold uppercase tracking-widest text-muted-c">Base</p>
+                        <p class="text-sm font-bold text-strong">Pune, MH, India</p>
+                    </div>
+                </div>
+                <a href="https://github.com/sraj0501" target="_blank" rel="noopener" class="card card-hover rounded-3xl p-6 flex items-center gap-4 group">
+                    <div class="w-11 h-11 rounded-xl flex items-center justify-center pill text-primary-c"><i data-lucide="github" class="w-5 h-5"></i></div>
+                    <div>
+                        <p class="mono text-[10px] font-bold uppercase tracking-widest text-muted-c">Open source</p>
+                        <p class="text-sm font-bold text-strong">github.com/sraj0501</p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="md:col-span-3 card rounded-[2rem] p-8 reveal" data-delay="2">
+                <!-- Web3Forms: replace the access key below to go live (see CLAUDE.md) -->
+                <form data-contact-form data-access-key="YOUR_WEB3FORMS_ACCESS_KEY" class="space-y-4">
+                    <input type="hidden" name="subject" value="New message from mogrov.com">
+                    <input type="hidden" name="from_name" value="mogrov.com contact form">
+                    <!-- honeypot -->
+                    <input type="checkbox" name="botcheck" class="hidden" style="display:none" tabindex="-1" autocomplete="off">
+                    <div class="grid sm:grid-cols-2 gap-4">
+                        <input name="name" type="text" required placeholder="Your name" class="w-full surface border hairline rounded-xl px-4 py-3 text-sm text-strong focus:border-[var(--primary)] focus:outline-none transition-all">
+                        <input name="email" type="email" required placeholder="dev@example.com" class="w-full surface border hairline rounded-xl px-4 py-3 text-sm text-strong focus:border-[var(--primary)] focus:outline-none transition-all">
+                    </div>
+                    <textarea name="message" rows="4" required placeholder="Briefly describe the friction you're facing…" class="w-full surface border hairline rounded-xl px-4 py-3 text-sm text-strong focus:border-[var(--primary)] focus:outline-none transition-all"></textarea>
+                    <button type="submit" class="w-full py-4 btn-shimmer rounded-xl font-black uppercase text-xs tracking-widest shadow-xl">Dispatch message</button>
+                    <p data-form-status class="mono text-[11px] text-center text-muted-c min-h-[16px]" aria-live="polite"></p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="py-16 px-6 text-center border-t hairline relative z-10">
+        <div class="mb-4">
+            <span class="font-display text-primary-c font-extrabold text-xl tracking-tight">mogrov<span class="text-muted-c">.com</span></span>
+        </div>
+        <div class="flex flex-wrap justify-center gap-x-7 gap-y-2 mb-6 text-sm font-semibold">
+            <a href="#projects" class="nav-link">Projects</a>
+            <a href="blog/index.html" class="nav-link">Blog</a>
+            <a href="founder.html" class="nav-link">Founder</a>
+            <a href="/runtime-narrative/" target="_blank" rel="noopener" class="nav-link">Runtime Narrative</a>
+            <a href="/wiki/devtrack/" class="nav-link">DevTrack</a>
+            <a href="https://github.com/sraj0501" target="_blank" rel="noopener" class="nav-link">GitHub</a>
+        </div>
+        <p class="mono text-[10px] uppercase tracking-[0.35em] text-muted-c">Fixing software development from the bottom up</p>
+        <p class="mono text-[9px] text-muted-c mt-6">© 2026 Mogrov Collective · Built for developers by Shashank Raj</p>
+    </footer>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="assets/js/site.js"></script>
+<nav id="mogrov-project-switcher" aria-label="Mogrov projects"><a href="/" aria-current="page">Mogrov</a><a href="/devtrack/">DevTrack</a><a href="/runtime-narrative/">Runtime Narrative</a></nav>
+</body>
+</html>
