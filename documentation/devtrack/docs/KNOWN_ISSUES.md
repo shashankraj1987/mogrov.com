@@ -62,7 +62,7 @@ parity.
 `io.github.sraj0501/devtrack` 3.2.0 is active/latest in the official MCP Registry. v3.3.0 development
 has not replaced that stable record. The DevTrack entry
 in `punkpeye/awesome-mcp-servers` is awaiting maintainer review in
-[PR #13608](https://github.com/punkpeye/awesome-mcp-servers/pull/13608), whose automated submission
+PR #13608, whose automated submission
 check passed. Glama's admins approved the submitted server on 2026-09-06, but its exact approved
 path is not yet recorded, so the required PR score-badge update remains pending. Anthropic, Smithery, and
 other directory forms still require owner-authenticated sessions, eligibility evidence, or contact

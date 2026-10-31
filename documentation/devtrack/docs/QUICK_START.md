@@ -50,7 +50,7 @@ git commit -m "Describe the change"
 
 The branch is the strongest mapping signal. A Jira incident, Azure story, GitHub bug, or GitLab
 task all use the same mechanism; the connected PM system determines the item's type. See
-[Ticket Mapping](../../../docs/TICKET_MAPPING.md) for provider examples and conflicts.
+[Ticket Mapping](#TICKET_MAPPING) for provider examples and conflicts.
 
 ## 4. Inspect the result
 

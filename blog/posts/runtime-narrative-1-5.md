@@ -6,7 +6,6 @@ excerpt: "runtime-narrative 1.5 turns execution into a readable story: emoji-cle
 readTime: 4
 tags: python,opensource,observability
 source: linkedin-discussion
-sourceUrl: https://www.linkedin.com/feed/update/urn:li:activity:7479581511684448257/
 ---
 
 You know the moment. Something failed in production, and what you have to work with is a 40-frame stack trace and a wall of log lines that were written for the machine, not for you. You spend the next hour playing archaeologist: what ran? what succeeded? what state was it in when it died?
@@ -107,4 +106,4 @@ The fix-suggestion engine from the intro gained native Anthropic Claude support 
 pip install runtime-narrative
 ```
 
-It's on [PyPI](https://pypi.org/project/runtime-narrative/), MIT-licensed, Python 3.9+. If you try it on a real codebase, I want to hear what broke — that's how the last twelve releases happened.
+It's on PyPI, MIT-licensed, Python 3.9+. If you try it on a real codebase, I want to hear what broke — that's how the last twelve releases happened.

@@ -7,8 +7,6 @@ This repository holds the static site for `mogrov.com`. The deployable files are
 - `/wiki/` — documentation index for both projects
 - `/wiki/devtrack/` — DevTrack documentation and Markdown guides
 - `/wiki/runtime-narrative/` — Runtime Narrative documentation
-- `/download/devtrack/` — redirect to the latest DevTrack GitHub release
-- `/downloads/devtrack/` — DevTrack install scripts
 - `/runtime-narrative/` — Runtime Narrative
 
 Zivra is intentionally excluded.
@@ -18,8 +16,9 @@ Every HTML page has the same project switcher. Its shared stylesheet is
 The documentation index template is `scripts/wiki-index.html`.
 Mogrov owns the DevTrack and Runtime Narrative landing pages and both public wikis.
 The product repositories keep their code, release, and package metadata; they do not host
-separate websites. Legacy project URLs redirect to the appropriate Mogrov page, wiki,
-installer script, or GitHub release where configured.
+separate websites. Legacy project paths redirect internally to the relevant Mogrov page or wiki.
+The published site has no outbound links or runtime CDN dependencies. Third-party browser
+libraries used by the existing designs and wiki are checked into `assets/vendor/`.
 
 ## Preview and check
 
@@ -29,7 +28,7 @@ paths. Run `python scripts/check_site.py public` to check local links and assets
 
 ## Refresh from source
 
-The Mogrov homepage, both project sites, installer scripts, and all public documentation
+The Mogrov homepage, both project sites, and all public documentation
 are maintained in this repository. Edit `sites/devtrack/` and `sites/runtime-narrative/`
 for the project landing pages. Edit `documentation/devtrack/` and
 `documentation/runtime-narrative/` for the wikis. The Runtime Narrative authoring guide
@@ -49,8 +48,8 @@ repository or an existing output directory.
 ## One deployment
 
 Publish only Mogrov's `public/` directory. It contains all three landing pages, both
-wikis, redirects, and project assets. DevTrack releases remain on GitHub; the
-Runtime Narrative Python package remains on PyPI. No project-specific website
+wikis, internal redirects, and project assets. DevTrack releases remain in its code
+repository; the Runtime Narrative Python package remains on PyPI. No project-specific website
 deployment or edge routing is needed.
 
 ## Cloudflare Pages
@@ -60,6 +59,3 @@ no build command, and `public` as the output directory. Add `mogrov.com` as the 
 domain. The domain can remain registered at Hostinger; Cloudflare Pages requires its
 nameservers for the apex domain. Copy any existing email DNS records before switching
 nameservers. `_headers` and `_redirects` live in `public/`.
-
-The static contact form is unconfigured. The `mailto:admin@mogrov.com` link works only
-while that mailbox is maintained.

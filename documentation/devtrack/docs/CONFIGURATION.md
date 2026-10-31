@@ -4,11 +4,12 @@
 file under the DevTrack XDG data home and registers its location. Existing process variables take
 precedence. Run `devtrack settings` to see resolved paths and `devtrack doctor` to validate them.
 
-Do not copy old configuration blocks from the wiki. The maintained exhaustive samples are:
+Do not copy old configuration blocks from the wiki. The maintained exhaustive
+samples ship with the DevTrack source repository:
 
-- [`devtrack_client/.env_sample`](../../../devtrack_client/.env_sample)
-- [`devtrack_server/.env_sample`](../../../devtrack_server/.env_sample)
-- [`workspaces.yaml.example`](../../../devtrack_client/workspaces.yaml.example)
+- `devtrack_client/.env_sample`
+- `devtrack_server/.env_sample`
+- `devtrack_client/workspaces.yaml.example`
 
 ## Core runtime
 
@@ -55,6 +56,6 @@ organization, project, API URL, user name, `ticket_key`, optional anchored `tick
 `<kind>/<ticket-key>-<number>-<slug>`; an advanced pattern must match the full branch and contain
 exactly one named `ticket` capture.
 The key identifies the work item, regardless of whether the PM system calls it an incident, story,
-bug, or task. See [work-item and ticket mapping](../../../docs/TICKET_MAPPING.md) for examples and
+bug, or task. See [work-item and ticket mapping](#TICKET_MAPPING) for examples and
 resolution precedence.
 Never commit real credentials.

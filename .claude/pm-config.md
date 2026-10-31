@@ -1,4 +1,6 @@
 # pm-config.md
+# Historical configuration for the former standalone landing page. The current
+# repository instructions are in AGENTS.md and README.md.
 # Global agent configuration for mogrov.com.
 # Agents read this file at startup (Step 0) to understand project context.
 # Schema reference: ~/.claude/AGENT_AUTHORING.md

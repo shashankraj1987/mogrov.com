@@ -195,24 +195,6 @@ if (!sessionStorage.getItem('banner-dismissed')) {
   document.getElementById('devBanner').classList.add('hidden');
 }
 
-// ── Contact form (static — opens mailto fallback) ─────────────────────────────
-function handleFormSubmit(btn) {
-  const form = btn.closest('.contact-form');
-  const name    = form.querySelector('input[type=text]').value.trim();
-  const email   = form.querySelector('input[type=email]').value.trim();
-  const topic   = form.querySelector('select').value;
-  const message = form.querySelector('textarea').value.trim();
-  if (!name || !email || !message) {
-    btn.textContent = 'Please fill all fields';
-    btn.style.background = '#7f1d1d';
-    setTimeout(() => { btn.textContent = 'Send Message'; btn.style.background = ''; }, 2000);
-    return;
-  }
-  const subject = encodeURIComponent(`[DevTrack] ${topic || 'Message'} from ${name}`);
-  const body    = encodeURIComponent(`Name: ${name}\nEmail: ${email}\nTopic: ${topic}\n\n${message}`);
-  window.location.href = `mailto:admin@mogrov.com?subject=${subject}&body=${body}`;
-}
-
 // ── Hero typewriter word cycle ────────────────────────────────────────────────
 (function() {
   const words = ['standup', 'ticket update', 'EOD report', 'status email', 'progress note'];

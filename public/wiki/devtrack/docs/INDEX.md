@@ -25,7 +25,7 @@ New to DevTrack? Read these in order:
 ## Features
 
 - [Git Features Guide](GIT_FEATURES.md) — silent observation, explicit commit enhancement, and Git context
-- [Work-item and Ticket Mapping](../../../docs/TICKET_MAPPING.md) — branch conventions, incident/story examples, precedence, conflicts, and correction
+- [Work-item and Ticket Mapping](#TICKET_MAPPING) — branch conventions, incident/story examples, precedence, conflicts, and correction
 - [DevTrack Sage and Git Sage migration](GIT_SAGE_INTEGRATION.md) — current local command knowledge,
   the separate enhanced-commit workflow, and retired repository-agent commands
 - [Git Commit Workflow](GIT_COMMIT_WORKFLOW.md) — explicit message refinement with no post-commit prompts or push
@@ -49,10 +49,3 @@ New to DevTrack? Read these in order:
 - [Known Issues](KNOWN_ISSUES.md) — known bugs and workarounds
 
 ---
-
-## Repos
-
-- **Client (binary)**: https://github.com/sraj0501/Devtrack_
-- **Server (Python)**: https://github.com/sraj0501/Devtrack_
-- **Wiki**: https://github.com/sraj0501/Devtrack_
-- **Issues**: https://github.com/sraj0501/Devtrack_/issues

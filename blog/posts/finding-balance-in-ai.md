@@ -6,7 +6,6 @@ excerpt: "On losing creative ownership to AI, recognising the drift, and reclaim
 readTime: 3
 tags: ai,vibecoding,ownership
 source: devto
-sourceUrl: https://dev.to/shashank_raj/finding-balance-in-ai-powered-creation-1572
 ---
 
 We live in an era where incredible resources are at our fingertips. The idea of having an AI as a teacher, mentor, or even a rigorous critic feels almost unbelievable. I've been experiencing this firsthand with a project deeply personal to me — a solution designed to solve a particular challenge I'd been wrestling with. I poured nearly a year into it, meticulously architecting every layer, confident that I'd created something truly bespoke.

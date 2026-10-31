@@ -13,7 +13,7 @@
     <!-- Set theme before paint to avoid flash -->
     <script>(function(){try{var t=localStorage.getItem('mogrov-theme')||'light';document.documentElement.classList.add(t==='dark'?'dark':'light');}catch(e){document.documentElement.classList.add('light');}})();</script>
 
-    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="/assets/vendor/tailwind.js"></script>
     <script src="assets/js/tailwind-config.js"></script>
     <link rel="stylesheet" href="assets/css/site.css">
 <link rel="stylesheet" href="/assets/css/project-switcher.css">
@@ -39,7 +39,6 @@
                     <a href="#mission" class="nav-link" data-spy="mission">Mission</a>
                     <a href="blog/index.html" class="nav-link">Blog</a>
                     <a href="founder.html" class="nav-link">Founder</a>
-                    <a href="#contact" class="nav-link" data-spy="contact">Contact</a>
                 </div>
                 <div class="h-6 w-px hairline border-l"></div>
                 <div class="flex items-center gap-3">
@@ -47,7 +46,7 @@
                         <i data-lucide="moon" class="hidden dark:block w-5 h-5"></i>
                         <i data-lucide="sun" class="block dark:hidden w-5 h-5"></i>
                     </button>
-                    <a href="#contact" class="px-5 py-2 btn-shimmer rounded-full text-sm font-bold shadow-xl">Contribute</a>
+                    <a href="/wiki/" class="px-5 py-2 btn-shimmer rounded-full text-sm font-bold shadow-xl">Documentation</a>
                 </div>
             </div>
 
@@ -68,7 +67,6 @@
             <a href="#mission" class="nav-link block py-2">Mission</a>
             <a href="blog/index.html" class="nav-link block py-2">Blog</a>
             <a href="founder.html" class="nav-link block py-2">Founder</a>
-            <a href="#contact" class="nav-link block py-2">Contact</a>
         </div>
     </nav>
 
@@ -87,9 +85,6 @@
                 </p>
                 <div class="flex flex-wrap gap-4 reveal" data-delay="3">
                     <a href="#projects" class="px-7 py-3.5 btn-primary rounded-xl text-sm font-bold">Explore our tools</a>
-                    <a href="/runtime-narrative/" target="_blank" rel="noopener" class="px-7 py-3.5 btn-ghost rounded-xl text-sm font-bold flex items-center gap-2">
-                        Explore runtime-narrative <i data-lucide="terminal" class="w-4 h-4"></i>
-                    </a>
                 </div>
             </div>
 
@@ -240,7 +235,7 @@
                     <span class="pill mono text-[10px] px-2.5 py-1 rounded-md">JSON streaming</span>
                     <span class="pill mono text-[10px] px-2.5 py-1 rounded-md">LLM analysis</span>
                 </div>
-                <a href="/runtime-narrative/" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-6 py-2.5 btn-primary rounded-full text-xs font-bold">
+                <a href="/runtime-narrative/" class="inline-flex items-center gap-2 px-6 py-2.5 btn-primary rounded-full text-xs font-bold">
                     Visit website <i data-lucide="download" class="w-3.5 h-3.5"></i>
                 </a>
             </div>
@@ -334,58 +329,6 @@
             </div>
         </div>
     </section>
-
-    <!-- CONTACT -->
-    <section id="contact" class="py-24 px-6 max-w-5xl mx-auto relative z-10">
-        <div class="text-center mb-14">
-            <p class="mono text-xs font-bold uppercase tracking-widest text-primary-c mb-3 reveal">// get_in_touch</p>
-            <h2 class="font-display text-4xl md:text-5xl font-extrabold text-strong tracking-tight mb-3 reveal" data-delay="1">Have a dev problem to solve?</h2>
-            <p class="text-lg text-soft reveal" data-delay="2">Tell us the friction you're facing. Let's build the fix together.</p>
-        </div>
-        <div class="grid md:grid-cols-5 gap-6">
-            <div class="md:col-span-2 space-y-4 reveal" data-delay="1">
-                <a href="mailto:admin@mogrov.com" class="card card-hover rounded-3xl p-6 flex items-center gap-4 group">
-                    <div class="w-11 h-11 rounded-xl flex items-center justify-center pill text-primary-c"><i data-lucide="mail" class="w-5 h-5"></i></div>
-                    <div>
-                        <p class="mono text-[10px] font-bold uppercase tracking-widest text-muted-c">Email</p>
-                        <p class="text-sm font-bold text-strong">admin@mogrov.com</p>
-                    </div>
-                </a>
-                <div class="card rounded-3xl p-6 flex items-center gap-4">
-                    <div class="w-11 h-11 rounded-xl flex items-center justify-center pill text-primary-c"><i data-lucide="map-pin" class="w-5 h-5"></i></div>
-                    <div>
-                        <p class="mono text-[10px] font-bold uppercase tracking-widest text-muted-c">Base</p>
-                        <p class="text-sm font-bold text-strong">Pune, MH, India</p>
-                    </div>
-                </div>
-                <a href="https://github.com/sraj0501" target="_blank" rel="noopener" class="card card-hover rounded-3xl p-6 flex items-center gap-4 group">
-                    <div class="w-11 h-11 rounded-xl flex items-center justify-center pill text-primary-c"><i data-lucide="github" class="w-5 h-5"></i></div>
-                    <div>
-                        <p class="mono text-[10px] font-bold uppercase tracking-widest text-muted-c">Open source</p>
-                        <p class="text-sm font-bold text-strong">github.com/sraj0501</p>
-                    </div>
-                </a>
-            </div>
-
-            <div class="md:col-span-3 card rounded-[2rem] p-8 reveal" data-delay="2">
-                <!-- Web3Forms: replace the access key below to go live (see CLAUDE.md) -->
-                <form data-contact-form data-access-key="YOUR_WEB3FORMS_ACCESS_KEY" class="space-y-4">
-                    <input type="hidden" name="subject" value="New message from mogrov.com">
-                    <input type="hidden" name="from_name" value="mogrov.com contact form">
-                    <!-- honeypot -->
-                    <input type="checkbox" name="botcheck" class="hidden" style="display:none" tabindex="-1" autocomplete="off">
-                    <div class="grid sm:grid-cols-2 gap-4">
-                        <input name="name" type="text" required placeholder="Your name" class="w-full surface border hairline rounded-xl px-4 py-3 text-sm text-strong focus:border-[var(--primary)] focus:outline-none transition-all">
-                        <input name="email" type="email" required placeholder="dev@example.com" class="w-full surface border hairline rounded-xl px-4 py-3 text-sm text-strong focus:border-[var(--primary)] focus:outline-none transition-all">
-                    </div>
-                    <textarea name="message" rows="4" required placeholder="Briefly describe the friction you're facing…" class="w-full surface border hairline rounded-xl px-4 py-3 text-sm text-strong focus:border-[var(--primary)] focus:outline-none transition-all"></textarea>
-                    <button type="submit" class="w-full py-4 btn-shimmer rounded-xl font-black uppercase text-xs tracking-widest shadow-xl">Dispatch message</button>
-                    <p data-form-status class="mono text-[11px] text-center text-muted-c min-h-[16px]" aria-live="polite"></p>
-                </form>
-            </div>
-        </div>
-    </section>
-
     <!-- FOOTER -->
     <footer class="py-16 px-6 text-center border-t hairline relative z-10">
         <div class="mb-4">
@@ -395,15 +338,15 @@
             <a href="#projects" class="nav-link">Projects</a>
             <a href="blog/index.html" class="nav-link">Blog</a>
             <a href="founder.html" class="nav-link">Founder</a>
-            <a href="/runtime-narrative/" target="_blank" rel="noopener" class="nav-link">Runtime Narrative</a>
+            <a href="/runtime-narrative/" class="nav-link">Runtime Narrative</a>
             <a href="/devtrack/" class="nav-link">DevTrack</a>
-            <a href="https://github.com/sraj0501" target="_blank" rel="noopener" class="nav-link">GitHub</a>
+
         </div>
         <p class="mono text-[10px] uppercase tracking-[0.35em] text-muted-c">Fixing software development from the bottom up</p>
         <p class="mono text-[9px] text-muted-c mt-6">© 2026 Mogrov Collective · Built for developers by Shashank Raj</p>
     </footer>
 
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="/assets/vendor/lucide.min.js"></script>
     <script src="assets/js/site.js"></script>
 <nav id="mogrov-project-switcher" aria-label="Mogrov projects"><a href="/" aria-current="page">Mogrov</a><a href="/devtrack/">DevTrack</a><a href="/runtime-narrative/">Runtime Narrative</a></nav>
 </body>

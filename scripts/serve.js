@@ -28,16 +28,12 @@ http.createServer((request, response) => {
     return;
   }
 
-  if (pathname === '/download/devtrack' || pathname === '/download/devtrack/') {
-    response.writeHead(302, { Location: 'https://github.com/sraj0501/Devtrack_/releases/latest' }).end();
-    return;
-  }
   const oldDevTrack = {
     '/devtrack/wiki.html': '/wiki/devtrack/',
-    '/devtrack/download.html': '/download/devtrack/',
+    '/devtrack/download.html': '/wiki/devtrack/',
     '/devtrack/privacy.html': '/wiki/devtrack/privacy.html',
-    '/devtrack/install.sh': '/downloads/devtrack/install.sh',
-    '/devtrack/install.ps1': '/downloads/devtrack/install.ps1',
+    '/download/devtrack': '/wiki/devtrack/',
+    '/download/devtrack/': '/wiki/devtrack/',
   };
   if (oldDevTrack[pathname]) {
     response.writeHead(301, { Location: oldDevTrack[pathname] + new URL(request.url, 'http://localhost').search }).end();

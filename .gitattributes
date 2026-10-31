@@ -1,0 +1,2 @@
+assets/vendor/* -whitespace
+public/assets/vendor/* -whitespace

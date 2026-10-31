@@ -6,11 +6,8 @@
   <title>DevTrack Docs</title>
   <link rel="icon" type="image/png" sizes="192x192" href="/assets/devtrack/devtrack.png" />
   <link rel="apple-touch-icon" href="/assets/devtrack/devtrack.png" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css" id="hljs-theme" />
-  <script async src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+  <link rel="stylesheet" href="/assets/vendor/highlight-light.min.css" id="hljs-theme" />
+  <script async src="/assets/vendor/mermaid.min.js"></script>
   <style>
     /* ── Reset & Tokens ───────────────────────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -543,7 +540,7 @@
 </head>
 <body>
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css" id="hljs-theme-dark" />
+<link rel="stylesheet" href="/assets/vendor/highlight-dark.min.css" id="hljs-theme-dark" />
 
 <div class="layout">
   <!-- Sidebar -->
@@ -605,8 +602,8 @@
 </div>
 
 <!-- Scripts -->
-<script async src="https://cdnjs.cloudflare.com/ajax/libs/marked/9.1.6/marked.min.js"></script>
-<script async src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script async src="/assets/vendor/marked.min.js"></script>
+<script async src="/assets/vendor/highlight.min.js"></script>
 <script>
 // ── Navigation Config ─────────────────────────────────────────────────────────
 const NAV = [
@@ -1107,7 +1104,7 @@ uv run python -m backend.server_tui</code></pre>
 
 <h2>Launching</h2>
 <pre><code class="language-bash">cd Devtrack_/devtrack_server\nuv run python -m backend.admin</code></pre>
-<p>Then open <a href="http://localhost:8090/admin/" target="_blank" rel="noopener">http://localhost:8090/admin/</a> in a browser.</p>
+<p>Then open http://localhost:8090/admin/ in a browser.</p>
 <p>The Admin Console runs on a <strong>separate port (8090)</strong> from the webhook server (8089) so it can be firewall-restricted independently in production deployments.</p>
 
 <h3>Single-Process Mode (ADMIN_EMBED)</h3>
@@ -1228,7 +1225,7 @@ uv run python -m backend.admin
 
 <h2>Setup</h2>
 <ol>
-<li>Create a Slack App at <a href="https://api.slack.com/apps" target="_blank" rel="noopener">api.slack.com/apps</a></li>
+<li>Create a Slack App at api.slack.com/apps</li>
 <li>Enable <strong>Socket Mode</strong> (Settings → Socket Mode) → get an App-Level Token (<code>xapp-...</code>) with the <code>connections:write</code> scope</li>
 <li>Add a slash command <code>/devtrack</code> (any Request URL — Socket Mode ignores it)</li>
 <li>Add Bot Token Scopes: <code>chat:write</code>, <code>commands</code>, <code>channels:read</code></li>
@@ -1559,7 +1556,7 @@ devtrack upgrade --check
 devtrack upgrade</code></pre>
 <p>Linux and macOS use <code>devtrack_&lt;os&gt;_&lt;arch&gt;.tar.gz</code>. Windows downloads the published <code>.exe</code> directly. A development build reports the latest release without overwriting itself as a tagged installation.</p>
 <h2>Rolling development update channel</h2>
-<p>v3.2.0 adds a persistent update-channel choice: stable releases from <code>main</code> remain the default, while <code>devtrack upgrade --dev</code> opts into the rolling <a href="https://github.com/sraj0501/Devtrack_/releases/tag/dev" target="_blank" rel="noopener"><code>dev</code> prerelease</a> and <code>devtrack upgrade --main</code> (or <code>--stable</code>) returns to stable. <code>--check</code> can inspect either channel without switching.</p>
+<p>v3.2.0 adds a persistent update-channel choice: stable releases from <code>main</code> remain the default, while <code>devtrack upgrade --dev</code> opts into the rolling dev prerelease and <code>devtrack upgrade --main</code> (or <code>--stable</code>) returns to stable. <code>--check</code> can inspect either channel without switching.</p>
 <h2>Managed Server Update</h2>
 <p>After the binary succeeds, managed mode updates the optional Python server through the durable background worker:</p>
 <pre><code class="language-bash">devtrack doctor
@@ -1718,7 +1715,7 @@ devtrack start</code></pre>
 <ul>
 <li><strong>Stable by default:</strong> existing and new installations continue to follow releases from <code>main</code>.</li>
 <li><strong>Explicit rolling opt-in:</strong> TASK-161 adds <code>devtrack upgrade --dev</code>, with <code>--main</code>/<code>--stable</code> to return and <code>--check</code> to inspect without switching.</li>
-<li><strong>Current integration evidence:</strong> <a href="https://github.com/sraj0501/Devtrack_/pull/275" target="_blank" rel="noopener">PR #275</a> merged the qualified TASK-157 pipeline slice to <code>dev</code> at <code>a1777b6</code>; all post-merge workflows passed. <a href="https://github.com/sraj0501/Devtrack_/pull/276" target="_blank" rel="noopener">PR #276</a> then added the local Docker evaluation guide at <code>fc3217f</code>.</li>
+<li><strong>Current integration evidence:</strong> PR #275 merged the qualified TASK-157 pipeline slice to <code>dev</code> at <code>a1777b6</code>; all post-merge workflows passed. PR #276 then added the local Docker evaluation guide at <code>fc3217f</code>.</li>
 <li><strong>Historical rolling build:</strong> <code>dev-a1777b6</code> contained the first TASK-157 implementation slice before the completed Sage roadmap shipped in v3.2.0.</li>
 </ul>
 <h2>Validation history and deferred UI work</h2>
@@ -2049,7 +2046,7 @@ DEVTRACK_SAGE_RETRY_DELAY_SECS=2</code></pre>
 <p>The daemon checks <code>terms_version</code> on startup. If a new version of the terms is released, you will be prompted again on the next start.</p>
 
 <h2>Enterprise Licensing</h2>
-<p>If you are deploying DevTrack for 11 or more users, or running it as a hosted/SaaS service, a commercial enterprise licence is required. Contact <a href="mailto:enterprise@devtrack.dev" target="_blank" rel="noopener">enterprise@devtrack.dev</a> or visit <a href="https://github.com/sraj0501/Devtrack_/blob/main/LICENSE" target="_blank" rel="noopener">the DevTrack Community License</a>.</p>
+<p>If you are deploying DevTrack for 11 or more users, or running it as a hosted/SaaS service, a commercial enterprise licence is required. Contact enterprise@devtrack.dev or visit the DevTrack Community License.</p>
 <p>In a self-hosted deployment, <code>backend/license_manager.py</code> detects the tier from the user count in the Admin Console. Tier enforcement is advisory in local mode — the daemon will warn but not block. In SaaS mode, the tier is enforced server-side.</p>
 
 <h2>Privacy Summary</h2>
@@ -2060,7 +2057,7 @@ DEVTRACK_SAGE_RETRY_DELAY_SECS=2</code></pre>
 <li><strong>Login</strong>: optional for Personal and Team tiers. Magic-link login is used only if <code>DEVTRACK_API_URL</code> is set.</li>
 </ul>
 
-<p>Full terms: <code>TERMS.md</code> in the DevTrack installation directory, or <a href="https://github.com/sraj0501/Devtrack_/blob/main/TERMS.md" target="_blank" rel="noopener">TERMS.md on GitHub</a>.</p>
+<p>Full terms: <code>TERMS.md</code> in the DevTrack installation directory, or TERMS.md on GitHub.</p>
 </div>`,
 
   AUTH: `<div class="md-body">
@@ -2776,7 +2773,7 @@ schtasks /Run /TN DevTrack               # Start immediately without waiting for
 <p>DevTrack's completed product arc is released: silent observation, the confidence-scored pending-actions queue, deterministic ticket extraction, EOD reporting, local voice learning, the PR review loop, ten-tool read-only MCP context, DevTrack Sage, first-run onboarding, and native MCPB distribution.</p>
 <h2>Current focus</h2>
 <p><strong>v3.3.0 development:</strong> the priority is reliable Git capture, ticket recording and commit-based EOD reports. Time tracking has been removed. The packaged Linux client passed isolated PostgreSQL workflow checks; the packaged Windows client passed an isolated no-send check. Native installed workflows with a live server, controlled PM/email delivery and a representative workday are the next gates. Sage testing, learning-adapter repairs and platform-parity work are on hold.</p>
-<p>The core no-send workflow is validated. The owner confirmed clean Windows installation and full Managed Linux acceptance with PostgreSQL, Python, Ollama, staging, EOD, and MCP complete on 2026-09-10 outside GitHub Actions. Earlier Windows Managed, credential-free cross-platform E2E, and source-based admin acceptance runs also passed. Stable v3.2.0 and its official MCP Registry record are public. The separate TASK-154 admin-UI branch remains deferred and needs its own drift and UI acceptance. Glama's admins approved the submitted server on 2026-09-06; the exact approved path and score-badge update for <a href="https://github.com/punkpeye/awesome-mcp-servers/pull/13608" target="_blank" rel="noopener">awesome-mcp-servers PR #13608</a> remain to be recorded.</p>
+<p>The core no-send workflow is validated. The owner confirmed clean Windows installation and full Managed Linux acceptance with PostgreSQL, Python, Ollama, staging, EOD, and MCP complete on 2026-09-10 outside GitHub Actions. Earlier Windows Managed, credential-free cross-platform E2E, and source-based admin acceptance runs also passed. Stable v3.2.0 and its official MCP Registry record are public. The separate TASK-154 admin-UI branch remains deferred and needs its own drift and UI acceptance. Glama's admins approved the submitted server on 2026-09-06; the exact approved path and score-badge update for awesome-mcp-servers PR #13608 remain to be recorded.</p>
 <h2>Next</h2>
 <ol>
 <li>Complete <a href="#BASIC_WORKFLOW_TESTING" onclick="navigate('BASIC_WORKFLOW_TESTING');return false;">Basic Workflow Testing</a> before resuming Sage or other deferred work.</li>
@@ -3308,8 +3305,8 @@ function setTheme(t) {
   theme = t;
   document.documentElement.setAttribute('data-theme', t);
   localStorage.setItem('dt-theme', t);
-  // Mermaid is an optional CDN enhancement. The wiki must still initialize
-  // on an offline LAN when the CDN is blocked or unavailable.
+  // Mermaid is a locally bundled enhancement; the wiki remains readable if
+  // the script cannot initialize.
   if (window.mermaid) {
     mermaid.initialize({ startOnLoad: false, theme: mermaidTheme(), securityLevel: 'loose' });
     document.querySelectorAll('.mermaid[data-src]').forEach(el => {
@@ -3361,7 +3358,8 @@ function setupListeners() {
     // In-page heading anchors (e.g. #local-installation-recommended) are not
     // doc IDs — ignore them so they don't trigger a failed loadMarkdown call.
     const isDocId = hash === 'home' || CONTENT[hash] ||
-      NAV.some(g => g.items.some(item => item.id === hash));
+      NAV.some(g => g.items.some(item => item.id === hash)) ||
+      /^[A-Z][A-Z0-9_]*$/.test(hash);
     if (isDocId && hash !== currentPage) navigate(hash, false);
   });
   document.addEventListener('keydown', e => {
@@ -3624,8 +3622,9 @@ function renderMarkdown(md, container) {
   renderer.table = (header, body) =>
     `<div class="table-wrap"><table><thead>${header}</thead><tbody>${body}</tbody></table></div>`;
 
-  // Open external links in new tab, rewrite internal .md links, handle in-page anchors
+  // Keep all rendered documentation links on Mogrov.
   renderer.link = (href, title, text) => {
+    if (!href || /^(?:[a-z]+:|\/\/)/i.test(href)) return text;
     if (href && !/^https?:\/\//i.test(href) && href.endsWith('.md')) {
       const id = href.replace(/.*\//, '').replace('.md', '');
       return `<a href="#${id}" onclick="navigate('${id}');return false;"${title ? ` title="${title}"` : ''}>${text}</a>`;
@@ -3634,10 +3633,11 @@ function renderMarkdown(md, container) {
     // browser anchor scroll targets the wrong scroll context — route through scrollToHeading()
     if (href && href.startsWith('#')) {
       const targetId = href.slice(1);
-      return `<a href="${href}" onclick="scrollToHeading('${targetId}');return false;"${title ? ` title="${title}"` : ''}>${text}</a>`;
+      const action = /^[A-Z][A-Z0-9_]*$/.test(targetId)
+        ? `navigate('${targetId}')` : `scrollToHeading('${targetId}')`;
+      return `<a href="${href}" onclick="${action};return false;"${title ? ` title="${title}"` : ''}>${text}</a>`;
     }
-    const ext = href && !href.startsWith('./') && !href.startsWith('../');
-    return `<a href="${href}"${title ? ` title="${title}"` : ''}${ext ? ' target="_blank" rel="noopener"' : ''}>${text}</a>`;
+    return `<a href="${href}"${title ? ` title="${title}"` : ''}>${text}</a>`;
   };
 
   marked.use({ renderer });

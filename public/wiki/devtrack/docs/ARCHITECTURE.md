@@ -1,7 +1,6 @@
 # Architecture
 
-The canonical architecture reference is [`docs/ARCHITECTURE.md`](../../../docs/ARCHITECTURE.md).
-This page is the short user-facing summary.
+This page is the user-facing architecture summary.
 
 ```text
 devtrack_client (Go)                    devtrack_server (Python)
