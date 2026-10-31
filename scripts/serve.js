@@ -33,9 +33,6 @@ http.createServer((request, response) => {
     return;
   }
   const oldDevTrack = {
-    '/devtrack': '/wiki/devtrack/',
-    '/devtrack/': '/wiki/devtrack/',
-    '/devtrack/index.html': '/wiki/devtrack/',
     '/devtrack/wiki.html': '/wiki/devtrack/',
     '/devtrack/download.html': '/download/devtrack/',
     '/devtrack/privacy.html': '/wiki/devtrack/privacy.html',
@@ -44,10 +41,6 @@ http.createServer((request, response) => {
   };
   if (oldDevTrack[pathname]) {
     response.writeHead(301, { Location: oldDevTrack[pathname] + new URL(request.url, 'http://localhost').search }).end();
-    return;
-  }
-  if (pathname.startsWith('/devtrack/assets/')) {
-    response.writeHead(301, { Location: pathname.replace('/devtrack/assets/', '/assets/devtrack/') }).end();
     return;
   }
   if (pathname === '/runtime-narrative/docs' || pathname === '/runtime-narrative/docs/') {

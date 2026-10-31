@@ -37,6 +37,7 @@ def main() -> None:
     for name in ("assets", "blog"):
         copy_tree(mogrov / name, output / name)
     copy_tree(mogrov / "sites" / "runtime-narrative", output / "runtime-narrative")
+    copy_tree(mogrov / "sites" / "devtrack", output / "devtrack", "_redirects")
     copy_tree(mogrov / "downloads" / "devtrack", output / "downloads" / "devtrack")
     wiki = output / "wiki"
     wiki.mkdir()
@@ -95,10 +96,6 @@ def main() -> None:
         "/devtrack/install.sh /downloads/devtrack/install.sh 301\n"
         "/devtrack/install.ps1 /downloads/devtrack/install.ps1 301\n"
         "/devtrack/wiki.html /wiki/devtrack/ 301\n"
-        "/devtrack/index.html /wiki/devtrack/ 301\n"
-        "/devtrack /wiki/devtrack/ 301\n"
-        "/devtrack/ /wiki/devtrack/ 301\n"
-        "/devtrack/assets/:file /assets/devtrack/:file 301\n"
         "/runtime-narrative/docs /wiki/runtime-narrative/ 301\n"
         "/runtime-narrative/docs/ /wiki/runtime-narrative/ 301\n"
         "/runtime-narrative/docs/:page /wiki/runtime-narrative/:page 301\n",
@@ -119,10 +116,10 @@ def main() -> None:
     )
     for page in output.rglob("*.html"):
         relative = page.relative_to(output).as_posix()
-        active = ("DevTrack" if relative.startswith("wiki/devtrack/") else
+        active = ("DevTrack" if relative.startswith(("devtrack/", "wiki/devtrack/")) else
                   "Runtime Narrative" if relative.startswith(("runtime-narrative/", "wiki/runtime-narrative/")) else
                   "Mogrov")
-        links = [("Mogrov", "/"), ("DevTrack", "/wiki/devtrack/"),
+        links = [("Mogrov", "/"), ("DevTrack", "/devtrack/"),
                  ("Runtime Narrative", "/runtime-narrative/")]
         nav = '<nav id="mogrov-project-switcher" aria-label="Mogrov projects">' + "".join(
             f'<a href="{href}"' + (' aria-current="page"' if label == active else '') +
