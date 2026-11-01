@@ -36,8 +36,9 @@ are maintained in this repository. Edit `sites/devtrack/` and `sites/runtime-nar
 for the project landing pages. Edit `downloads/devtrack/` for the DevTrack
 installer scripts and `scripts/sync_sites.py` for download redirects. Edit
 `documentation/devtrack/` and
-`documentation/runtime-narrative/` for the wikis. The Runtime Narrative authoring guide
-is `documentation/runtime-narrative/CONTRIBUTING.md`.
+`documentation/runtime-narrative/` for the wikis. Runtime Narrative's authoring
+references, `CONTRIBUTING.md` and `COMPLETE_GUIDE.md`, stay in source and are
+not copied into the published wiki.
 The copies under `public/` are published snapshots. To refresh them, make a new output
 directory with:
 

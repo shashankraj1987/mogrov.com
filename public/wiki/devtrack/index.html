@@ -5,8 +5,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>DevTrack Docs</title>
-  <link rel="icon" type="image/png" sizes="192x192" href="/assets/devtrack/devtrack.png" />
-  <link rel="apple-touch-icon" href="/assets/devtrack/devtrack.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/devtrack/assets/devtrack.png" />
+  <link rel="apple-touch-icon" href="/devtrack/assets/devtrack.png" />
   <link rel="stylesheet" href="/assets/vendor/highlight-light.min.css" id="hljs-theme" />
   <script async src="/assets/vendor/mermaid.min.js"></script>
   <style>
@@ -562,7 +562,7 @@
   <aside class="sidebar" id="sidebar">
     <div class="sidebar-head">
       <a class="brand" href="#" onclick="navigate('home');return false;">
-        <img class="brand-icon" src="/assets/devtrack/devtrack.png" alt="" />
+        <img class="brand-icon" src="/devtrack/assets/devtrack.png" alt="" />
         <div>
           <div class="brand-name">DevTrack</div>
           <div class="brand-sub">Developer Automation</div>
@@ -633,6 +633,7 @@ const NAV = [
       { id: 'GETTING_STARTED', label: 'What DevTrack Does', icon: rocket_icon() },
       { id: 'INSTALLATION',    label: 'Install',            icon: download_icon() },
       { id: 'QUICK_START',     label: 'First Commit',       icon: flash_icon() },
+      { id: 'CLI_QUICKSTART',  label: 'CLI Quickstart',    icon: terminal_icon() },
       { id: 'FIRST_DAY',       label: 'Your First Day',     icon: rocket_icon() },
       { id: 'SETUP_WIZARD',    label: 'Setup Wizard',       icon: settings_icon() },
       { id: 'POSTGRES_SETUP',  label: 'PostgreSQL Setup',   icon: settings_icon() },
@@ -647,6 +648,7 @@ const NAV = [
     items: [
       { id: 'INDEX',           label: 'Doc Index',          icon: home_icon() },
       { id: 'CLI_REFERENCE',   label: 'CLI Reference',      icon: terminal_icon() },
+      { id: 'USAGE_GUIDE',     label: 'Usage Guide',        icon: home_icon() },
       { id: 'CONFIGURATION',   label: 'Configuration',      icon: settings_icon() },
       { id: 'WORKSPACES',      label: 'Workspaces',         icon: git_icon() },
       { id: 'MULTI_REPO',      label: 'Multi-Repo Setup',   icon: git_icon() },
@@ -661,6 +663,7 @@ const NAV = [
       { id: 'TICKET_MAPPING',    label: 'Ticket Mapping',    icon: git_icon() },
       { id: 'GIT_COMMIT_WORKFLOW', label: 'Commit Workflow',   icon: commit_icon() },
       { id: 'SAGE',               label: 'DevTrack Sage',      icon: agent_icon() },
+      { id: 'GIT_SAGE_INTEGRATION', label: 'Sage Migration',   icon: agent_icon() },
     ]
   },
   {
@@ -669,6 +672,7 @@ const NAV = [
       { id: 'PENDING_ACTIONS', label: 'Pending Actions',    icon: bell_icon() },
       { id: 'EOD_AND_VOICE',   label: 'EOD & Your Voice',   icon: user_icon() },
       { id: 'BASIC_WORKFLOW_TESTING', label: 'Basic Workflow Testing', icon: '🧪' },
+      { id: 'VERIFICATION',    label: 'Verification',       icon: commit_icon() },
       { id: 'WORK_TRACKER',    label: 'Ticket Context',     icon: '🎫' },
       { id: 'MCP_CLAUDE_CODE', label: 'MCP / Agent Memory', icon: '🤖' },
     ]
@@ -704,6 +708,7 @@ const NAV = [
       { id: 'TELEMETRY',       label: 'Telemetry',        icon: '📊' },
       { id: 'CLOUD_MODE',      label: 'Cloud Mode',       icon: '☁️' },
       { id: 'TUI_DASHBOARD',   label: 'TUI Dashboard',    icon: terminal_icon() },
+      { id: 'TUI_FLOWS',       label: 'TUI Flows',        icon: terminal_icon() },
     ]
   },
   {

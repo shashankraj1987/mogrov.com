@@ -43,6 +43,12 @@ for page in root.rglob("*.html"):
     parser = Links()
     parser.feed(page.read_text(encoding="utf-8"))
     pages[page] = parser
+devtrack_wiki = root / "wiki/devtrack/index.html"
+if devtrack_wiki.is_file():
+    wiki_content = devtrack_wiki.read_text(encoding="utf-8")
+    for guide in (root / "wiki/devtrack/docs").glob("*.md"):
+        if not re.search(r"\bid:\s*['\"]" + re.escape(guide.stem) + r"['\"]", wiki_content):
+            missing.append(f"wiki/devtrack/docs/{guide.name} -> missing from wiki navigation")
 for page, parser in pages.items():
     relative = page.relative_to(root).as_posix()
     content = page.read_text(encoding="utf-8")
