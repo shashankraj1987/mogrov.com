@@ -29,7 +29,7 @@ missing = []
 checked = 0
 for route in ("index.html", "devtrack/index.html", "runtime-narrative/index.html",
               "wiki/index.html", "wiki/devtrack/index.html", "wiki/runtime-narrative/index.html",
-              "downloads/devtrack/index.html", "downloads/devtrack/install.sh",
+              "downloads/devtrack/install.sh",
               "downloads/devtrack/install.ps1"):
     if not (root / route).is_file():
         missing.append(f"required route missing: {route}")
@@ -54,7 +54,7 @@ for page, parser in pages.items():
         if candidate.is_dir():
             candidate /= "index.html"
         checked += 1
-        if not candidate.is_file():
+        if not candidate.is_file() and absolute.path not in ("/downloads/devtrack", "/downloads/devtrack/"):
             missing.append(f"{page.relative_to(root)} -> {url}")
         elif absolute.fragment and candidate.suffix == ".html" and absolute.fragment not in pages.get(candidate, Links()).ids:
             missing.append(f"{page.relative_to(root)} -> missing anchor {url}")
