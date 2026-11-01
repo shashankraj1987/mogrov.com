@@ -29,10 +29,15 @@ missing = []
 checked = 0
 for route in ("index.html", "devtrack/index.html", "runtime-narrative/index.html",
               "wiki/index.html", "wiki/devtrack/index.html", "wiki/runtime-narrative/index.html",
-              "downloads/devtrack/index.html", "downloads/devtrack/install.sh",
+              "downloads/devtrack/install.sh",
               "downloads/devtrack/install.ps1"):
     if not (root / route).is_file():
         missing.append(f"required route missing: {route}")
+redirects_text = (root / "_redirects").read_text(encoding="utf-8")
+for route in ("/download/devtrack", "/download/devtrack/", "/downloads/devtrack",
+              "/downloads/devtrack/", "/devtrack/download.html"):
+    if f"{route} https://github.com/sraj0501/Devtrack_/releases/latest 302" not in redirects_text:
+        missing.append(f"missing GitHub release redirect: {route}")
 pages = {}
 for page in root.rglob("*.html"):
     parser = Links()
@@ -49,7 +54,7 @@ for page, parser in pages.items():
         if candidate.is_dir():
             candidate /= "index.html"
         checked += 1
-        if not candidate.is_file():
+        if not candidate.is_file() and absolute.path not in ("/downloads/devtrack", "/downloads/devtrack/"):
             missing.append(f"{page.relative_to(root)} -> {url}")
         elif absolute.fragment and candidate.suffix == ".html" and absolute.fragment not in pages.get(candidate, Links()).ids:
             missing.append(f"{page.relative_to(root)} -> missing anchor {url}")
@@ -85,6 +90,8 @@ if redirects.exists():
             missing.append(f"_redirects -> invalid {line}")
             continue
         target = fields[1]
+        if target == "https://github.com/sraj0501/Devtrack_/releases/latest":
+            continue
         if not target.startswith("/"):
             missing.append(f"_redirects -> outbound {line}")
         elif ":" not in target:
