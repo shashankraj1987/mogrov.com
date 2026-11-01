@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script>(function(){try{var t=localStorage.getItem('mogrov-theme')||'light';var r=document.documentElement;r.classList.add(t);r.setAttribute('data-theme',t);}catch(e){document.documentElement.classList.add('light');document.documentElement.setAttribute('data-theme','light');}})();</script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Privacy — DevTrack</title>
   <meta name="description" content="How DevTrack stores local activity, stages outbound actions, and handles optional integrations and AI providers." />
   <link rel="icon" type="image/png" sizes="192x192" href="/assets/devtrack/devtrack.png" />
   <link rel="apple-touch-icon" href="/assets/devtrack/devtrack.png" />
-  <link rel="stylesheet" href="/assets/devtrack/style.css" />
+  <link rel="stylesheet" href="/assets/devtrack/style.css?v=20261101-wiki2" />
   <link rel="stylesheet" href="/assets/vendor/fontawesome.min.css" />
-<link rel="stylesheet" href="/assets/css/project-switcher.css">
+<link rel="stylesheet" href="/assets/css/mogrov-system.css">
 </head>
-<body>
+<body data-mogrov-area="mogrov">
   <button class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle sidebar"><i class="fas fa-bars"></i></button>
   <div class="sidebar" id="sidebar">
     <div class="sidebar-header">
@@ -33,6 +34,7 @@
         <a href="#security" class="nav-item" data-tab="security"><i class="nav-icon fas fa-lock"></i><span class="nav-text">Security</span></a>
       </div>
     </nav>
+<nav id="mogrov-site-path" class="" aria-label="Breadcrumb"><ol><li><a href="/">Mogrov</a></li><li><a href="/devtrack/">DevTrack</a></li><li><a href="/wiki/devtrack/">Docs</a></li><li aria-current="page">Privacy</li></ol></nav>
   </div>
   <div class="main-content"><div class="content-wrapper">
     <section id="overview" class="tab-content active">
@@ -121,7 +123,7 @@ devtrack uninstall</code></pre>
       <p><strong>Last updated:</strong> September 26, 2026</p>
     </section>
   </div></div>
-  <script src="/assets/devtrack/script.js"></script>
-<nav id="mogrov-project-switcher" aria-label="Mogrov projects"><a href="/">Mogrov</a><a href="/devtrack/" aria-current="page">DevTrack</a><a href="/runtime-narrative/">Runtime Narrative</a></nav>
+  <script src="/assets/devtrack/script.js?v=20261101-wiki2"></script>
+<script src="/assets/js/mogrov-system.js"></script>
 </body>
 </html>

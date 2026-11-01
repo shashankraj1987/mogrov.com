@@ -44,6 +44,28 @@ for page in root.rglob("*.html"):
     parser.feed(page.read_text(encoding="utf-8"))
     pages[page] = parser
 for page, parser in pages.items():
+    relative = page.relative_to(root).as_posix()
+    content = page.read_text(encoding="utf-8")
+    if 'id="mogrov-project-switcher"' in content:
+        missing.append(f"{relative} -> redundant project bar")
+    theme_control = (
+        'id="mogrov-global-theme"' if relative in ("devtrack/index.html", "wiki/index.html") else
+        'id="theme-toggle"' if relative.startswith(("runtime-narrative/", "wiki/runtime-narrative/")) else
+        'id="themeToggle"' if relative == "wiki/devtrack/index.html" else
+        'id="darkModeToggle"' if relative == "wiki/devtrack/privacy.html" else
+        'data-theme-toggle'
+    )
+    if theme_control not in content or "mogrov-theme" not in content:
+        missing.append(f"{relative} -> missing theme control")
+    if relative == "index.html":
+        if 'href="/" class="flex items-center gap-2.5 group" aria-label="Mogrov home"' not in content:
+            missing.append("index.html -> missing home-linked brand")
+    else:
+        breadcrumb = re.search(r'<nav\b[^>]*aria-label="Breadcrumb"[^>]*>(.*?)</nav>', content, re.S)
+        if not breadcrumb or not re.search(r'<a\s+[^>]*href="/"[^>]*>Mogrov</a>', breadcrumb.group(1)):
+            missing.append(f"{relative} -> missing Mogrov breadcrumb")
+        elif 'aria-current="page"' not in breadcrumb.group(1):
+            missing.append(f"{relative} -> breadcrumb has no current page")
     base = "https://mogrov.com/" + page.relative_to(root).as_posix()
     for url in parser.urls:
         absolute = urlsplit(urljoin(base, url))
@@ -58,7 +80,6 @@ for page, parser in pages.items():
             missing.append(f"{page.relative_to(root)} -> {url}")
         elif absolute.fragment and candidate.suffix == ".html" and absolute.fragment not in pages.get(candidate, Links()).ids:
             missing.append(f"{page.relative_to(root)} -> missing anchor {url}")
-    content = page.read_text(encoding="utf-8")
     for url in re.findall(r'''\b(?:href|src)\s*=\s*["'](https?://[^"']+|mailto:[^"']+)["']''', content):
         if url.startswith("https://mogrov.com/"):
             continue

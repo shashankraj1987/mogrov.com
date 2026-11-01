@@ -7,7 +7,7 @@
   <meta name="description" content="Documentation for Mogrov's DevTrack and Runtime Narrative projects.">
   <script>(function(){try{var t=localStorage.getItem('mogrov-theme')||'light';document.documentElement.classList.add(t==='dark'?'dark':'light');}catch(e){document.documentElement.classList.add('light');}})();</script>
   <link rel="stylesheet" href="/assets/css/site.css">
-  <link rel="stylesheet" href="/assets/css/project-switcher.css">
+  <link rel="stylesheet" href="/assets/css/mogrov-system.css">
   <style>
     .wiki-shell { max-width: 1080px; margin: 0 auto; padding: 36px 24px 110px; }
     .wiki-top { display: flex; justify-content: space-between; align-items: center; gap: 16px; }
@@ -27,13 +27,14 @@
     @media (max-width: 700px) { .wiki-grid { grid-template-columns: 1fr; } .wiki-hero { padding-top: 80px; } }
   </style>
 </head>
-<body>
+<body data-mogrov-area="mogrov">
+  <nav id="mogrov-site-path" aria-label="Breadcrumb"><ol><li><a href="/">Mogrov</a></li><li aria-current="page">Documentation</li></ol></nav>
   <main class="wiki-shell">
-    <div class="wiki-top"><a class="wiki-brand" href="/">mogrov.com</a><a class="wiki-back" href="/">← Home</a></div>
+    <div class="wiki-top"><a class="wiki-brand" href="/">mogrov.com</a><button id="mogrov-global-theme" type="button" aria-label="Toggle color theme" title="Toggle color theme">◐</button></div>
     <header class="wiki-hero">
       <div class="wiki-eyebrow">Mogrov / documentation</div>
       <h1>Explore the docs.</h1>
-      <p>Guides and reference material for our developer tools, together under Mogrov. Each project keeps its own visual identity.</p>
+      <p>Guides and reference material for our developer tools, together under one Mogrov design.</p>
     </header>
     <div class="wiki-grid">
       <a class="wiki-card" href="/wiki/devtrack/">
@@ -50,6 +51,6 @@
       </a>
     </div>
   </main>
-  <nav id="mogrov-project-switcher" aria-label="Mogrov projects"><a href="/" aria-current="page">Mogrov</a><a href="/devtrack/">DevTrack</a><a href="/runtime-narrative/">Runtime Narrative</a></nav>
+  <script src="/assets/js/mogrov-system.js"></script>
 </body>
 </html>

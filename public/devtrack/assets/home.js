@@ -217,8 +217,9 @@ if (!sessionStorage.getItem('banner-dismissed')) {
 })();
 
 // ── Nav scroll tint ────────────────────────────────────────────────────────────
-window.addEventListener('scroll', () => {
+function updateNavTint() {
   const nav = document.getElementById('navbar');
-  nav.style.background = window.scrollY > 20
-    ? 'rgba(8,8,8,.92)' : 'rgba(8,8,8,.7)';
-}, { passive: true });
+  nav.classList.toggle('scrolled', window.scrollY > 20);
+}
+window.addEventListener('scroll', updateNavTint, { passive: true });
+updateNavTint();

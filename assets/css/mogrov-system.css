@@ -1,0 +1,160 @@
+/* Shared Mogrov navigation and breadcrumbs across the published site. */
+:root {
+  --mg-blue: #2e5cff;
+  --mg-blue-soft: rgba(46, 92, 255, .08);
+  --mg-violet: #7c3aed;
+  --mg-ink: #16161e;
+  --mg-surface: #f7f8fb;
+  --mg-line: #d6d9e8;
+  --mg-space-2: 8px;
+  --mg-space-3: 12px;
+  --mg-space-4: 16px;
+  --mg-space-6: 24px;
+  --mg-radius: 12px;
+  --mg-card-radius: 20px;
+  --mg-button-ink: #ffffff;
+  --mg-button-bg: linear-gradient(135deg, #2e5cff, #7c3aed);
+}
+.dark, :root[data-theme="dark"] {
+  --mg-blue: #7aa2f7;
+  --mg-blue-soft: rgba(122, 162, 247, .12);
+  --mg-violet: #bb9af7;
+  --mg-ink: #c0caf5;
+  --mg-surface: #1a1b26;
+  --mg-line: rgba(122, 162, 247, .3);
+  --mg-button-ink: #16161e;
+  --mg-button-bg: linear-gradient(135deg, #7aa2f7, #bb9af7);
+}
+#mogrov-site-path {
+  position: relative;
+  display: block;
+  z-index: 1000;
+  box-sizing: border-box;
+  width: max-content;
+  max-width: calc(100% - 32px);
+  height: auto;
+  min-height: 0;
+  margin: 8px 0 0 max(24px, calc((100vw - 1280px)/2));
+  padding: 4px 0;
+  border: 0;
+  background: transparent;
+  backdrop-filter: none;
+  color: var(--mg-ink);
+  font: 500 12px/1.5 system-ui, sans-serif;
+}
+#mogrov-site-path.mg-overlay {
+  position: absolute;
+  top: 72px;
+  left: max(24px, calc((100vw - 1280px)/2));
+  right: auto;
+  margin: 0;
+  border: 0;
+  background: transparent;
+}
+body.banner-visible #mogrov-site-path.mg-overlay { top: 109px; }
+:root[data-theme="dark"] body[data-mogrov-area="devtrack"] #mogrov-site-path.mg-overlay {
+  --mg-ink: #c0caf5;
+  --mg-blue: #7aa2f7;
+  --mg-violet: #bb9af7;
+}
+#mogrov-site-path *, #mogrov-site-path *::before, #mogrov-site-path *::after { box-sizing: border-box; }
+#mogrov-site-path ol { display: flex; flex-wrap: wrap; align-items: center; gap: var(--mg-space-2); margin: 0; padding: 0; list-style: none; }
+#mogrov-site-path li { margin: 0; padding: 0; }
+#mogrov-site-path li + li::before { content: '/'; margin-right: var(--mg-space-2); color: var(--mg-ink); opacity: .45; }
+#mogrov-site-path a { color: var(--mg-ink); opacity: .7; text-decoration: none; }
+#mogrov-site-path a:hover { text-decoration: underline; }
+#mogrov-site-path a:focus-visible { outline: 2px solid var(--mg-blue); outline-offset: 3px; }
+#mogrov-site-path [aria-current="page"] { color: var(--mg-ink); opacity: .85; }
+@media (max-width: 600px) {
+  #mogrov-site-path { margin-left: 16px; font-size: 11px; }
+  #mogrov-site-path.mg-overlay { left: 16px; }
+}
+/* Each page uses its own header; the breadcrumb sits just below it. */
+body[data-mogrov-area="mogrov"] > nav.nav-glass { top: 0 !important; }
+body[data-mogrov-area="devtrack"] > nav#navbar { top: 0; }
+body[data-mogrov-area="devtrack"].banner-visible > nav#navbar { top: 37px; }
+body[data-mogrov-area="runtime"] > header.topbar,
+body[data-mogrov-area="wiki-runtime"] > header.topbar { top: 0; }
+#mogrov-global-theme {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border: 1px solid var(--mg-line);
+  border-radius: 9px;
+  background: transparent;
+  color: var(--mg-ink);
+  font: 700 20px/1 system-ui, sans-serif;
+  cursor: pointer;
+}
+#mogrov-global-theme:hover { background: var(--mg-blue-soft); }
+body[data-mogrov-area="devtrack"] #mogrov-global-theme {
+  color: var(--text);
+  border-color: var(--border2);
+}
+@media (max-width: 900px) {
+  body[data-mogrov-area="devtrack"] > nav#navbar .nav-links { display: none; }
+}
+@media (max-width: 600px) {
+  body[data-mogrov-area="devtrack"] .dev-banner-detail { display: none; }
+  body[data-mogrov-area="devtrack"] .hero { padding-top: 160px; }
+  body[data-mogrov-area="devtrack"] .hero-title { max-width: 100%; font-size: clamp(2.6rem, 10vw, 4rem); overflow-wrap: anywhere; }
+  body[data-mogrov-area="devtrack"] .hero-typewriter { white-space: normal; }
+  body[data-mogrov-area="devtrack"] .hero-cta { width: 100%; }
+  body[data-mogrov-area="devtrack"] .btn-hero { justify-content: center; }
+  body[data-mogrov-area="wiki-devtrack"] .version-chip { display: none; }
+}
+body[data-mogrov-area="wiki-runtime"] .sidebar,
+body[data-mogrov-area="wiki-runtime"] .toc {
+  top: var(--header-h);
+  height: calc(100vh - var(--header-h));
+}
+body[data-mogrov-area="wiki-runtime"] .prose h2,
+body[data-mogrov-area="wiki-runtime"] .prose h3 { scroll-margin-top: 78px; }
+body[data-mogrov-area="wiki-runtime"].nav-open .sidebar-overlay { top: var(--header-h); }
+body[data-mogrov-area] footer,
+body[data-mogrov-area] .site-footer {
+  border-top-color: var(--mg-line);
+  background: var(--mg-surface);
+  color: var(--mg-ink);
+}
+.mogrov-footer-links {
+  display: flex;
+  flex: 0 0 100%;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--mg-space-3) var(--mg-space-6);
+  width: 100%;
+  margin-top: var(--mg-space-6);
+  padding-top: var(--mg-space-6);
+  border-top: 1px solid var(--mg-line);
+  font: 650 13px/1.5 system-ui, sans-serif;
+}
+.mogrov-footer-links a { color: var(--mg-blue); text-decoration: none; }
+.mogrov-footer-links a:hover { text-decoration: underline; }
+body[data-mogrov-area] :is(a.btn-primary, a.btn-hero-primary, a.btn-ghost, a.btn-hero-secondary) {
+  display: inline-flex;
+  align-items: center;
+  min-height: 48px;
+  padding: var(--mg-space-3) var(--mg-space-6);
+  border-radius: var(--mg-radius);
+  font-family: 'Geist', system-ui, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+}
+body[data-mogrov-area="mogrov"] a.btn-primary,
+body[data-mogrov-area="runtime"] a.btn-primary,
+body[data-mogrov-area="wiki-runtime"] a.btn-primary {
+  background: var(--mg-button-bg);
+  color: var(--mg-button-ink);
+}
+body[data-mogrov-area="mogrov"] .card,
+body[data-mogrov-area="runtime"] .card,
+body[data-mogrov-area="wiki-runtime"] .card,
+body[data-mogrov-area="devtrack"] :is(.feat-card, .integration-card) {
+  border-radius: var(--mg-card-radius);
+}
+body[data-mogrov-area] a:focus-visible,
+body[data-mogrov-area] button:focus-visible { outline: 2px solid var(--mg-blue); outline-offset: 3px; }

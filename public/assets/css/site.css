@@ -69,6 +69,8 @@
 /* ---- Base ---- */
 * { -webkit-font-smoothing: antialiased; }
 html { scroll-behavior: smooth; scroll-padding-top: 6rem; }
+.project-card { cursor: pointer; }
+.project-card:focus-within { outline: 2px solid var(--primary); outline-offset: 3px; }
 body {
   background-color: var(--bg);
   color: var(--ink-soft);

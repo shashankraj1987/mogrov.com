@@ -12,8 +12,10 @@ This repository holds the static site for `mogrov.com`. The deployable files are
 
 Zivra is intentionally excluded.
 
-Every HTML page has the same project switcher. Its shared stylesheet is
-`public/assets/css/project-switcher.css`; each project's own styles stay separate.
+The shared design goal, work sequence, and acceptance checks are in [DESIGN_PLAN.md](DESIGN_PLAN.md).
+Each page uses its own header and theme control, with a compact breadcrumb on
+deeper pages. Shared styles and behavior are in `assets/css/mogrov-system.css`
+and `assets/js/mogrov-system.js`. Product styles still own their content and demos.
 The documentation index template is `scripts/wiki-index.html`.
 Mogrov owns the DevTrack and Runtime Narrative landing pages and both public wikis.
 The product repositories keep their code, release, and package metadata; they do not host

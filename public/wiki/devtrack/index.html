@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
+<script>(function(){try{var t=localStorage.getItem('mogrov-theme')||'light';var r=document.documentElement;r.classList.add(t);r.setAttribute('data-theme',t);}catch(e){document.documentElement.classList.add('light');document.documentElement.setAttribute('data-theme','light');}})();</script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>DevTrack Docs</title>
@@ -20,62 +21,66 @@
       --topbar-h: 52px;
       --content-max: 860px;
       --radius: 6px;
-      --radius-lg: 10px;
+      --radius-lg: 18px;
 
       /* Light theme */
-      --bg: #ffffff;
-      --bg-subtle: #f8f8f8;
-      --bg-muted: #f1f1f1;
-      --border: #e5e5e5;
-      --border-strong: #d0d0d0;
-      --text: #111111;
-      --text-muted: #666666;
-      --text-faint: #999999;
-      --accent: #0070f3;
-      --accent-bg: #eff6ff;
-      --accent-hover: #0060df;
-      --sidebar-bg: #fafafa;
-      --sidebar-border: #ebebeb;
-      --code-bg: #f6f8fa;
-      --code-border: #e1e4e8;
-      --nav-hover: #f0f0f0;
-      --nav-active-bg: #eff6ff;
-      --nav-active-text: #0070f3;
-      --scrollbar: #d8d8d8;
+      --bg: #f7f8fb;
+      --bg-subtle: #ffffff;
+      --bg-muted: #edf0f8;
+      --border: #e7e9f1;
+      --border-strong: #d6d9e8;
+      --text: #16161e;
+      --text-muted: #353b52;
+      --text-faint: #6b7390;
+      --accent: #2e5cff;
+      --accent-bg: rgba(46,92,255,.08);
+      --accent-hover: #254cda;
+      --sidebar-bg: #ffffff;
+      --sidebar-border: #e7e9f1;
+      --code-bg: #edf0f8;
+      --code-border: #d6d9e8;
+      --nav-hover: #edf0f8;
+      --nav-active-bg: rgba(46,92,255,.08);
+      --nav-active-text: #2e5cff;
+      --scrollbar: #c3c9d8;
       --shadow-sm: 0 1px 3px rgba(0,0,0,.07);
       --shadow-md: 0 4px 12px rgba(0,0,0,.10);
       --callout-note: #eff6ff;
       --callout-note-border: #93c5fd;
       --callout-tip: #f0fdf4;
       --callout-tip-border: #86efac;
+      --callout-tip-text: #166534;
+      --callout-note-text: #1d4ed8;
       --callout-warn: #fffbeb;
       --callout-warn-border: #fcd34d;
     }
 
     [data-theme="dark"] {
-      --bg: #07090e;
-      --bg-subtle: #090d16;
-      --bg-muted: #0c1020;
-      --border: #1a2035;
-      --border-strong: #243050;
-      --text: #ededed;
-      --text-muted: #94a3b8;
-      --text-faint: #4b5563;
-      --accent: #22d3ee;
-      --accent-bg: rgba(34,211,238,.08);
-      --accent-hover: #67e8f9;
-      --sidebar-bg: #060810;
-      --sidebar-border: #111827;
-      --code-bg: #060810;
-      --code-border: #1a2035;
-      --nav-hover: rgba(34,211,238,.04);
-      --nav-active-bg: rgba(34,211,238,.08);
-      --nav-active-text: #22d3ee;
-      --scrollbar: #1e2d42;
-      --callout-note: rgba(34,211,238,.06);
-      --callout-note-border: rgba(34,211,238,.4);
+      --bg: #1a1b26;
+      --bg-subtle: #202236;
+      --bg-muted: #24283b;
+      --border: rgba(122,162,247,.14);
+      --border-strong: rgba(122,162,247,.3);
+      --text: #c0caf5;
+      --text-muted: #a9b1d6;
+      --text-faint: #7983a8;
+      --accent: #7aa2f7;
+      --accent-bg: rgba(122,162,247,.12);
+      --accent-hover: #a3bdff;
+      --sidebar-bg: #202236;
+      --sidebar-border: rgba(122,162,247,.14);
+      --code-bg: #161822;
+      --code-border: rgba(122,162,247,.2);
+      --nav-hover: rgba(122,162,247,.08);
+      --nav-active-bg: rgba(122,162,247,.12);
+      --nav-active-text: #7aa2f7;
+      --scrollbar: #3b4264;
+      --callout-note: rgba(122,162,247,.08);
+      --callout-note-border: rgba(122,162,247,.4);
       --callout-tip: #0f2a1a;
       --callout-tip-border: #16a34a;
+      --callout-tip-text: #86efac;
+      --callout-note-text: #7aa2f7;
       --callout-warn: #2a1e00;
       --callout-warn-border: #d97706;
     }
@@ -128,6 +133,7 @@
       display: flex; align-items: center; justify-content: center;
       font-size: 14px; font-weight: 700; flex-shrink: 0;
     }
+    img.brand-icon { display: block; object-fit: contain; background: transparent; }
     .brand-name { font-size: .95rem; font-weight: 700; letter-spacing: -.02em; }
     .brand-sub { font-size: .72rem; color: var(--text-faint); margin-top: 1px; }
 
@@ -184,7 +190,7 @@
       color: var(--nav-active-text);
       border-left-color: var(--accent);
       font-weight: 600;
-      box-shadow: inset 0 0 20px rgba(34,211,238,.04);
+      box-shadow: inset 0 0 20px var(--accent-bg);
     }
 
     /* ── Sidebar version badge ───────────────────────────────────────── */
@@ -275,8 +281,11 @@
 
     /* ── Home / Landing ─────────────────────────────────────────────────── */
     .home-hero {
-      border-bottom: 1px solid var(--border);
-      padding-bottom: 40px; margin-bottom: 48px;
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      background: radial-gradient(circle at 0 0, var(--accent-bg), transparent 68%), var(--bg-subtle);
+      padding: clamp(28px, 4vw, 44px);
+      margin-bottom: 28px;
     }
     .home-badge {
       display: inline-block; font-size: .72rem; font-weight: 600;
@@ -286,31 +295,36 @@
       border: 1px solid var(--accent); margin-bottom: 16px;
     }
     .home-title {
-      font-size: 2.4rem; font-weight: 700; letter-spacing: -.04em;
+      font-size: clamp(2.4rem, 4vw, 3.6rem); font-weight: 750; letter-spacing: -.045em;
       line-height: 1.15; color: var(--text); margin-bottom: 12px;
     }
     .home-title span { color: var(--accent); }
-    .home-sub { font-size: 1.05rem; color: var(--text-muted); max-width: 560px; line-height: 1.65; }
+    .home-sub { font-size: 1.125rem; color: var(--text-muted); max-width: 680px; line-height: 1.65; }
 
     .home-grid {
       display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-      gap: 12px; margin-bottom: 48px;
+      gap: 16px; margin-bottom: 48px;
     }
     .home-card {
       border: 1px solid var(--border); border-radius: var(--radius-lg);
-      padding: 18px 20px; cursor: pointer; text-decoration: none;
-      color: var(--text); background: var(--bg);
-      transition: border-color .15s, box-shadow .15s, transform .1s;
+      min-height: 190px; padding: 24px; cursor: pointer; text-decoration: none;
+      color: var(--text); background: var(--bg-subtle);
+      box-shadow: 0 8px 28px -22px rgba(22,22,30,.28);
+      transition: border-color .2s, box-shadow .2s, transform .2s;
       display: block;
     }
     .home-card:hover {
       border-color: var(--accent);
-      box-shadow: 0 8px 28px rgba(34,211,238,.08), 0 0 0 1px rgba(34,211,238,.06);
+      box-shadow: 0 12px 36px -18px var(--accent-bg), 0 0 0 1px var(--accent-bg);
       transform: translateY(-3px);
     }
-    .home-card-icon { font-size: 1.4rem; margin-bottom: 10px; }
-    .home-card-title { font-size: .9rem; font-weight: 600; margin-bottom: 4px; }
-    .home-card-desc { font-size: .8rem; color: var(--text-muted); line-height: 1.5; }
+    .home-card-icon {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 38px; height: 38px; margin-bottom: 18px;
+      border-radius: 11px; background: var(--accent-bg); font-size: 1.25rem;
+    }
+    .home-card-title { font-size: 1rem; font-weight: 700; margin-bottom: 8px; }
+    .home-card-desc { font-size: .875rem; color: var(--text-muted); line-height: 1.6; }
 
     .quick-start-box {
       background: var(--code-bg); border: 1px solid var(--code-border);
@@ -533,12 +547,13 @@
       .sidebar.open { transform: translateX(0); }
       .sidebar.collapsed { transform: translateX(-100%); width: var(--sidebar-w); }
       .content-inner { padding: 24px 20px 60px; }
-      .home-title { font-size: 1.8rem; }
+      .home-hero { padding: 24px; }
+      .home-title { font-size: clamp(2rem, 8vw, 2.8rem); }
     }
   </style>
-<link rel="stylesheet" href="/assets/css/project-switcher.css">
+<link rel="stylesheet" href="/assets/css/mogrov-system.css">
 </head>
-<body>
+<body data-mogrov-area="wiki-devtrack">
 
 <link rel="stylesheet" href="/assets/vendor/highlight-dark.min.css" id="hljs-theme-dark" />
 
@@ -547,7 +562,7 @@
   <aside class="sidebar" id="sidebar">
     <div class="sidebar-head">
       <a class="brand" href="#" onclick="navigate('home');return false;">
-        <div class="brand-icon">D</div>
+        <img class="brand-icon" src="/assets/devtrack/devtrack.png" alt="" />
         <div>
           <div class="brand-name">DevTrack</div>
           <div class="brand-sub">Developer Automation</div>
@@ -579,11 +594,15 @@
       <button class="topbar-toggle" id="sidebarToggle" title="Toggle sidebar">
         <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"/></svg>
       </button>
-      <div class="breadcrumb" id="breadcrumb">
-        <a class="home-link" href="/#projects" title="Back to Mogrov projects">Mogrov projects</a>
+      <nav class="breadcrumb" id="breadcrumb" aria-label="Breadcrumb">
+        <a class="home-link" href="/" title="Mogrov home">Mogrov</a>
         <span class="sep">/</span>
-        <span class="current" id="breadcrumbCurrent">Home</span>
-      </div>
+        <a class="home-link" href="/devtrack/">DevTrack</a>
+        <span class="sep">/</span>
+        <a class="home-link" href="/wiki/devtrack/">Docs</a>
+        <span class="sep">/</span>
+        <span class="current" id="breadcrumbCurrent" aria-current="page">Home</span>
+      </nav>
       <div class="topbar-actions">
         <span class="version-chip">v3.2.0 stable · v3.3.0 dev</span>
         <button class="icon-btn" id="themeToggle" title="Toggle theme">
@@ -972,7 +991,7 @@ devtrack voice status</code></pre>
 <h1>Setup Wizard</h1>
 <p>The <strong>setup wizard</strong> is a one-command interactive onboarding flow that configures DevTrack from scratch — no manual <code>.env</code> editing required. It walks through server mode, LLM provider, credentials, workspace, project-management platform, and shell integration, then writes a complete environment file under the DevTrack XDG data directory and registers it so every subsequent <code>devtrack</code> invocation auto-loads it. Managed mode also collects and validates the required PostgreSQL URL.</p>
 
-<div class="home-badge" style="margin-bottom:24px;background:var(--callout-tip);border-color:var(--callout-tip-border);color:#166534;">Included in stable v3.2.0</div>
+<div class="home-badge" style="margin-bottom:24px;background:var(--callout-tip);border-color:var(--callout-tip-border);color:var(--callout-tip-text);">Included in stable v3.2.0</div>
 <blockquote><p>v3.2.0 includes the background bootstrap, <code>doctor</code>, first-run MCP guidance, voice seeding, DevTrack Sage, and the LLM fast lane described below.</p></blockquote>
 
 <h2>Running the Wizard</h2>
@@ -1100,7 +1119,7 @@ uv run python -m backend.server_tui</code></pre>
 <h1>Admin Console</h1>
 <p>The Admin Console is a lightweight web UI for operating DevTrack's Python backend — reviewing server-side pending actions, monitoring connected clients and trigger activity, and managing users, roles, API keys, LLM configuration, integration credentials, and license status — without touching the command line or <code>.env</code> directly. It is built with HTMX + Jinja2 and has no JavaScript build step.</p>
 
-<div class="home-badge" style="margin-bottom:24px;background:var(--callout-tip);border-color:var(--callout-tip-border);color:#166534;">Admin console in v3.2.0</div>
+<div class="home-badge" style="margin-bottom:24px;background:var(--callout-tip);border-color:var(--callout-tip-border);color:var(--callout-tip-text);">Admin console in v3.2.0</div>
 
 <h2>Launching</h2>
 <pre><code class="language-bash">cd Devtrack_/devtrack_server\nuv run python -m backend.admin</code></pre>
@@ -1571,7 +1590,7 @@ devtrack doctor --repair</code></pre>
 <h1>Uninstall</h1>
 <p>The <code>devtrack uninstall</code> command performs a clean, interactive removal of DevTrack from your machine — stopping the daemon, removing autostart entries, deleting runtime data, and optionally removing the binary itself.</p>
 
-<div class="home-badge" style="margin-bottom:24px;background:var(--callout-tip);border-color:var(--callout-tip-border);color:#166534;">New in v2.2.11 — feat/uninstall-and-upgrade-fix</div>
+<div class="home-badge" style="margin-bottom:24px;background:var(--callout-tip);border-color:var(--callout-tip-border);color:var(--callout-tip-text);">New in v2.2.11 — feat/uninstall-and-upgrade-fix</div>
 
 <h2>Quick Start</h2>
 <pre><code class="language-bash"># Interactive uninstall (confirms each step)
@@ -2664,7 +2683,7 @@ QUEUE_DRAIN_INTERVAL_SECS=10</code></pre>
 <h1>Auto-Start</h1>
 <p>Automatically start the DevTrack daemon when you log in, using the right mechanism for your operating system.</p>
 
-<div class="home-badge" style="margin-bottom:24px;background:var(--callout-note);border-color:var(--callout-note-border);color:#1d4ed8;">v1.4-dev — Env-baking: all current env vars are now baked into the generated plist/service unit automatically</div>
+<div class="home-badge" style="margin-bottom:24px;background:var(--callout-note);border-color:var(--callout-note-border);color:var(--callout-note-text);">v1.4-dev — Env-baking: all current env vars are now baked into the generated plist/service unit automatically</div>
 
 <h2>Quick Start</h2>
 <pre><code class="language-bash">devtrack autostart-install    # Install and enable auto-start (bakes env vars)
@@ -2769,7 +2788,7 @@ schtasks /Run /TN DevTrack               # Start immediately without waiting for
   // ── Redirect stubs: broken internal links point here; we route to the correct page ──
   VISION: `<div class="md-body">
 <h1>Roadmap</h1>
-<div class="home-badge" style="margin-bottom:24px;background:var(--callout-tip);border-color:var(--callout-tip-border);color:#166534;">Stable v3.2.0; Sage roadmap complete</div>
+<div class="home-badge" style="margin-bottom:24px;background:var(--callout-tip);border-color:var(--callout-tip-border);color:var(--callout-tip-text);">Stable v3.2.0; Sage roadmap complete</div>
 <p>DevTrack's completed product arc is released: silent observation, the confidence-scored pending-actions queue, deterministic ticket extraction, EOD reporting, local voice learning, the PR review loop, ten-tool read-only MCP context, DevTrack Sage, first-run onboarding, and native MCPB distribution.</p>
 <h2>Current focus</h2>
 <p><strong>v3.3.0 development:</strong> the priority is reliable Git capture, ticket recording and commit-based EOD reports. Time tracking has been removed. The packaged Linux client passed isolated PostgreSQL workflow checks; the packaged Windows client passed an isolated no-send check. Native installed workflows with a live server, controlled PM/email delivery and a representative workday are the next gates. Sage testing, learning-adapter repairs and platform-parity work are on hold.</p>
@@ -3142,7 +3161,7 @@ devtrack eod status</code></pre>
 </div>`,
   MCP_CLAUDE_CODE: `<div class="md-body">
 <h1>MCP and Agent Memory</h1>
-<div class="home-badge" style="margin-bottom:24px;background:var(--callout-tip);border-color:var(--callout-tip-border);color:#166534;">Available in v3.2.0 · official MCP Registry record active/latest</div>
+<div class="home-badge" style="margin-bottom:24px;background:var(--callout-tip);border-color:var(--callout-tip-border);color:var(--callout-tip-text);">Available in v3.2.0 · official MCP Registry record active/latest</div>
 <blockquote><p>The commands on this page ship in v3.2.0. Five privacy-declaring native MCPB bundles are published for Windows, macOS, and Linux.</p></blockquote>
 
 <h2>Why DevTrack Added MCP</h2>
@@ -3285,7 +3304,7 @@ devtrack mcp setup</code></pre>
 
 // ── State ─────────────────────────────────────────────────────────────────────
 let currentPage = 'home';
-let theme = localStorage.getItem('dt-theme') || 'light';
+let theme = localStorage.getItem('mogrov-theme') || 'light';
 let sidebarOpen = true;
 const DOCS_BASE = './docs/';
 
@@ -3304,7 +3323,9 @@ document.addEventListener('DOMContentLoaded', () => {
 function setTheme(t) {
   theme = t;
   document.documentElement.setAttribute('data-theme', t);
-  localStorage.setItem('dt-theme', t);
+  document.documentElement.classList.toggle('dark', t === 'dark');
+  document.documentElement.classList.toggle('light', t !== 'dark');
+  localStorage.setItem('mogrov-theme', t);
   // Mermaid is a locally bundled enhancement; the wiki remains readable if
   // the script cannot initialize.
   if (window.mermaid) {
@@ -3342,7 +3363,7 @@ function buildNav() {
 
 // ── Setup Listeners ───────────────────────────────────────────────────────────
 function setupListeners() {
-  document.getElementById('themeToggle').onclick = () => setTheme(theme === 'light' ? 'dark' : 'light');
+  document.getElementById('themeToggle').onclick = () => setTheme(document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light');
   document.getElementById('sidebarToggle').onclick = toggleSidebar;
   document.getElementById('searchInput').addEventListener('input', handleSearch);
   document.getElementById('searchInput').addEventListener('keydown', e => {
@@ -3752,6 +3773,6 @@ function clearSearch() {
   document.getElementById('searchResults').style.display = 'none';
 }
 </script>
-<nav id="mogrov-project-switcher" aria-label="Mogrov projects"><a href="/">Mogrov</a><a href="/devtrack/" aria-current="page">DevTrack</a><a href="/runtime-narrative/">Runtime Narrative</a></nav>
+<script src="/assets/js/mogrov-system.js"></script>
 </body>
 </html>
