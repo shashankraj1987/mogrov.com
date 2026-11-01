@@ -5,8 +5,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const html = document.documentElement;
     
     // Check for saved theme preference or default to light mode
-    const currentTheme = localStorage.getItem('theme') || 'light';
+    const currentTheme = localStorage.getItem('mogrov-theme') || 'light';
     html.setAttribute('data-theme', currentTheme);
+    html.classList.toggle('dark', currentTheme === 'dark');
+    html.classList.toggle('light', currentTheme !== 'dark');
     updateDarkModeIcon(currentTheme);
     
     darkModeToggle.addEventListener('click', function() {
@@ -14,7 +16,9 @@ document.addEventListener('DOMContentLoaded', function() {
         const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
         
         html.setAttribute('data-theme', newTheme);
-        localStorage.setItem('theme', newTheme);
+        html.classList.toggle('dark', newTheme === 'dark');
+        html.classList.toggle('light', newTheme !== 'dark');
+        localStorage.setItem('mogrov-theme', newTheme);
         updateDarkModeIcon(newTheme);
     });
     
@@ -39,12 +43,17 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     sidebarCollapse.addEventListener('click', function() {
+        if (window.matchMedia('(max-width: 768px)').matches) {
+            body.classList.remove('sidebar-open');
+            return;
+        }
         body.classList.toggle('sidebar-collapsed');
         localStorage.setItem('sidebarCollapsed', body.classList.contains('sidebar-collapsed'));
     });
     
     sidebarToggle.addEventListener('click', function() {
         body.classList.remove('sidebar-collapsed');
+        body.classList.toggle('sidebar-open');
         localStorage.setItem('sidebarCollapsed', 'false');
     });
     
@@ -64,6 +73,7 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Add active class to clicked nav item and corresponding tab content
             this.classList.add('active');
+            body.classList.remove('sidebar-open');
             const targetContent = document.getElementById(targetTab);
             if (targetContent) {
                 targetContent.classList.add('active');

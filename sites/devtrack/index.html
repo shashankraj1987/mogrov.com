@@ -14,7 +14,7 @@
 
   <link rel="icon" type="image/png" sizes="192x192" href="assets/devtrack.png" />
   <link rel="apple-touch-icon" href="assets/devtrack.png" />
-  <link rel="stylesheet" href="assets/home.css" />
+  <link rel="stylesheet" href="assets/home.css?v=20261101-theme" />
 </head>
 <body>
 
@@ -23,7 +23,7 @@
 <!-- ── Dev Banner ─────────────────────────────────────────────────────────── -->
 <div class="dev-banner" id="devBanner">
   <span class="dev-banner-dot"></span>
-  <strong>Development Paused</strong> — DevTrack remains available while its next direction is decided.
+  <strong>Development Paused</strong><span class="dev-banner-detail"> — DevTrack remains available while its next direction is decided.</span>
 
   <button class="dev-banner-close" onclick="dismissBanner()" aria-label="Dismiss">✕</button>
 </div>
@@ -44,9 +44,8 @@
     <a href="#demo">Demo</a>
     <a href="#about">About</a>
     <a href="/downloads/devtrack/">Download</a>
-    <a href="/">Mogrov</a>
   </div>
-  <div class="nav-right"></div>
+  <div class="nav-right"><button id="mogrov-global-theme" type="button" aria-label="Toggle color theme" title="Toggle color theme">◐</button></div>
 </nav>
 
 <!-- ── Hero ──────────────────────────────────────────────────────────────── -->
@@ -485,6 +484,6 @@
   <div class="footer-copy">Free for individuals and teams up to 10 · Built for developers, by developers</div>
 </footer>
 
-  <script src="assets/home.js" defer></script>
+  <script src="assets/home.js?v=20261101-theme" defer></script>
 </body>
 </html>

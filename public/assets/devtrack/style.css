@@ -3,11 +3,11 @@
 /* ===== CSS VARIABLES ===== */
 :root {
     /* Light Mode Colors */
-    --primary: #3b82f6;
-    --primary-dark: #2563eb;
-    --primary-light: #60a5fa;
+    --primary: #2e5cff;
+    --primary-dark: #254cda;
+    --primary-light: #7b98ff;
 
-    --accent: #8b5cf6;
+    --accent: #7c3aed;
     --accent-dark: #7c3aed;
     --success: #10b981;
     --warning: #f59e0b;
@@ -25,18 +25,18 @@
     --gray-800: #1f2937;
     --gray-900: #111827;
 
-    --background: #ffffff;
-    --surface: var(--gray-50);
-    --text-primary: var(--gray-900);
-    --text-secondary: var(--gray-600);
-    --text-muted: var(--gray-500);
-    --border-color: var(--gray-200);
+    --background: #f7f8fb;
+    --surface: #ffffff;
+    --text-primary: #16161e;
+    --text-secondary: #353b52;
+    --text-muted: #6b7390;
+    --border-color: #e7e9f1;
     --code-bg: #1a1d29;
 
-    --sidebar-bg: var(--gray-900);
-    --sidebar-text: var(--gray-300);
-    --sidebar-text-active: #ffffff;
-    --sidebar-hover: var(--gray-800);
+    --sidebar-bg: #ffffff;
+    --sidebar-text: #353b52;
+    --sidebar-text-active: #2e5cff;
+    --sidebar-hover: #edf0f8;
     --sidebar-width: 280px;
     --sidebar-collapsed-width: 80px;
 
@@ -65,19 +65,25 @@
 
 /* Dark Mode Variables */
 [data-theme="dark"] {
-    --background: #0f1419;
-    --surface: #1a1f2e;
-    --text-primary: #e5e7eb;
-    --text-secondary: #9ca3af;
-    --text-muted: #6b7280;
-    --border-color: #2d3748;
+    --background: #1a1b26;
+    --surface: #24283b;
+    --text-primary: #c0caf5;
+    --text-secondary: #a9b1d6;
+    --text-muted: #7983a8;
+    --border-color: rgba(122,162,247,.18);
+    --primary: #7aa2f7;
+    --primary-dark: #a3bdff;
+    --primary-light: #7aa2f7;
+    --accent: #bb9af7;
 
     --gray-50: #1f2937;
     --gray-100: #374151;
     --gray-200: #4b5563;
 
-    --sidebar-bg: #0a0e14;
-    --sidebar-hover: #1a1f2e;
+    --sidebar-bg: #202236;
+    --sidebar-text: #a9b1d6;
+    --sidebar-text-active: #7aa2f7;
+    --sidebar-hover: #24283b;
 
     --code-bg: #0d1117;
 }
@@ -137,7 +143,8 @@ body.sidebar-collapsed .sidebar-toggle {
 }
 
 @media (max-width: 768px) {
-    .sidebar-toggle {
+    .sidebar-toggle,
+    body.sidebar-collapsed .sidebar-toggle {
         display: flex;
     }
 }

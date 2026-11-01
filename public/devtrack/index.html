@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script>(function(){try{var t=localStorage.getItem('mogrov-theme')||'light';var r=document.documentElement;r.classList.add(t);r.setAttribute('data-theme',t);}catch(e){document.documentElement.classList.add('light');document.documentElement.setAttribute('data-theme','light');}})();</script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>DevTrack — Never write a standup again</title>
@@ -14,17 +15,17 @@
 
   <link rel="icon" type="image/png" sizes="192x192" href="assets/devtrack.png" />
   <link rel="apple-touch-icon" href="assets/devtrack.png" />
-  <link rel="stylesheet" href="assets/home.css" />
-<link rel="stylesheet" href="/assets/css/project-switcher.css">
+  <link rel="stylesheet" href="assets/home.css?v=20261101-theme" />
+<link rel="stylesheet" href="/assets/css/mogrov-system.css">
 </head>
-<body>
+<body data-mogrov-area="devtrack">
 
 <div class="grid-overlay"></div>
 
 <!-- ── Dev Banner ─────────────────────────────────────────────────────────── -->
 <div class="dev-banner" id="devBanner">
   <span class="dev-banner-dot"></span>
-  <strong>Development Paused</strong> — DevTrack remains available while its next direction is decided.
+  <strong>Development Paused</strong><span class="dev-banner-detail"> — DevTrack remains available while its next direction is decided.</span>
 
   <button class="dev-banner-close" onclick="dismissBanner()" aria-label="Dismiss">✕</button>
 </div>
@@ -45,10 +46,10 @@
     <a href="#demo">Demo</a>
     <a href="#about">About</a>
     <a href="/downloads/devtrack/">Download</a>
-    <a href="/">Mogrov</a>
   </div>
-  <div class="nav-right"></div>
+  <div class="nav-right"><button id="mogrov-global-theme" type="button" aria-label="Toggle color theme" title="Toggle color theme">◐</button></div>
 </nav>
+<nav id="mogrov-site-path" class="mg-overlay" aria-label="Breadcrumb"><ol><li><a href="/">Mogrov</a></li><li aria-current="page">DevTrack</li></ol></nav>
 
 <!-- ── Hero ──────────────────────────────────────────────────────────────── -->
 <section class="hero">
@@ -484,9 +485,10 @@
     <a href="/wiki/devtrack/">Docs</a>
   </div>
   <div class="footer-copy">Free for individuals and teams up to 10 · Built for developers, by developers</div>
+<div class="mogrov-footer-links" aria-label="Mogrov pages"><a href="/">Mogrov</a><a href="/devtrack/">DevTrack</a><a href="/runtime-narrative/">Runtime Narrative</a><a href="/wiki/">Documentation</a></div>
 </footer>
 
-  <script src="assets/home.js" defer></script>
-<nav id="mogrov-project-switcher" aria-label="Mogrov projects"><a href="/">Mogrov</a><a href="/devtrack/" aria-current="page">DevTrack</a><a href="/runtime-narrative/">Runtime Narrative</a></nav>
+  <script src="assets/home.js?v=20261101-theme" defer></script>
+<script src="/assets/js/mogrov-system.js"></script>
 </body>
 </html>

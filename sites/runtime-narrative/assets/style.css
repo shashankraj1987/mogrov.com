@@ -2,17 +2,17 @@
    Theme: light/dark via [data-theme] on <html>, falls back to prefers-color-scheme. */
 
 :root {
-  --bg: #f5f4f1;
-  --bg-soft: #ece9e4;
-  --bg-elevated: #fbfaf8;
-  --border: #ddd9d1;
-  --border-soft: #e6e3dc;
-  --text: #26262a;
-  --text-soft: #5c5e63;
-  --text-faint: #8a8b8f;
-  --accent: #6528c0;
-  --accent-2: #c2680a;
-  --accent-soft: #ece5f9;
+  --bg: #f7f8fb;
+  --bg-soft: #edf0f8;
+  --bg-elevated: #ffffff;
+  --border: #d6d9e8;
+  --border-soft: #e7e9f1;
+  --text: #16161e;
+  --text-soft: #353b52;
+  --text-faint: #6b7390;
+  --accent: #2e5cff;
+  --accent-2: #7c3aed;
+  --accent-soft: rgba(46, 92, 255, 0.08);
   --accent-contrast: #ffffff;
   --code-bg: #0d1117;
   --code-text: #e6edf3;
@@ -28,22 +28,22 @@
   --shadow: 0 1px 2px rgba(20, 20, 30, 0.04), 0 8px 24px rgba(20, 20, 30, 0.06);
   --radius: 10px;
   --header-h: 60px;
-  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "Inter", Roboto, Helvetica, Arial, sans-serif;
-  --font-mono: "JetBrains Mono", "Fira Code", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --font-sans: "Geist", system-ui, sans-serif;
+  --font-mono: "Geist Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 }
 
 :root[data-theme="dark"] {
-  --bg: #0b0d12;
-  --bg-soft: #12151c;
-  --bg-elevated: #161a23;
-  --border: #242933;
-  --border-soft: #1c202a;
-  --text: #e7e9ee;
-  --text-soft: #a2acb9;
-  --text-faint: #6b7480;
-  --accent: #b19af6;
-  --accent-2: #f0ad4e;
-  --accent-soft: rgba(177, 154, 246, 0.12);
+  --bg: #1a1b26;
+  --bg-soft: #202236;
+  --bg-elevated: #24283b;
+  --border: rgba(122, 162, 247, 0.30);
+  --border-soft: rgba(122, 162, 247, 0.14);
+  --text: #c0caf5;
+  --text-soft: #a9b1d6;
+  --text-faint: #7983a8;
+  --accent: #7aa2f7;
+  --accent-2: #bb9af7;
+  --accent-soft: rgba(122, 162, 247, 0.12);
   --accent-contrast: #0b0d12;
   --code-bg: #0a0d13;
   --code-text: #e6edf3;
@@ -57,35 +57,6 @@
   --info: #60a5fa;
   --info-soft: rgba(96, 165, 250, 0.1);
   --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 24px rgba(0, 0, 0, 0.35);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --bg: #0b0d12;
-    --bg-soft: #12151c;
-    --bg-elevated: #161a23;
-    --border: #242933;
-    --border-soft: #1c202a;
-    --text: #e7e9ee;
-    --text-soft: #a2acb9;
-    --text-faint: #6b7480;
-    --accent: #b19af6;
-    --accent-2: #f0ad4e;
-    --accent-soft: rgba(177, 154, 246, 0.12);
-    --accent-contrast: #0b0d12;
-    --code-bg: #0a0d13;
-    --code-text: #e6edf3;
-    --code-border: #262c38;
-    --success: #34d399;
-    --success-soft: rgba(52, 211, 153, 0.1);
-    --danger: #f87171;
-    --danger-soft: rgba(248, 113, 113, 0.1);
-    --warning: #fbbf24;
-    --warning-soft: rgba(251, 191, 36, 0.1);
-    --info: #60a5fa;
-    --info-soft: rgba(96, 165, 250, 0.1);
-    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 24px rgba(0, 0, 0, 0.35);
-  }
 }
 
 * { box-sizing: border-box; }

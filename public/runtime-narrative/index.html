@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
+<script>(function(){try{var t=localStorage.getItem('mogrov-theme')||'light';var r=document.documentElement;r.classList.add(t);r.setAttribute('data-theme',t);}catch(e){document.documentElement.classList.add('light');document.documentElement.setAttribute('data-theme','light');}})();</script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>runtime-narrative — Turn Python execution into a traceable story</title>
@@ -47,9 +48,9 @@
     .hero p.sub { font-size: 1.05rem; }
   }
 </style>
-<link rel="stylesheet" href="/assets/css/project-switcher.css">
+<link rel="stylesheet" href="/assets/css/mogrov-system.css">
 </head>
-<body data-page="home">
+<body data-mogrov-area="runtime" data-page="home">
 
 <header class="topbar">
   <div class="topbar-inner">
@@ -57,7 +58,7 @@
       <span class="brand-mark">▶</span>
       runtime-narrative
     </a>
-    <nav class="topbar-nav"><a href="/">Mogrov</a>
+    <nav class="topbar-nav">
       <a href="/wiki/runtime-narrative/installation.html">Docs</a>
       <a href="/wiki/runtime-narrative/examples.html">Examples</a>
 
@@ -75,6 +76,7 @@
     </div>
   </div>
 </header>
+<nav id="mogrov-site-path" class="" aria-label="Breadcrumb"><ol><li><a href="/">Mogrov</a></li><li aria-current="page">Runtime Narrative</li></ol></nav>
 
 <div class="layout landing">
   <main class="content">
@@ -277,10 +279,11 @@ with story("Import Customers"):
     <span>© 2026 runtime-narrative. MIT licensed.</span>
     <span>Built for Python 3.9+</span>
   </div>
+<div class="mogrov-footer-links" aria-label="Mogrov pages"><a href="/">Mogrov</a><a href="/devtrack/">DevTrack</a><a href="/runtime-narrative/">Runtime Narrative</a><a href="/wiki/">Documentation</a></div>
 </footer>
 
 <script src="/runtime-narrative/assets/nav-data.js"></script>
 <script src="/runtime-narrative/assets/app.js"></script>
-<nav id="mogrov-project-switcher" aria-label="Mogrov projects"><a href="/">Mogrov</a><a href="/devtrack/">DevTrack</a><a href="/runtime-narrative/" aria-current="page">Runtime Narrative</a></nav>
+<script src="/assets/js/mogrov-system.js"></script>
 </body>
 </html>

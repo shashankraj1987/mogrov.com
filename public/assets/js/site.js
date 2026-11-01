@@ -17,6 +17,7 @@
     var root = document.documentElement;
     root.classList.toggle('dark', theme === 'dark');
     root.classList.toggle('light', theme !== 'dark');
+    root.setAttribute('data-theme', theme);
     try { localStorage.setItem(THEME_KEY, theme); } catch (e) {}
   }
   function wireThemeToggles() {
@@ -141,3 +142,10 @@
     boot();
   }
 })();
+// Let the whole project card open its product page while retaining its real link.
+document.querySelectorAll('[data-project-href]').forEach(function (card) {
+  card.addEventListener('click', function (event) {
+    if (event.target.closest('a, button')) return;
+    window.location.href = card.dataset.projectHref;
+  });
+});

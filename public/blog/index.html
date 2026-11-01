@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script>(function(){try{var t=localStorage.getItem('mogrov-theme')||'light';var r=document.documentElement;r.classList.add(t);r.setAttribute('data-theme',t);}catch(e){document.documentElement.classList.add('light');document.documentElement.setAttribute('data-theme','light');}})();</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog — Mogrov</title>
@@ -31,9 +32,9 @@
         #post-search::placeholder { color: var(--muted); }
         #post-search:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 3px var(--primary-soft); }
     </style>
-<link rel="stylesheet" href="/assets/css/project-switcher.css">
+<link rel="stylesheet" href="/assets/css/mogrov-system.css">
 </head>
-<body class="relative font-sans">
+<body data-mogrov-area="mogrov" class="relative font-sans">
 
     <div class="fixed inset-0 bg-grid pointer-events-none z-0"></div>
     <div class="halo fixed top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[460px] rounded-full pointer-events-none z-0"></div>
@@ -77,6 +78,7 @@
             <a href="../founder.html" class="nav-link block py-2">Founder</a>
         </div>
     </nav>
+<nav id="mogrov-site-path" class="mg-overlay" aria-label="Breadcrumb"><ol><li><a href="/">Mogrov</a></li><li aria-current="page">Blog</li></ol></nav>
 
     <!-- HERO -->
     <header class="pt-36 pb-12 px-6 max-w-7xl mx-auto relative z-10">
@@ -283,6 +285,6 @@
             });
     })();
     </script>
-<nav id="mogrov-project-switcher" aria-label="Mogrov projects"><a href="/" aria-current="page">Mogrov</a><a href="/devtrack/">DevTrack</a><a href="/runtime-narrative/">Runtime Narrative</a></nav>
+<script src="/assets/js/mogrov-system.js"></script>
 </body>
 </html>
