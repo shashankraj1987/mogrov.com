@@ -28,7 +28,9 @@ root = Path(sys.argv[1]).resolve()
 missing = []
 checked = 0
 for route in ("index.html", "devtrack/index.html", "runtime-narrative/index.html",
-              "wiki/index.html", "wiki/devtrack/index.html", "wiki/runtime-narrative/index.html"):
+              "wiki/index.html", "wiki/devtrack/index.html", "wiki/runtime-narrative/index.html",
+              "downloads/devtrack/index.html", "downloads/devtrack/install.sh",
+              "downloads/devtrack/install.ps1"):
     if not (root / route).is_file():
         missing.append(f"required route missing: {route}")
 pages = {}
