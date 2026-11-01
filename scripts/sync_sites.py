@@ -12,7 +12,7 @@ import sys
 
 
 def copy_tree(source: Path, destination: Path, *ignored: str) -> None:
-    shutil.copytree(source, destination, ignore=shutil.ignore_patterns(".git", "netlify.toml", *ignored))
+    shutil.copytree(source, destination, ignore=shutil.ignore_patterns(".git", *ignored))
 
 
 def breadcrumb(relative: str) -> str:
@@ -77,11 +77,11 @@ def main() -> None:
     for name in ("assets", "blog", "downloads"):
         copy_tree(mogrov / name, output / name)
     copy_tree(mogrov / "sites" / "runtime-narrative", output / "runtime-narrative")
-    copy_tree(mogrov / "sites" / "devtrack", output / "devtrack", "_redirects")
+    copy_tree(mogrov / "sites" / "devtrack", output / "devtrack")
     wiki = output / "wiki"
     wiki.mkdir()
     copy_tree(mogrov / "documentation" / "devtrack", wiki / "devtrack")
-    copy_tree(mogrov / "documentation" / "runtime-narrative", wiki / "runtime-narrative", "CONTRIBUTING.md")
+    copy_tree(mogrov / "documentation" / "runtime-narrative", wiki / "runtime-narrative", "CONTRIBUTING.md", "COMPLETE_GUIDE.md")
     shutil.copy2(wiki / "runtime-narrative" / "installation.html", wiki / "runtime-narrative" / "index.html")
 
     # Runtime Narrative assumed it owned the domain root. Give its assets and
@@ -123,8 +123,6 @@ def main() -> None:
             content = content.replace('"/docs/', '"/wiki/runtime-narrative/')
             content = content.replace("'/docs/", "'/wiki/runtime-narrative/")
             content = content.replace('href="/index.html"', 'href="/runtime-narrative/index.html"')
-        if relative == "wiki/devtrack/index.html":
-            content = content.replace('href="assets/', 'href="/assets/devtrack/')
         if relative == "wiki/runtime-narrative/index.html":
             content = content.replace('href="/wiki/runtime-narrative/installation.html" class="active"',
                                       'href="/wiki/runtime-narrative/" class="active"')
