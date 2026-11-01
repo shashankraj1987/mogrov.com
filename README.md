@@ -4,6 +4,7 @@ This repository holds the static site for `mogrov.com`. The deployable files are
 
 - `/` — Mogrov
 - `/devtrack/` — DevTrack landing page
+- `/downloads/devtrack/` — DevTrack download page and installer scripts
 - `/wiki/` — documentation index for both projects
 - `/wiki/devtrack/` — DevTrack documentation and Markdown guides
 - `/wiki/runtime-narrative/` — Runtime Narrative documentation
@@ -30,7 +31,8 @@ paths. Run `python scripts/check_site.py public` to check local links and assets
 
 The Mogrov homepage, both project sites, and all public documentation
 are maintained in this repository. Edit `sites/devtrack/` and `sites/runtime-narrative/`
-for the project landing pages. Edit `documentation/devtrack/` and
+for the project landing pages. Edit `downloads/devtrack/` for the DevTrack
+installer scripts and download page. Edit `documentation/devtrack/` and
 `documentation/runtime-narrative/` for the wikis. The Runtime Narrative authoring guide
 is `documentation/runtime-narrative/CONTRIBUTING.md`.
 The copies under `public/` are published snapshots. To refresh them, make a new output

@@ -23,7 +23,7 @@ def main() -> None:
     output.mkdir(parents=True)
     for name in ("index.html", "founder.html"):
         shutil.copy2(mogrov / name, output / name)
-    for name in ("assets", "blog"):
+    for name in ("assets", "blog", "downloads"):
         copy_tree(mogrov / name, output / name)
     copy_tree(mogrov / "sites" / "runtime-narrative", output / "runtime-narrative")
     copy_tree(mogrov / "sites" / "devtrack", output / "devtrack", "_redirects")
@@ -55,9 +55,9 @@ def main() -> None:
         encoding="utf-8",
     )
     (output / "_redirects").write_text(
-        "/download/devtrack /wiki/devtrack/ 301\n"
-        "/download/devtrack/ /wiki/devtrack/ 301\n"
-        "/devtrack/download.html /wiki/devtrack/ 301\n"
+        "/download/devtrack /downloads/devtrack/ 301\n"
+        "/download/devtrack/ /downloads/devtrack/ 301\n"
+        "/devtrack/download.html /downloads/devtrack/ 301\n"
         "/devtrack/privacy.html /wiki/devtrack/privacy.html 301\n"
         "/devtrack/wiki.html /wiki/devtrack/ 301\n"
         "/runtime-narrative/docs /wiki/runtime-narrative/ 301\n"

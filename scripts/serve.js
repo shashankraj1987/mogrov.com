@@ -30,10 +30,10 @@ http.createServer((request, response) => {
 
   const oldDevTrack = {
     '/devtrack/wiki.html': '/wiki/devtrack/',
-    '/devtrack/download.html': '/wiki/devtrack/',
+    '/devtrack/download.html': '/downloads/devtrack/',
     '/devtrack/privacy.html': '/wiki/devtrack/privacy.html',
-    '/download/devtrack': '/wiki/devtrack/',
-    '/download/devtrack/': '/wiki/devtrack/',
+    '/download/devtrack': '/downloads/devtrack/',
+    '/download/devtrack/': '/downloads/devtrack/',
   };
   if (oldDevTrack[pathname]) {
     response.writeHead(301, { Location: oldDevTrack[pathname] + new URL(request.url, 'http://localhost').search }).end();
