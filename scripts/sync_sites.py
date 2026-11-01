@@ -55,9 +55,11 @@ def main() -> None:
         encoding="utf-8",
     )
     (output / "_redirects").write_text(
-        "/download/devtrack /downloads/devtrack/ 301\n"
-        "/download/devtrack/ /downloads/devtrack/ 301\n"
-        "/devtrack/download.html /downloads/devtrack/ 301\n"
+        "/download/devtrack https://github.com/sraj0501/Devtrack_/releases/latest 302\n"
+        "/download/devtrack/ https://github.com/sraj0501/Devtrack_/releases/latest 302\n"
+        "/downloads/devtrack https://github.com/sraj0501/Devtrack_/releases/latest 302\n"
+        "/downloads/devtrack/ https://github.com/sraj0501/Devtrack_/releases/latest 302!\n"
+        "/devtrack/download.html https://github.com/sraj0501/Devtrack_/releases/latest 302\n"
         "/devtrack/privacy.html /wiki/devtrack/privacy.html 301\n"
         "/devtrack/wiki.html /wiki/devtrack/ 301\n"
         "/runtime-narrative/docs /wiki/runtime-narrative/ 301\n"

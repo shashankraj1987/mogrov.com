@@ -30,13 +30,15 @@ http.createServer((request, response) => {
 
   const oldDevTrack = {
     '/devtrack/wiki.html': '/wiki/devtrack/',
-    '/devtrack/download.html': '/downloads/devtrack/',
+    '/devtrack/download.html': 'https://github.com/sraj0501/Devtrack_/releases/latest',
     '/devtrack/privacy.html': '/wiki/devtrack/privacy.html',
-    '/download/devtrack': '/downloads/devtrack/',
-    '/download/devtrack/': '/downloads/devtrack/',
+    '/download/devtrack': 'https://github.com/sraj0501/Devtrack_/releases/latest',
+    '/download/devtrack/': 'https://github.com/sraj0501/Devtrack_/releases/latest',
+    '/downloads/devtrack': 'https://github.com/sraj0501/Devtrack_/releases/latest',
+    '/downloads/devtrack/': 'https://github.com/sraj0501/Devtrack_/releases/latest',
   };
   if (oldDevTrack[pathname]) {
-    response.writeHead(301, { Location: oldDevTrack[pathname] + new URL(request.url, 'http://localhost').search }).end();
+    response.writeHead(oldDevTrack[pathname].startsWith('https://') ? 302 : 301, { Location: oldDevTrack[pathname] + new URL(request.url, 'http://localhost').search }).end();
     return;
   }
   if (pathname === '/runtime-narrative/docs' || pathname === '/runtime-narrative/docs/') {
