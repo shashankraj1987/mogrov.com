@@ -58,6 +58,12 @@ wikis, internal redirects, and project assets. DevTrack releases remain in its c
 repository; the Runtime Narrative Python package remains on PyPI. No project-specific website
 deployment or edge routing is needed.
 
+## Netlify
+
+The live Netlify deployment uses `netlify.toml` to publish `public/`. Keep that
+configuration on the deployed branch: publishing the repository root serves the
+homepage but makes `/devtrack/`, `/runtime-narrative/`, and `/wiki/` return 404.
+
 ## Cloudflare Pages
 
 Connect this repository to Cloudflare Pages using the production branch, no framework,
