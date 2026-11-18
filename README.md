@@ -58,11 +58,20 @@ wikis, internal redirects, and project assets. DevTrack releases remain in its c
 repository; the Runtime Narrative Python package remains on PyPI. No project-specific website
 deployment or edge routing is needed.
 
-## Netlify
+## Netlify production deployment
 
-The live Netlify deployment uses `netlify.toml` to publish `public/`. Keep that
-configuration on the deployed branch: publishing the repository root serves the
-homepage but makes `/devtrack/`, `/runtime-narrative/`, and `/wiki/` return 404.
+Deploy the `main` branch with `public` as the publish directory. The checked-in
+`netlify.toml` sets that directory. Publishing the repository root serves the
+homepage but leaves `/devtrack/`, `/runtime-narrative/`, and `/wiki/` unavailable.
+
+## Branch workflow
+
+Make site changes on `dev` and test the generated site there. The `Site check`
+GitHub Actions workflow runs on each push to `dev` and on pull requests to `main`.
+Once the checks pass, promote `dev` to `main` with a fast-forward merge so both
+branches point to the same commit. Netlify deploys `main` only. Do not commit
+site changes directly to `main`; after any production-only emergency fix, merge
+`main` back into `dev` before the next promotion.
 
 ## Cloudflare Pages
 

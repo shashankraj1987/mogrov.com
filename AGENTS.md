@@ -11,3 +11,7 @@
   Do not reintroduce outbound website links, CDN requests, or old standalone domains.
 - Do not commit credentials, private environment files, login sessions, or generated
   chat databases.
+- Make and test site changes on `dev` first. Promote tested `dev` to `main` with
+  a fast-forward merge; Netlify deploys `main`. Keep both branches at the same
+  commit after promotion. If an emergency fix lands on `main`, merge it back into
+  `dev` before more changes.
